@@ -1,0 +1,234 @@
+{
+  "languageLabel": "Suomi",
+  "html": {
+    "title": "Sampo-UI – A framework for building user interfaces for semantic portals",
+    "description": ""
+  },
+  "appTitle": {
+    "short": "",
+    "long": "",
+    "subheading": ""
+  },
+  "appDescription": "",
+  "appDescription1": "",
+  "appDescription2": "",
+  "appDescription3": "",
+  "appDescription4": "",
+  "selectPerspective": "",
+  "mainPageImageLicence": "",
+  "backendErrorText": "",
+  "topBar": {
+    "feedback": "",
+    "info": {
+      "info": "",
+      "blog": "",
+      "blogUrl": "",
+      "aboutThePortal": ""
+    },
+    "searchBarPlaceHolder": "",
+    "searchBarPlaceHolderShort": "",
+    "instructions": ""
+  },
+  "facetBar": {
+    "results": "",
+    "activeFilters": "",
+    "removeAllFilters": "",
+    "narrowDownBy": "",
+    "filterOptions": "",
+    "filterByName": "",
+    "filterByBoundingBox": "",
+    "selectionOptions": "",
+    "selectAlsoSubconcepts": "",
+    "doNotSelectSubconcepts": "",
+    "sortingOptions": "",
+    "sortAlphabetically": "",
+    "sortByNumberOfSearchResults": "",
+    "useDisjunction": "",
+    "useConjuction": "",
+    "minYear": "",
+    "maxYear": "",
+    "min": "",
+    "max": "",
+    "facetSearchFieldPlaceholder": "",
+    "applyFacetSelection": "",
+    "pieChart": {
+      "tooltip": ""
+    },
+    "barChart": {
+      "tooltip": "",
+      "language": {
+        "title": "",
+        "xaxisTitle": "",
+        "yaxisTitle": "",
+        "seriesTitle": ""
+      }
+    },
+    "lineChart": {
+      "tooltip": "",
+      "productionTimespan": {
+        "title": "",
+        "xaxisTitle": "",
+        "yaxisTitle": "",
+        "seriesTitle": ""
+      }
+    }
+  },
+  "tabs": {
+    "table": "",
+    "map": "",
+    "production_places": "",
+    "production_places_heatmap": "",
+    "last_known_locations": "",
+    "migrations": "",
+    "network": "",
+    "export": "",
+    "production_dates": "",
+    "event_dates": "",
+    "map_clusters": "",
+    "map_markers": "",
+    "heatmap": "",
+    "statistics": "",
+    "emloLetterNetwork": "",
+    "emloSentReceived": "",
+    "download": "",
+    "recommendations": "",
+    "share": ""
+  },
+  "table": {
+    "rowsPerPage": "",
+    "of": ""
+  },
+  "lineChart": {
+    "productionCount": "",
+    "transferCount": "",
+    "observationCount": "",
+    "sentCount": "",
+    "receivedCount": "",
+    "allCount": ""
+  },
+  "exportToYasgui": "",
+  "openInLinkedDataBrowser": "",
+  "resultsAsCSV": "",
+  "facets": {
+    "dateFacet": {
+      "invalidDate": "",
+      "toBeforeFrom": "",
+      "minDate": "",
+      "maxDate": "",
+      "cancel": "",
+      "fromLabel": "",
+      "toLabel": ""
+    },
+    "textFacet": {
+      "inputLabel": ""
+    },
+    "sliderFacet": {
+      "invalidStartOrEnd": ""
+    }
+  },
+  "leafletMap": {
+    "basemaps": {
+      "mapbox": {
+        "light-v10": ""
+      },
+      "googleRoadmap": "",
+      "topographicalMapNLS": "",
+      "backgroundMapNLS": ""
+    },
+    "externalLayers": {
+      "arkeologiset_kohteet_alue": "",
+      "arkeologiset_kohteet_piste": "",
+      "fhaLidar": "",
+      "karelianMaps": "",
+      "senateAtlas": "",
+      "kotus:pitajat": "",
+      "kotus:rajat-sms-alueet": "",
+      "kotus:rajat-sms-alueosat": "",
+      "kotus:rajat-lansi-ita": ""
+    },
+    "mapModeButtons": {
+      "markers": "",
+      "heatmap": ""
+    },
+    "wrongZoomLevel": "",
+    "wrongZoomLevelFHA": "",
+    "tooManyResults": ""
+  },
+  "instancePageGeneral": {
+    "introduction": "",
+    "repetition": ""
+  },
+  "deckGlMap": {
+    "arcColouring": "",
+    "showMoreInformation": "",
+    "manuscriptMigrations": {
+      "legendTitle": "",
+      "legendFrom": "",
+      "legendTo": "",
+      "from": "",
+      "to": "",
+      "count": "",
+      "listHeadingSingleInstance": "",
+      "listHeadingMultipleInstances": ""
+    }
+  },
+  "perspectives": {
+    "people": {
+      "label": "Henkilöt",
+      "facetResultsType": "henkilö(ä)",
+      "shortDescription": "Henkilö-perspektiivin kuvaus",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      "instancePage": {
+        "label": "Henkilö",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Henkilön nimi.",
+          "textFacetInputPlaceholder": "Hae..."
+        }
+      }
+    },
+    "places": {
+      "label": "Paikat",
+      "facetResultsType": "paikka(a)",
+      "shortDescription": "Paikka-perspektiivin kuvaus",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      "instancePage": {
+        "label": "Place",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Paikan nimi.",
+          "textFacetInputPlaceholder": "Hae..."
+        }
+      }
+    }
+  },
+  "aboutThePortalPartOne": "",
+  "aboutThePortalPartTwo": "",
+  "instructions": "",
+  "feedback": "",
+  "exportLink": {
+    "viewLabel": "Välilehti",
+    "viewInstructions": "Valitse välilehti, jossa haku avautuu",
+    "fieldLabel": "Luotu linkki (kirjoitussuojattu)",
+    "infoBody": "Voit jakaa tekemäsi haun alla olevan linkin avulla. Linkki luodaan sen perusteella, mitä olet valinnut eri fasetteja käyttäen, ja se avaa tämän näkymän hakunäkymän näillä valinnoilla valitulla välilehdellä. Voit vaihtaa avattavan välilehden mihin tahansa tuettuun välilehtivaihtoehtoon käyttäen alla olevaa pudotusvalikkoa. Jos teet uusia valintoja ollessasi tällä sivulla, linkki päivittyy automaattisesti sisältämään ne.",
+    "warningTitle": "Luotu linkki saattaa olla liian pitkä joillekin selaimille",
+    "warningBody": "Luodun linkin tämänhetkinen pituus on päälle 2 000 merkkiä. Selaimilla on vaihtelevia rajoja niillä toimivien linkkien enimmäispituuksille. <strong>Tämä linkki ei välttämättä toimi kaikilla selaimilla</strong> — voit lyhentää linkin pituutta poistamalla joitakin valitsemiasi fasettivalintoja.",
+    "errorTitle": "Luotu linkki on liian pitkä",
+    "errorBody": "Luodun linkin tämänhetkinen pituus on päälle 15 800 merkkiä. <strong>Palvelin kieltäytyy käsittelemästä pyyntöjä, jotka ylittävät tietyt pituusrajat</strong> — voit lyhentää linkin pituutta poistamalla joitakin valitsemiasi fasettivalintoja.",
+    "copyLinkToClipboard": "Kopioi linkki leikepöydälle"
+  }
+}

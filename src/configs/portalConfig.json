@@ -1,22 +1,12 @@
 {
-    "portalID": "sampo",
+    "portalID": "samposampo",
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "perspective1",
-            "perspective2",
-            "perspective3",
-            "perspective4",
-            "fullTextSearch"
+            "people",
+            "places"
         ],
         "onlyInstancePages": [
-            "manuscripts",
-            "collections",
-            "works",
-            "expressions",
-            "events",
-            "actors",
-            "places"
         ]
     },
     "localeConfig": {
@@ -45,7 +35,7 @@
     },
     "knowledgeGraphMetadataConfig": {
         "showTable": false,
-        "perspective": "perspective1" 
+        "perspective": "people" 
     },
     "layoutConfig": {
         "colorPalette": {
@@ -121,7 +111,7 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://ldf.fi/mmm/sparql",
+            "endpoint": "https://ldf.fi/sampo/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }
