@@ -147,6 +147,7 @@
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:birthPlace/skos:prefLabel"
         },
         "death_place": {
@@ -157,6 +158,7 @@
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:deathPlace/skos:prefLabel"
         },
         "external": {
