@@ -188,14 +188,38 @@
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
       },
       "properties": {
-        "uri": {
-          "label": "URI",
-          "description": "Uniform Resource Identifier"
-        },
         "prefLabel": {
           "label": "Name",
           "description": "The name of the Person.",
           "textFacetInputPlaceholder": "Search..."
+        },
+        "gender": {
+          "label": "Gender",
+          "description": "Gender of the person."
+        },
+        "birth_time": {
+          "label": "Time of Birth",
+          "description": "Time of birth."
+        },
+        "birth_place": {
+          "label": "Place of Birth",
+          "description": "Place of birth."
+        },
+        "death_time": {
+          "label": "Time of Death",
+          "description": "Time of death."
+        },
+        "death_place": {
+          "label": "Place of Death",
+          "description": "Place of death."
+        },
+        "external": {
+          "label": "External Dataset",
+          "description": "The datasets containing information about each person."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
         }
       }
     },

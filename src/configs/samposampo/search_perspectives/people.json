@@ -25,7 +25,7 @@
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
                 "propertiesQueryBlock": "personProperties",
-                "pagesize": 10,
+                "pagesize": 30,
                 "sortBy": null,
                 "sortDirection": null
             },
@@ -59,7 +59,66 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 250
+            "minWidth": 300
+        },
+        {
+            "id": "gender",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 50
+        },
+        {
+            "id": "birth_time",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "birth_place",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "death_time",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "death_place",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "external",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "expandedOnInstancePage": true
         }
     ],
     "facets": {
@@ -69,6 +128,46 @@
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
+        },
+        "gender": {
+            "containerClass": "three",
+            "facetType": "list",
+            "predicate": "(^foaf:focus)/sch:gender",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "(^foaf:focus)/sch:gender/skos:prefLabel"
+        },
+        "birth_place": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "(^foaf:focus)/sch:birthPlace",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "(^foaf:focus)/sch:birthPlace/skos:prefLabel"
+        },
+        "death_place": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "(^foaf:focus)/sch:deathPlace",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "(^foaf:focus)/sch:deathPlace/skos:prefLabel"
+        },
+        "external": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "sampos:in_dataset",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "sampos:in_dataset/skos:prefLabel"
         }
     }
 }
