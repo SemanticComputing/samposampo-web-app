@@ -121,7 +121,7 @@ export const personPropertiesInstancePage = `
 
       ?g skos:prefLabel ?birth_place__source__prefLabel .
       BIND (?proxy AS ?birth_place__source__id)
-      BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__source__dataProviderUrl)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_place__source__dataProviderUrl)
     }
     UNION
     {
@@ -142,7 +142,7 @@ export const personPropertiesInstancePage = `
 
       ?g skos:prefLabel ?death_place__source__prefLabel .
       BIND (?proxy AS ?death_place__source__id)
-      BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__source__dataProviderUrl)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_place__source__dataProviderUrl)
     }
     UNION
     {
@@ -202,3 +202,70 @@ export const peopleRelatedTo = `
     BIND (CONCAT("/people/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
   } 
 `
+
+export const ageQuery = `
+SELECT ?category (count(DISTINCT ?born) AS ?Births) (count(DISTINCT ?deceased) AS ?Deaths)
+WHERE {
+
+  <FILTER>
+
+  ?person__id a sch:Person .
+  
+  {
+    [] foaf:focus ?person__id ; sampos:birth_time/time:hasBeginning ?time .
+    BIND (?person__id AS ?born)
+  }
+  UNION
+  {
+    [] foaf:focus ?person__id ; sampos:death_time/time:hasEnd ?time .
+    BIND (?person__id AS ?deceased)
+  }
+  
+  BIND (STR(year(?time)) AS ?category)
+  FILTER (?category<"2025")
+  
+} GROUPBY ?category ORDER BY ?category
+`
+
+export const peopleMigrationsQuery = `
+SELECT DISTINCT ?id 
+?from__id ?from__prefLabel ?from__lat ?from__long
+?to__id ?to__prefLabel ?to__lat ?to__long
+(CONCAT("/places/page/", REPLACE(STR(?from__id), "^.*\\\\/(.+)", "$1")) AS ?from__dataProviderUrl)
+(CONCAT("/places/page/", REPLACE(STR(?to__id), "^.*\\\\/(.+)", "$1")) AS ?to__dataProviderUrl)
+(COUNT(DISTINCT ?person) as ?instanceCount)
+WHERE {
+  <FILTER>
+  ?person a sch:Person ;
+    ^foaf:focus [ sch:birthPlace ?from__id ;
+                sch:deathPlace ?to__id ] .
+  
+  FILTER(?from__id != ?to__id)
+
+  ?from__id skos:prefLabel ?from__prefLabel .
+  FILTER (lang(?from__prefLabel)="fi")
+  
+  { SELECT DISTINCT ?from__id (SAMPLE(?_from_proxy) AS ?from_proxy) 
+      WHERE { ?_from_proxy foaf:focus ?from__id ; 
+    			wgs84:lat [] } 
+    GROUPBY ?from__id }
+  ?from_proxy wgs84:lat ?from__lat ; wgs84:long ?from__long .
+  
+  
+  ?to__id skos:prefLabel ?to__prefLabel .
+  FILTER (lang(?to__prefLabel)="fi")
+  { SELECT DISTINCT ?to__id (SAMPLE(?_to_proxy) AS ?to_proxy) 
+      WHERE { ?_to_proxy foaf:focus ?to__id ; 
+    			wgs84:lat [] }
+    GROUPBY ?to__id }
+  
+  ?to_proxy wgs84:lat ?to__lat ; wgs84:long ?to__long .
+
+  BIND (IRI(CONCAT(STR(?from__id), "-", REPLACE(STR(?to__id), "^.*\\\\/(.+)", "$1"))) as ?id)
+}
+GROUP BY ?id 
+?from__id ?from__prefLabel ?from__lat ?from__long
+?to__id ?to__prefLabel ?to__lat ?to__long
+ORDER BY desc(?instanceCount)
+`
+

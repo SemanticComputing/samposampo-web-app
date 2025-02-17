@@ -18,10 +18,17 @@
     "maps": {
         "placesActors": {
             "center": [
-                22.43,
-                10.37
+                65.0,
+                22.5
             ],
-            "zoom": 2
+            "zoom": 4
+        },
+        "peopleMigrations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
         }
     },
     "defaultTab": "table",
@@ -63,6 +70,50 @@
                 "propertiesQueryBlock": "placePropertiesInfoWindow",
                 "relatedInstances": "peopleRelatedTo",
                 "createPopUpContent": "createPopUpContentLetterSampo"
+            }
+        },
+        "personAges": {
+            "tabID": 2,
+            "component": "ApexCharts",
+            "createChartData": "createMultipleLineChartData",
+            "stroke": {
+                "curve": "straight",
+                "width": 2
+            },
+            "title": "Years of Birth and Death",
+            "xaxisTitle": "Years",
+            "xaxisType": "category",
+            "xaxisTickAmount": 20,
+            "yaxisTitle": "Amount of People",
+            "tabPath": "lifeyears",
+            "tabIcon": "ShowChart",
+            "sparqlQuery": "ageQuery",
+            "facetClass": "people",
+            "filterTarget": "person__id",
+            "resultMapper": "mapMultipleLineChart",
+            "resultMapperConfig": {
+                "fillEmptyValues": true
+            }
+        },
+        "peopleMigrations": {
+            "tabID": 3,
+            "component": "Deck",
+            "tabPath": "migrations",
+            "tabIcon": "Redo",
+            "sparqlQuery": "peopleMigrationsQuery",
+            "facetClass": "people",
+            "filterTarget": "person",
+            "layerType": "arcLayer",
+            "arcWidthVariable": "instanceCountScaled",
+            "instanceVariable": "person",
+            "showTooltips": true,
+            "postprocess": {
+                "func": "linearScale",
+                "config": {
+                    "variable": "instanceCount",
+                    "minAllowed": 3,
+                    "maxAllowed": 30
+                }
             }
         }
     },
