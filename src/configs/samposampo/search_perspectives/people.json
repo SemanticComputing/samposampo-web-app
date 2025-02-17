@@ -24,13 +24,13 @@
                 "component": "ResultTable",
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "personProperties",
+                "propertiesQueryBlock": "personPropertiesFacetResults",
                 "pagesize": 30,
-                "sortBy": null,
-                "sortDirection": null
+                "sortBy": "pagelinks",
+                "sortDirection": "desc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "personProperties",
+                "propertiesQueryBlock": "personPropertiesInstancePage",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -43,6 +43,16 @@
         }
     },
     "properties": [
+        {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 160,
+            "makeLink": false,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "hideHeader": true
+        },
         {
             "id": "uri",
             "valueType": "object",
@@ -62,6 +72,17 @@
             "minWidth": 300
         },
         {
+            "id": "altLabel",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "gender",
             "valueType": "string",
             "makeLink": false,
@@ -72,12 +93,12 @@
         },
         {
             "id": "birth_time",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 100,
+            "minWidth": 120,
             "expandedOnInstancePage": true
         },
         {
@@ -88,11 +109,13 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 80,
+            "showSource": true,
+            "sourceExternalLink": false,
             "expandedOnInstancePage": true
         },
         {
             "id": "death_time",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -105,6 +128,18 @@
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "website",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 80,
@@ -122,6 +157,9 @@
         }
     ],
     "facets": {
+        "pagelinks": {
+            "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; sampos:pagelinks ?orderBy } }"
+        },
         "prefLabel": {
             "containerClass": "one",
             "facetType": "text",
@@ -150,6 +188,19 @@
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:birthPlace/skos:prefLabel"
         },
+        "birth_time": {
+            "containerClass": "four",
+            "facetType": "timespan",
+            "filterType": "timespanFilter",
+            "dataType": "xsd:date",
+            "max": null,
+            "min": null,
+            "predicate": "(^foaf:focus)/sampos:birth_time",
+            "startProperty": "time:hasBeginning",
+            "endProperty": "time:hasEnd",
+            "sortByAscPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
+            "sortByDescPredicate": "(^foaf:focus/sampos:birth_time/time:hasEnd"
+        },
         "death_place": {
             "containerClass": "ten",
             "facetType": "list",
@@ -160,6 +211,19 @@
             "pieChartButton": true,
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:deathPlace/skos:prefLabel"
+        },
+        "death_time": {
+            "containerClass": "four",
+            "facetType": "timespan",
+            "filterType": "timespanFilter",
+            "dataType": "xsd:date",
+            "max": null,
+            "min": null,
+            "predicate": "(^foaf:focus)/sampos:death_time",
+            "startProperty": "time:hasBeginning",
+            "endProperty": "time:hasEnd",
+            "sortByAscPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
+            "sortByDescPredicate": "(^foaf:focus/sampos:death_time/time:hasEnd"
         },
         "external": {
             "containerClass": "ten",

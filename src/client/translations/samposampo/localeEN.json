@@ -193,6 +193,14 @@
           "description": "The name of the Person.",
           "textFacetInputPlaceholder": "Search..."
         },
+        "altLabel": {
+          "label": "Alternative Names",
+          "description": "Alternative names of the Person."
+        },
+        "image": {
+          "label": "Image",
+          "description": "Image of the Person."
+        },
         "gender": {
           "label": "Gender",
           "description": "Gender of the person."
@@ -214,8 +222,12 @@
           "description": "Place of death."
         },
         "external": {
-          "label": "External Dataset",
-          "description": "The datasets containing information about each person."
+          "label": "External Datasources",
+          "description": "External datasets containing information about the person."
+        },
+        "website": {
+          "label": "External Websites",
+          "description": "External websites containing information about the person."
         },
         "uri": {
           "label": "URI",
