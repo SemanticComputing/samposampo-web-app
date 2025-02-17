@@ -73,23 +73,28 @@
         },
         {
             "id": "altLabel",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 300,
+            "showSource": true,
+            "sourceExternalLink": false,
             "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         },
         {
             "id": "gender",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 50
+            "minWidth": 50,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "expandedOnInstancePage": true
         },
         {
             "id": "birth_time",
@@ -99,6 +104,8 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 120,
+            "showSource": true,
+            "sourceExternalLink": false,
             "expandedOnInstancePage": true
         },
         {
@@ -121,6 +128,8 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 100,
+            "showSource": true,
+            "sourceExternalLink": false,
             "expandedOnInstancePage": true
         },
         {

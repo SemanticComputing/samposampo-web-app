@@ -84,11 +84,23 @@ export const personPropertiesInstancePage = `
   {
     GRAPH ?g { ?proxy foaf:focus ?id }
     {
-      ?proxy sch:gender/skos:prefLabel ?gender
+      ?proxy sch:gender ?gender__id .
+      ?gender__id skos:prefLabel ?gender__prefLabel .
+      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__dataProviderUrl)
+
+      ?g skos:prefLabel ?gender__source__prefLabel .
+      BIND (?proxy AS ?gender__source__id)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__source__dataProviderUrl)
     }
     UNION
     {
-      ?proxy skos:prefLabel ?altLabel
+      ?proxy skos:prefLabel ?altLabel__id .
+      BIND(?altLabel__id AS ?altLabel__prefLabel)
+      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
+
+      ?g skos:prefLabel ?altLabel__source__prefLabel .
+      BIND (?proxy AS ?altLabel__source__id)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
     }
     UNION
     {
@@ -96,6 +108,10 @@ export const personPropertiesInstancePage = `
       ?birth_time__id skos:prefLabel ?birth_time__prefLabel .
       OPTIONAL { ?birth_time__id time:hasBeginning ?birth_time__start }
       OPTIONAL { ?birth_time__id time:hasEnd ?birth_time__end } 
+
+      ?g skos:prefLabel ?birth_time__source__prefLabel .
+      BIND (?proxy AS ?birth_time__source__id)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_time__source__dataProviderUrl)
     }
     UNION
     {
@@ -112,7 +128,11 @@ export const personPropertiesInstancePage = `
       ?proxy sampos:death_time ?death_time__id .
       ?death_time__id skos:prefLabel ?death_time__prefLabel .
       OPTIONAL { ?death_time__id time:hasBeginning ?death_time__start }
-      OPTIONAL { ?death_time__id time:hasEnd ?death_time__end } 
+      OPTIONAL { ?death_time__id time:hasEnd ?death_time__end }
+
+      ?g skos:prefLabel ?death_time__source__prefLabel .
+      BIND (?proxy AS ?death_time__source__id)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_time__source__dataProviderUrl)
     }
     UNION
     {
