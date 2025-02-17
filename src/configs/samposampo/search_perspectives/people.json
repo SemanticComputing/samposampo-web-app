@@ -15,6 +15,15 @@
     "defaultActiveFacets": [
         "prefLabel"
     ],
+    "maps": {
+        "placesActors": {
+            "center": [
+                22.43,
+                10.37
+            ],
+            "zoom": 2
+        }
+    },
     "defaultTab": "table",
     "defaultInstancePageTab": "table",
     "resultClasses": {
@@ -39,6 +48,21 @@
                         "tabIcon": "CalendarViewDay"
                     }
                 }
+            }
+        },
+        "placesActors": {
+            "tabID": 1,
+            "component": "LeafletMap",
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "sparqlQuery": "peopleMapQuery",
+            "facetClass": "people",
+            "filterTarget": "person",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "peopleRelatedTo",
+                "createPopUpContent": "createPopUpContentLetterSampo"
             }
         }
     },

@@ -13,7 +13,7 @@ export const prefixes = `
   PREFIX sch: <https://schema.org/>
   PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
   PREFIX gvp: <http://vocab.getty.edu/ontology#>
-  PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+  PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>
   PREFIX spatial: <http://jena.apache.org/spatial#>
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
   PREFIX gn: <http://www.geonames.org/ontology#>
