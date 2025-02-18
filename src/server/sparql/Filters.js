@@ -304,11 +304,11 @@ const generateUriFilter = ({
 }) => {
   const facetConfig = backendSearchConfig[facetClass].facets[facetID]
   const includeChildren = facetConfig.facetType === 'hierarchical' && selectAlsoSubconcepts
-  const { literal, predicate, parentProperty } = facetConfig
+  const { literal, valueType, predicate, parentProperty } = facetConfig
   const { modifiedValues, indexOfUnknown } = handleUnknownValue(values)
   let s
   if (modifiedValues.length > 0) {
-    const valuesStr = generateValuesForUriFilter({ values: modifiedValues, literal, useConjuction })
+    const valuesStr = generateValuesForUriFilter({ values: modifiedValues, literal, valueType, useConjuction })
     s = useConjuction
       ? generateConjuctionForUriFilter({
           facetID,
@@ -372,16 +372,17 @@ const generateMissingValueBlock = ({ predicate, filterTarget }) => {
   `
 }
 
-const generateValuesForUriFilter = ({ values, literal, useConjuction }) => {
+const generateValuesForUriFilter = ({ values, literal, valueType, useConjuction }) => {
   let str = ''
+  const typeEnding = valueType ? `^^${valueType}` : ''
   if (literal && useConjuction) {
-    str = `"${values.join('", "')}" .`
+    str = `"${values.join(`"${typeEnding}, "`)}"${typeEnding} .`
   }
   if (!literal && useConjuction) {
     str = `<${values.join('>, <')}> .`
   }
   if (literal && !useConjuction) {
-    str = `"${values.join('" "')}" `
+    str = `"${values.join(`"${typeEnding} "`)}"${typeEnding} `
   }
   if (!literal && !useConjuction) {
     str = `<${values.join('> <')}> `

@@ -40,6 +40,30 @@
                     }
                 }
             }
+        },
+        "placesLocations": {
+            "tabID": 1,
+            "component": "LeafletMap",
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "sparqlQuery": "placesMapQuery",
+            "facetClass": "places",
+            "filterTarget": "place",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "peopleRelatedTo",
+                "createPopUpContent": "createPopUpContentLetterSampo"
+            }
+        }
+    },
+    "maps": {
+        "placesLocations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
         }
     },
     "properties": [
@@ -69,6 +93,20 @@
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
+        },
+        "onMap": {
+            "containerClass": "four",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "sampos:hasCoordinates",
+            "literal": true,
+            "valueType": "xsd:boolean",
+            "hideUnknownValue": true,
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "sampos:hasCoordinates",
+            "sortDirection": "desc"
         }
     }
 }

@@ -10,3 +10,37 @@ export const placeProperties = `
     BIND(?id as ?uri__prefLabel)
   }
 `
+
+export const placesMapQuery = `
+  SELECT DISTINCT ?id ?lat ?long (COUNT(DISTINCT ?id) AS ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?id a sch:Place ;
+      wgs84:lat ?lat ; 
+      wgs84:long ?long .
+  }
+  GROUP BY ?id ?lat ?long
+`
+
+export const placePropertiesInfoWindow = `
+  OPTIONAL { ?id skos:prefLabel ?_label }
+  BIND (COALESCE(?_label, "<place>") AS ?prefLabel__id)
+  BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+  BIND (CONCAT("/places/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+`
+
+export const peopleRelatedTo = `
+  OPTIONAL {
+    <FILTER>
+    
+    { [] foaf:focus ?related__id ;
+      sch:birthPlace ?id .
+    }
+    UNION
+    { [] foaf:focus ?related__id ;
+      sch:deathPlace ?id .
+    }
+    ?related__id skos:prefLabel ?related__prefLabel .
+    BIND (CONCAT("/people/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
+  }
+`

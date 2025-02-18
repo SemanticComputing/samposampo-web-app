@@ -327,6 +327,10 @@
           "label": "Name",
           "description": "The name of the Place.",
           "textFacetInputPlaceholder": "Search..."
+        },
+        "onMap": {
+          "label": "Viewable on a map",
+          "description": "Whether the Place can be viewed on a map (has coordinates)"
         }
       }
     }
