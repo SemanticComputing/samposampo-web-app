@@ -33,16 +33,16 @@ export const personPropertiesFacetResults = `
     UNION
     {
       ?proxy sampos:birth_time ?birth_time__id .
-      ?birth_time__id skos:prefLabel ?birth_time__prefLabel .
-      OPTIONAL { ?birth_time__id time:hasBeginning ?birth_time__start }
-      OPTIONAL { ?birth_time__id time:hasEnd ?birth_time__end }    
+      ?birth_time__id skos:prefLabel ?birth_time__prefLabel ;
+        time:hasBeginning ?birth_time__start ;
+        time:hasEnd ?birth_time__end  
     }
     UNION
     {
       ?proxy sampos:death_time ?death_time__id .
-      ?death_time__id skos:prefLabel ?death_time__prefLabel .
-      OPTIONAL { ?death_time__id time:hasBeginning ?death_time__start }
-      OPTIONAL { ?death_time__id time:hasEnd ?death_time__end } 
+      ?death_time__id skos:prefLabel ?death_time__prefLabel ;
+        time:hasBeginning ?death_time__start ;
+        time:hasEnd ?death_time__end
     }
     UNION
     {

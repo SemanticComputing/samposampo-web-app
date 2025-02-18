@@ -282,8 +282,9 @@
             "predicate": "(^foaf:focus)/sampos:birth_time",
             "startProperty": "time:hasBeginning",
             "endProperty": "time:hasEnd",
+            "sortByPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
             "sortByAscPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
-            "sortByDescPredicate": "(^foaf:focus/sampos:birth_time/time:hasEnd"
+            "sortByDescPredicate": "(^foaf:focus)/sampos:birth_time/time:hasEnd"
         },
         "death_place": {
             "containerClass": "ten",
@@ -306,8 +307,9 @@
             "predicate": "(^foaf:focus)/sampos:death_time",
             "startProperty": "time:hasBeginning",
             "endProperty": "time:hasEnd",
+            "sortByPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
             "sortByAscPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
-            "sortByDescPredicate": "(^foaf:focus/sampos:death_time/time:hasEnd"
+            "sortByDescPredicate": "(^foaf:focus)/sampos:death_time/time:hasEnd"
         },
         "external": {
             "containerClass": "ten",
