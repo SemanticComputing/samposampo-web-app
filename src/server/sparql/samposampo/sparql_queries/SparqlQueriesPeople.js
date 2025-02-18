@@ -21,7 +21,8 @@ export const personPropertiesFacetResults = `
   { 
     ?proxy foaf:focus ?id
     {
-      ?proxy sch:gender/skos:prefLabel ?gender 
+      ?proxy sch:gender ?gender__id .
+      ?gender__id skos:prefLabel ?gender__prefLabel .
     }
     UNION
     {
@@ -200,30 +201,31 @@ export const peopleRelatedTo = `
     }
     ?related__id skos:prefLabel ?related__prefLabel .
     BIND (CONCAT("/people/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
-  } 
+  }
 `
 
-export const ageQuery = `
-SELECT ?category (count(DISTINCT ?born) AS ?Births) (count(DISTINCT ?deceased) AS ?Deaths)
+export const ageQuery = ` SELECT ?category (count(DISTINCT ?born) AS ?Births) (count(DISTINCT ?deceased) AS ?Deaths)
 WHERE {
-
-  <FILTER>
-
-  ?person__id a sch:Person .
   
+  { SELECT DISTINCT ?person__id (SAMPLE(?_proxy) AS ?proxy) WHERE {
+      <FILTER>
+
+	  	?person__id a sch:Person .
+      ?_proxy foaf:focus ?person__id ; sampos:birth_time/time:hasBeginning [] .
+    } GROUPBY ?person__id }
+  FILTER (BOUND(?proxy))
   {
-    [] foaf:focus ?person__id ; sampos:birth_time/time:hasBeginning ?time .
-    BIND (?person__id AS ?born)
+    ?proxy sampos:birth_time/time:hasBeginning ?time .
+    BIND (?proxy AS ?born)
   }
   UNION
   {
-    [] foaf:focus ?person__id ; sampos:death_time/time:hasEnd ?time .
-    BIND (?person__id AS ?deceased)
+    ?proxy  sampos:death_time/time:hasEnd ?time .
+    BIND (?proxy AS ?deceased)
   }
   
   BIND (STR(year(?time)) AS ?category)
-  FILTER (?category<"2025")
-  
+  FILTER (?category <= STR(YEAR(NOW())))
 } GROUPBY ?category ORDER BY ?category
 `
 
