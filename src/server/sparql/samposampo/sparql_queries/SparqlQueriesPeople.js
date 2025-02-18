@@ -18,13 +18,13 @@ export const personPropertiesFacetResults = `
     BIND (?image__id as ?image__url)
   }
   UNION
+  {
+    ?id sch:gender ?gender__id .
+    ?gender__id skos:prefLabel ?gender__prefLabel .
+  }
+  UNION
   { 
     ?proxy foaf:focus ?id
-    {
-      ?proxy sch:gender ?gender__id .
-      ?gender__id skos:prefLabel ?gender__prefLabel .
-    }
-    UNION
     {
       ?proxy sch:birthPlace ?birth_place__id .
       ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
