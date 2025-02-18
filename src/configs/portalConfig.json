@@ -4,6 +4,7 @@
     "perspectives": {
         "searchPerspectives": [
             "people",
+            "groups",
             "places"
         ],
         "onlyInstancePages": [
@@ -21,7 +22,7 @@
             },
             {
                 "id": "fi",
-                "label": "English",
+                "label": "Finnish",
                 "filename": "localeFI.json"
             }
         ]

@@ -8,9 +8,9 @@ export const prefixes = `
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   PREFIX owl: <http://www.w3.org/2002/07/owl#>
   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-  PREFIX text: <http://jena.apache.org/text#> 
+  PREFIX text: <http://jena.apache.org/text#>
   PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-  PREFIX sch: <https://schema.org/> 
+  PREFIX sch: <https://schema.org/>
   PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
   PREFIX gvp: <http://vocab.getty.edu/ontology#>
   PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>
@@ -18,5 +18,5 @@ export const prefixes = `
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
   PREFIX gn: <http://www.geonames.org/ontology#>
   PREFIX time: <http://www.w3.org/2006/time#>
-  PREFIX sampos: <http://ldf.fi/schema/sampo/> 
+  PREFIX sampos: <http://ldf.fi/schema/sampo/>
 `
