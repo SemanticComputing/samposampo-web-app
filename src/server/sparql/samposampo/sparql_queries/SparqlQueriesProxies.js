@@ -8,7 +8,7 @@ export const proxyPropertiesInstancePage = `
   {
     GRAPH ?g { ?id skos:prefLabel ?prefLabel__id }
     ?g skos:prefLabel ?datasource
-    BIND (CONCAT(?prefLabel__id, ' (', ?datasource, ')') as ?prefLabel__prefLabel)
+    BIND (CONCAT(?prefLabel__id, ' (in ', ?datasource, ')') as ?prefLabel__prefLabel)
     BIND (CONCAT("/proxies/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION

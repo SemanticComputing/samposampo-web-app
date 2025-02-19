@@ -115,6 +115,10 @@
                     "maxAllowed": 30
                 }
             }
+        },
+        "peopleMigrationsDialog": {
+            "sparqlQuery": "peopleMigrationsDialogQuery",
+            "filterTarget": "id"
         }
     },
     "properties": [

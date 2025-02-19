@@ -303,7 +303,7 @@
       "shortDescription": "Proxy perspective description",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       "instancePage": {
-        "label": "Person (proxy)",
+        "label": "Person information in one datasource",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
       },
       "properties": {

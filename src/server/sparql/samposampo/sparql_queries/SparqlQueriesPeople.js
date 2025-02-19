@@ -183,9 +183,8 @@ WHERE {
       sch:deathPlace ?id 
   }
 
-[] foaf:focus ?id ;
-   wgs84:lat ?lat ; wgs84:long ?long .
-
+  ?id wgs84:lat ?lat ; wgs84:long ?long .
+  
 } GROUP BY ?id ?lat ?long
 `
 
@@ -254,22 +253,11 @@ WHERE {
 
   ?from__id skos:prefLabel ?from__prefLabel .
   FILTER (lang(?from__prefLabel)="fi")
-  
-  { SELECT DISTINCT ?from__id (SAMPLE(?_from_proxy) AS ?from_proxy) 
-      WHERE { ?_from_proxy foaf:focus ?from__id ; 
-    			wgs84:lat [] } 
-    GROUPBY ?from__id }
-  ?from_proxy wgs84:lat ?from__lat ; wgs84:long ?from__long .
-  
+  ?from__id wgs84:lat ?from__lat ; wgs84:long ?from__long .
   
   ?to__id skos:prefLabel ?to__prefLabel .
   FILTER (lang(?to__prefLabel)="fi")
-  { SELECT DISTINCT ?to__id (SAMPLE(?_to_proxy) AS ?to_proxy) 
-      WHERE { ?_to_proxy foaf:focus ?to__id ; 
-    			wgs84:lat [] }
-    GROUPBY ?to__id }
-  
-  ?to_proxy wgs84:lat ?to__lat ; wgs84:long ?to__long .
+  ?to__id wgs84:lat ?to__lat ; wgs84:long ?to__long .
 
   BIND (IRI(CONCAT(STR(?from__id), "-", REPLACE(STR(?to__id), "^.*\\\\/(.+)", "$1"))) as ?id)
 }
@@ -279,3 +267,14 @@ GROUP BY ?id
 ORDER BY desc(?instanceCount)
 `
 
+//  facet perspective, migrarions tab
+export const peopleMigrationsDialogQuery = `
+SELECT * {
+  <FILTER>
+  ?proxy sch:deathPlace <TO_ID> ;
+    sch:birthPlace <FROM_ID> ;
+    foaf:focus ?id .
+  ?id skos:prefLabel ?prefLabel .
+  BIND(CONCAT("/people/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+}
+`
