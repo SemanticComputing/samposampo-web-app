@@ -9,6 +9,18 @@ export const placeProperties = `
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
   }
+  UNION {
+    ?id wgs84:lat ?sampledLatitude ;
+        wgs84:long ?sampledLongitude .
+  }
+  UNION {
+    ?id ^foaf:focus ?proxy .
+    ?proxy wgs84:lat ?latitude ;
+            wgs84:long ?longitude .
+  }
+  UNION {
+    ?id ^foaf:focus/dce:source ?source .
+  }
 `
 
 export const placesMapQuery = `
