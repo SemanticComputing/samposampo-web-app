@@ -182,7 +182,7 @@
     "people": {
       "label": "People",
       "facetResultsType": "people",
-      "shortDescription": "People perspective description",
+      "shortDescription": "Historical Finnish people",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       "instancePage": {
         "label": "Person",
@@ -239,7 +239,7 @@
     "groups": {
       "label": "Groups",
       "facetResultsType": "group",
-      "shortDescription": "Group perspective description",
+      "shortDescription": "Organizations, Companies, Schools, etc.",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       "instancePage": {
         "label": "Group",

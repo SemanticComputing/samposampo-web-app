@@ -10,7 +10,7 @@
     "URITemplate": "<BASE_URI>/wikipedia_extracts/<LOCAL_ID>",
     "facetClass": "sampos:PersonProxy",
     "defaultConstraint": "GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { <SUBJECT> a sampos:PersonProxy ; wlink:has_reference [] } . ",
-    "frontPageImage": "main_page/places-452x262.jpg",
+    "frontPageImage": "main_page/works-452x262.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": false,
     "defaultActiveFacets": [
