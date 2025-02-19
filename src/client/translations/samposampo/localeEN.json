@@ -449,6 +449,26 @@
         "onMap": {
           "label": "Viewable on a map",
           "description": "Whether the Place can be viewed on a map (has coordinates)"
+        },
+        "sampledLatitude": {
+          "label": "Sampled latitude",
+          "description": "Sampled latitude of the Place (used for map visualizations)"
+        },
+        "sampledLongitude": {
+          "label": "Sampled longitude",
+          "description": "Sampled longitude of the Place (used for map visualizations)"
+        },
+        "latitude": {
+          "label": "Latitude",
+          "description": "Latitude of the Place"
+        },
+        "longitude": {
+          "label": "Longitude",
+          "description": "Longitude of the Place"
+        },
+        "source": {
+          "label": "Data sources",
+          "description": "The data sources of the Place"
         }
       }
     }

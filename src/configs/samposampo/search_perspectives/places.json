@@ -84,6 +84,56 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 250
+        },
+        {
+            "id": "sampledLatitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "disableSort": true
+        },
+        {
+            "id": "sampledLongitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "disableSort": true
+        },
+        {
+            "id": "latitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "longitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "source",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "expandedOnInstancePage": true
         }
     ],
     "facets": {
@@ -106,7 +156,22 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "sampos:hasCoordinates",
-            "sortDirection": "desc"
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "source": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^foaf:focus/dce:source",
+            "literal": true,
+            "hideUnknownValue": true,
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^foaf:focus/dce:source",
+            "sortDirection": "desc",
+            "pieChartButton": true
         }
     }
 }
