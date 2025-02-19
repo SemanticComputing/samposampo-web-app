@@ -82,6 +82,14 @@ export const personPropertiesInstancePage = `
     BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
   }
   UNION
+  { 
+    [] foaf:focus ?id ; skosxl:prefLabel|skosxl:altLabel ?_label .
+    ?_label (^(skosxl:prefLabel|skosxl:altLabel))/foaf:focus ?namesake__id .
+    FILTER (STR(?id) != STR(?namesake__id))
+    ?namesake__id skos:prefLabel ?namesake__prefLabel .
+    BIND(CONCAT("/people/page/", REPLACE(STR(?namesake__id), "^.*\\\\/(.+)", "$1")) AS ?namesake__dataProviderUrl)
+  }
+  UNION
   {
     GRAPH ?g { ?proxy foaf:focus ?id }
     {

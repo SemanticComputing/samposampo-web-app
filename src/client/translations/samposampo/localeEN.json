@@ -222,6 +222,10 @@
           "label": "Place of Death",
           "description": "Place of death."
         },
+        "namesake": {
+          "label": "Namesakes",
+          "description": "People with similar names."
+        },
         "external": {
           "label": "External Datasources",
           "description": "External datasets containing information about the person."
