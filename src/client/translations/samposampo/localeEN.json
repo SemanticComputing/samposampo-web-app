@@ -263,13 +263,17 @@
           "label": "Image",
           "description": "Image of the Person."
         },
-        "birth_Timespan": {
-          "label": "Time of Birth",
-          "description": "Time of birth."
+        "estimated_time": {
+          "label": "Estimated time",
+          "description": "Estimated time of activity."
         },
-        "birth_place": {
-          "label": "Place of Birth",
-          "description": "Place of birth."
+        "location": {
+          "label": "Location",
+          "description": "Location of the group."
+        },
+        "category": {
+          "label": "Category",
+          "description": "Category of the group."
         },
         "external": {
           "label": "External Datasources",

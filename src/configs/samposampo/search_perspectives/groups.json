@@ -101,6 +101,42 @@
             "expandedOnInstancePage": true
         },
         {
+            "id": "location",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "estimated_time",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "category",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "website",
             "valueType": "object",
             "makeLink": true,
@@ -131,6 +167,17 @@
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
+        },
+        "location": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "(^foaf:focus)/sch:location",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
+            "sortByPredicate": "(^foaf:focus)/sch:location/skos:prefLabel"
         },
         "external": {
             "containerClass": "ten",

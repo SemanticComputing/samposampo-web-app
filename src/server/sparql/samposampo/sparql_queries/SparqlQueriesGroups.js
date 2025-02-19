@@ -25,6 +25,12 @@ export const groupPropertiesFacetResults = `
     }
     UNION
     {
+      ?proxy sch:location ?location__id .
+      ?location__id skos:prefLabel ?location__prefLabel .
+      BIND (CONCAT("/places/page/", REPLACE(STR(?location__id), "^.*\\\\/(.+)", "$1")) AS ?location__dataProviderUrl)
+    }
+    UNION
+    {
       ?proxy foaf:page ?website__id .
       ?website__id a/skos:prefLabel ?website__prefLabel .
       BIND (?website__id as ?website__dataProviderUrl)
@@ -54,6 +60,14 @@ export const groupPropertiesInstancePage = `
       skos:prefLabel ?image__title .
     BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
   }
+  UNiON
+  { 
+    SELECT DISTINCT ?id (CONCAT(STR(MIN(YEAR(?_start))), '-', STR(MaX(YEAR(?_end)))) AS ?estimated_time)
+    WHERE {
+    [] foaf:focus ?id ;
+       sampos:estimated_time [ time:hasBeginning ?_start ; time:hasEnd ?_end ]
+    } GROUPBY ?id
+  }
   UNION
   {
     GRAPH ?g { ?proxy foaf:focus ?id }
@@ -68,14 +82,26 @@ export const groupPropertiesInstancePage = `
     }
     UNION
     {
-      ?proxy foaf:page ?website__id .
-      ?website__id a/skos:prefLabel ?website__prefLabel .
+      ?proxy sampos:category ?category
+    }
+    UNION
+    {
+      ?proxy sch:location ?location__id .
+      ?location__id skos:prefLabel ?location__prefLabel .
+      BIND (CONCAT("/places/page/", REPLACE(STR(?location__id), "^.*\\\\/(.+)", "$1")) AS ?location__dataProviderUrl)
+    }
+    UNION
+    {
+      ?proxy foaf:page ?website__id ; skos:prefLabel ?_label .
+      ?website__id a/skos:prefLabel ?_label2 .
+      BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?website__prefLabel)
       BIND (?website__id as ?website__dataProviderUrl)
     }
     UNION
     {
-      ?proxy owl:sameAs ?external__id .
-      ?external__id a/skos:prefLabel ?external__prefLabel .
+      ?proxy owl:sameAs ?external__id  ; skos:prefLabel ?_label .
+      ?external__id a/skos:prefLabel  ?_label2 .
+      BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?external__prefLabel)
       BIND (?external__id as ?external__dataProviderUrl)
     }
   }
