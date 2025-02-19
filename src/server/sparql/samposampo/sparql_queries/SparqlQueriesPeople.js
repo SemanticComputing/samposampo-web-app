@@ -32,17 +32,17 @@ export const personPropertiesFacetResults = `
     }
     UNION
     {
-      ?proxy sampos:birth_time ?birth_time__id .
-      ?birth_time__id skos:prefLabel ?birth_time__prefLabel ;
-        time:hasBeginning ?birth_time__start ;
-        time:hasEnd ?birth_time__end  
+      ?proxy sampos:birth_time ?birth_Timespan__id .
+      ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel ;
+        time:hasBeginning ?birth_Timespan__start ;
+        time:hasEnd ?birth_Timespan__end  
     }
     UNION
     {
-      ?proxy sampos:death_time ?death_time__id .
-      ?death_time__id skos:prefLabel ?death_time__prefLabel ;
-        time:hasBeginning ?death_time__start ;
-        time:hasEnd ?death_time__end
+      ?proxy sampos:death_time ?death_Timespan__id .
+      ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel ;
+        time:hasBeginning ?death_Timespan__start ;
+        time:hasEnd ?death_Timespan__end
     }
     UNION
     {
@@ -105,14 +105,14 @@ export const personPropertiesInstancePage = `
     }
     UNION
     {
-      ?proxy sampos:birth_time ?birth_time__id .
-      ?birth_time__id skos:prefLabel ?birth_time__prefLabel .
-      OPTIONAL { ?birth_time__id time:hasBeginning ?birth_time__start }
-      OPTIONAL { ?birth_time__id time:hasEnd ?birth_time__end } 
+      ?proxy sampos:birth_time ?birth_Timespan__id .
+      ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel .
+      OPTIONAL { ?birth_Timespan__id time:hasBeginning ?birth_Timespan__start }
+      OPTIONAL { ?birth_Timespan__id time:hasEnd ?birth_Timespan__end } 
 
-      ?g skos:prefLabel ?birth_time__source__prefLabel .
-      BIND (?proxy AS ?birth_time__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_time__source__dataProviderUrl)
+      ?g skos:prefLabel ?birth_Timespan__source__prefLabel .
+      BIND (?proxy AS ?birth_Timespan__source__id)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_Timespan__source__dataProviderUrl)
     }
     UNION
     {
@@ -126,14 +126,14 @@ export const personPropertiesInstancePage = `
     }
     UNION
     {
-      ?proxy sampos:death_time ?death_time__id .
-      ?death_time__id skos:prefLabel ?death_time__prefLabel .
-      OPTIONAL { ?death_time__id time:hasBeginning ?death_time__start }
-      OPTIONAL { ?death_time__id time:hasEnd ?death_time__end }
+      ?proxy sampos:death_time ?death_Timespan__id .
+      ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel .
+      OPTIONAL { ?death_Timespan__id time:hasBeginning ?death_Timespan__start }
+      OPTIONAL { ?death_Timespan__id time:hasEnd ?death_Timespan__end }
 
-      ?g skos:prefLabel ?death_time__source__prefLabel .
-      BIND (?proxy AS ?death_time__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_time__source__dataProviderUrl)
+      ?g skos:prefLabel ?death_Timespan__source__prefLabel .
+      BIND (?proxy AS ?death_Timespan__source__id)
+      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_Timespan__source__dataProviderUrl)
     }
     UNION
     {

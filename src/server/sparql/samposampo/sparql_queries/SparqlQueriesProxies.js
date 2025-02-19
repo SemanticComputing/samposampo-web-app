@@ -34,7 +34,7 @@ export const proxyPropertiesInstancePage = `
   }
   UNION
   { 
-    ?id sampos:birth_time/skos:prefLabel ?birth_time 
+    ?id sampos:birth_time/skos:prefLabel ?birth_Timespan 
   }
   UNION
   { 
@@ -45,7 +45,7 @@ export const proxyPropertiesInstancePage = `
   }
   UNION
   { 
-    ?id sampos:death_time/skos:prefLabel ?death_time
+    ?id sampos:death_time/skos:prefLabel ?death_Timespan
   }
   UNION
   { 

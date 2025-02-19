@@ -172,7 +172,7 @@
             "expandedOnInstancePage": true
         },
         {
-            "id": "birth_time",
+            "id": "birth_Timespan",
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
@@ -196,7 +196,7 @@
             "expandedOnInstancePage": true
         },
         {
-            "id": "death_time",
+            "id": "death_Timespan",
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
@@ -272,7 +272,7 @@
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:birthPlace/skos:prefLabel"
         },
-        "birth_time": {
+        "birth_Timespan": {
             "containerClass": "four",
             "facetType": "timespan",
             "filterType": "timespanFilter",
@@ -282,7 +282,6 @@
             "predicate": "(^foaf:focus)/sampos:birth_time",
             "startProperty": "time:hasBeginning",
             "endProperty": "time:hasEnd",
-            "sortByPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
             "sortByAscPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
             "sortByDescPredicate": "(^foaf:focus)/sampos:birth_time/time:hasEnd"
         },
@@ -297,17 +296,16 @@
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:deathPlace/skos:prefLabel"
         },
-        "death_time": {
+        "death_Timespan": {
             "containerClass": "four",
             "facetType": "timespan",
             "filterType": "timespanFilter",
             "dataType": "xsd:date",
-            "max": null,
-            "min": null,
+            "min": "1050-01-01",
+            "max": "2025-12-31",
             "predicate": "(^foaf:focus)/sampos:death_time",
             "startProperty": "time:hasBeginning",
             "endProperty": "time:hasEnd",
-            "sortByPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
             "sortByAscPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
             "sortByDescPredicate": "(^foaf:focus)/sampos:death_time/time:hasEnd"
         },

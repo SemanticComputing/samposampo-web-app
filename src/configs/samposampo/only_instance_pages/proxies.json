@@ -76,7 +76,7 @@
             "minWidth": 220
         },
         {
-            "id": "birth_time",
+            "id": "birth_Timespan",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
@@ -98,7 +98,7 @@
             "expandedOnInstancePage": true
         },
         {
-            "id": "death_time",
+            "id": "death_Timespan",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,

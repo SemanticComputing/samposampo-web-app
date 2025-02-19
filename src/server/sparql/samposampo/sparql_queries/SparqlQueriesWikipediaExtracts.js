@@ -38,17 +38,17 @@ export const wikipediaPropertiesFacetResults = `
     }
     UNION
     {
-      ?proxy sampos:birth_time ?birth_time__id .
-      ?birth_time__id skos:prefLabel ?birth_time__prefLabel ;
-        time:hasBeginning ?birth_time__start ;
-        time:hasEnd ?birth_time__end  
+      ?proxy sampos:birth_time ?birth_Timespan__id .
+      ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel ;
+        time:hasBeginning ?birth_Timespan__start ;
+        time:hasEnd ?birth_Timespan__end  
     }
     UNION
     {
-      ?proxy sampos:death_time ?death_time__id .
-      ?death_time__id skos:prefLabel ?death_time__prefLabel ;
-        time:hasBeginning ?death_time__start ;
-        time:hasEnd ?death_time__end
+      ?proxy sampos:death_time ?death_Timespan__id .
+      ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel ;
+        time:hasBeginning ?death_Timespan__start ;
+        time:hasEnd ?death_Timespan__end
     }
     UNION
     {

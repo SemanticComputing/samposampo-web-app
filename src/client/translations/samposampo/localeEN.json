@@ -206,7 +206,7 @@
           "label": "Gender",
           "description": "Gender of the person."
         },
-        "birth_time": {
+        "birth_Timespan": {
           "label": "Time of Birth",
           "description": "Time of birth."
         },
@@ -214,7 +214,7 @@
           "label": "Place of Birth",
           "description": "Place of birth."
         },
-        "death_time": {
+        "death_Timespan": {
           "label": "Time of Death",
           "description": "Time of death."
         },
@@ -259,7 +259,7 @@
           "label": "Image",
           "description": "Image of the Person."
         },
-        "birth_time": {
+        "birth_Timespan": {
           "label": "Time of Birth",
           "description": "Time of birth."
         },
@@ -324,7 +324,7 @@
           "label": "Gender",
           "description": "Gender of the person."
         },
-        "birth_time": {
+        "birth_Timespan": {
           "label": "Time of Birth",
           "description": "Time of birth."
         },
@@ -332,7 +332,7 @@
           "label": "Place of Birth",
           "description": "Place of birth."
         },
-        "death_time": {
+        "death_Timespan": {
           "label": "Time of Death",
           "description": "Time of death."
         },
@@ -397,7 +397,7 @@
           "label": "Gender",
           "description": "Gender of the person."
         },
-        "birth_time": {
+        "birth_Timespan": {
           "label": "Time of Birth",
           "description": "Time of birth."
         },
@@ -405,7 +405,7 @@
           "label": "Place of Birth",
           "description": "Place of birth."
         },
-        "death_time": {
+        "death_Timespan": {
           "label": "Time of Death",
           "description": "Time of death."
         },
