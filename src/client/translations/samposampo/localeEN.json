@@ -430,7 +430,7 @@
     "places": {
       "label": "Places",
       "facetResultsType": "places",
-      "shortDescription": "Place perspective description",
+      "shortDescription": "Buildings, cities, counties, municipalities, etc.",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       "instancePage": {
         "label": "Place",
@@ -465,6 +465,18 @@
         "longitude": {
           "label": "Longitude",
           "description": "Longitude of the Place"
+        },
+        "relatedPeople": {
+          "label": "Related to person",
+          "description": "People with the Place as their place of birth or death"
+        },
+        "peopleBirth": {
+          "label": "Related to person (birth place)",
+          "description": "People with the Place as their place of birth"
+        },
+        "peopleDeath": {
+          "label": "Related to person (death place)",
+          "description": "People with the Place as their place of death"
         },
         "source": {
           "label": "Data sources",

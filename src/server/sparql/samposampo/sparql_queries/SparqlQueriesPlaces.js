@@ -19,6 +19,16 @@ export const placeProperties = `
             wgs84:long ?longitude .
   }
   UNION {
+    ?id ^sch:birthPlace/foaf:focus ?peopleBirth__id .
+    ?peopleBirth__id skos:prefLabel ?peopleBirth__prefLabel .
+    BIND(CONCAT("/people/page/", REPLACE(STR(?peopleBirth__id), "^.*\\\\/(.+)", "$1")) AS ?peopleBirth__dataProviderUrl)
+  }
+    UNION {
+    ?id ^sch:deathPlace/foaf:focus ?peopleDeath__id .
+    ?peopleDeath__id skos:prefLabel ?peopleDeath__prefLabel .
+    BIND(CONCAT("/people/page/", REPLACE(STR(?peopleDeath__id), "^.*\\\\/(.+)", "$1")) AS ?peopleDeath__dataProviderUrl)
+  }
+  UNION {
     ?id ^foaf:focus/dce:source ?source .
   }
 `

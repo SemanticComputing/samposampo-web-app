@@ -9,7 +9,7 @@
     "baseURI": "http://ldf.fi/sampo",
     "URITemplate": "<BASE_URI>/places/<LOCAL_ID>",
     "facetClass": "sch:Place",
-    "frontPageImage": "main_page/manuscripts-452x262.jpg",
+    "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": false,
     "defaultActiveFacets": [
@@ -25,7 +25,7 @@
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
                 "propertiesQueryBlock": "placeProperties",
-                "pagesize": 10,
+                "pagesize": 20,
                 "sortBy": null,
                 "sortDirection": null
             },
@@ -126,6 +126,28 @@
             "onlyOnInstancePage": true
         },
         {
+            "id": "peopleBirth",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "peopleDeath",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "source",
             "valueType": "string",
             "makeLink": false,
@@ -158,6 +180,39 @@
             "sortByPredicate": "sampos:hasCoordinates",
             "sortDirection": "desc",
             "pieChartButton": true
+        },
+        "relatedPeople": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "(^sch:birthPlace|^sch:deathPlace)/foaf:focus",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^sch:birthPlace/foaf:focus/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "peopleBirth": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^sch:birthPlace/foaf:focus",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^sch:birthPlace/foaf:focus/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "peopleDeath": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^sch:birthPlace/foaf:focus",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^sch:deathPlace/foaf:focus/skos:prefLabel",
+            "sortDirection": "desc"
         },
         "source": {
             "containerClass": "ten",
