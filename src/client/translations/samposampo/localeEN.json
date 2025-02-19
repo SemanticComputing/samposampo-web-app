@@ -366,6 +366,67 @@
         }
       }
     },
+    "wikipedia_extracts": {
+      "label": "Wikipedia Extracts",
+      "facetResultsType": "people",
+      "shortDescription": "Extracts from biographies in Wikipedia",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      "instancePage": {
+        "label": "Person",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      "properties": {
+        "prefLabel": {
+          "label": "Name",
+          "description": "The name of the Person.",
+          "textFacetInputPlaceholder": "Search..."
+        },
+        "altLabel": {
+          "label": "Alternative Names",
+          "description": "Alternative names of the Person."
+        },
+        "image": {
+          "label": "Image",
+          "description": "Image of the Person."
+        },
+        "reference": {
+          "label": "Reference",
+          "description": "Sentences extracted from Wikipedia descriptions."
+        },
+        "gender": {
+          "label": "Gender",
+          "description": "Gender of the person."
+        },
+        "birth_time": {
+          "label": "Time of Birth",
+          "description": "Time of birth."
+        },
+        "birth_place": {
+          "label": "Place of Birth",
+          "description": "Place of birth."
+        },
+        "death_time": {
+          "label": "Time of Death",
+          "description": "Time of death."
+        },
+        "death_place": {
+          "label": "Place of Death",
+          "description": "Place of death."
+        },
+        "external": {
+          "label": "External Datasources",
+          "description": "External datasets containing information about the person."
+        },
+        "website": {
+          "label": "External Websites",
+          "description": "External websites containing information about the person."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        }
+      }
+    },
     "places": {
       "label": "Places",
       "facetResultsType": "places",

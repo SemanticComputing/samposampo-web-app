@@ -1,15 +1,16 @@
 {
-    "id": "people",
+    "id": "wikipedia_extracts",
     "endpoint": {
         "url": "https://ldf.fi/sampo/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
-    "sparqlQueriesFile": "SparqlQueriesPeople.js",
+    "sparqlQueriesFile": "SparqlQueriesWikipediaExtracts.js",
     "baseURI": "http://ldf.fi/sampo",
-    "URITemplate": "<BASE_URI>/people/<LOCAL_ID>",
-    "facetClass": "sch:Person",
-    "frontPageImage": "main_page/people2-452x262.jpg",
+    "URITemplate": "<BASE_URI>/wikipedia_extracts/<LOCAL_ID>",
+    "facetClass": "sampos:PersonProxy",
+    "defaultConstraint": "GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { <SUBJECT> a sampos:PersonProxy ; wlink:has_reference [] } . ",
+    "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": false,
     "defaultActiveFacets": [
@@ -34,19 +35,19 @@
     "defaultTab": "table",
     "defaultInstancePageTab": "table",
     "resultClasses": {
-        "people": {
+        "wikipedia_extracts": {
             "paginatedResultsConfig": {
                 "tabID": 0,
                 "component": "ResultTable",
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "personPropertiesFacetResults",
+                "propertiesQueryBlock": "wikipediaPropertiesFacetResults",
                 "pagesize": 30,
                 "sortBy": "pagelinks",
                 "sortDirection": "desc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "personPropertiesInstancePage",
+                "propertiesQueryBlock": "wikipediaPropertiesInstancePage",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -147,7 +148,7 @@
             "minWidth": 300
         },
         {
-            "id": "altLabel",
+            "id": "reference",
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
@@ -156,7 +157,7 @@
             "minWidth": 300,
             "showSource": true,
             "sourceExternalLink": false,
-            "onlyOnInstancePage": true,
+            "onlyOnInstancePage": false,
             "expandedOnInstancePage": true
         },
         {
@@ -217,26 +218,6 @@
             "minWidth": 80,
             "showSource": true,
             "sourceExternalLink": false,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "website",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": true,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 80,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "external",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": true,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 80,
             "expandedOnInstancePage": true
         }
     ],

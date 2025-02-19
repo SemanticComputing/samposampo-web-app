@@ -1,44 +1,6 @@
-const perspectiveID = 'groups'
+const perspectiveID = 'wikipedia_extracts'
 
-export const groupPropertiesFacetResults = `
-  {
-    ?id skos:prefLabel ?prefLabel__id .
-    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
-    BIND(?id as ?uri__id)
-    BIND(?id as ?uri__dataProviderUrl)
-    BIND(?id as ?uri__prefLabel)
-  }
-  UNION
-  {
-    ?id sch:image ?image__id ;
-    skos:prefLabel ?image__description ;
-    skos:prefLabel ?image__title .
-    # BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
-    BIND (?image__id as ?image__url)
-  }
-  UNION
-  {
-    ?proxy foaf:focus ?id
-    {
-      ?proxy skos:prefLabel ?altLabel
-    }
-    UNION
-    {
-      ?proxy foaf:page ?website__id .
-      ?website__id a/skos:prefLabel ?website__prefLabel .
-      BIND (?website__id as ?website__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy owl:sameAs ?external__id .
-      ?external__id a/skos:prefLabel ?external__prefLabel .
-      BIND (?external__id as ?external__dataProviderUrl)
-    }
-  }
-`
-
-export const groupPropertiesInstancePage = `
+export const wikipediaPropertiesFacetResults = `
   {
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
@@ -52,31 +14,47 @@ export const groupPropertiesInstancePage = `
     ?id sch:image ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
-    BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
+    # BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
+    BIND (?image__id as ?image__url)
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?id wlink:has_reference ?reference__id .
+    ?reference__id skos:prefLabel ?reference__prefLabel .
+    BIND (CONCAT("/references/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id sch:gender ?gender__id .
+    ?gender__id skos:prefLabel ?gender__prefLabel .
+  }
+  UNION
+  { 
+    ?proxy foaf:focus ?id
     {
-      ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .
-      BIND(?altLabel__id AS ?altLabel__prefLabel)
-      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
-
-      ?g skos:prefLabel ?altLabel__source__prefLabel .
-      BIND (?proxy AS ?altLabel__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
+      ?proxy sch:birthPlace ?birth_place__id .
+      ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
+      BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
     }
     UNION
     {
-      ?proxy foaf:page ?website__id .
-      ?website__id a/skos:prefLabel ?website__prefLabel .
-      BIND (?website__id as ?website__dataProviderUrl)
+      ?proxy sampos:birth_time ?birth_time__id .
+      ?birth_time__id skos:prefLabel ?birth_time__prefLabel ;
+        time:hasBeginning ?birth_time__start ;
+        time:hasEnd ?birth_time__end  
     }
     UNION
     {
-      ?proxy owl:sameAs ?external__id .
-      ?external__id a/skos:prefLabel ?external__prefLabel .
-      BIND (?external__id as ?external__dataProviderUrl)
+      ?proxy sampos:death_time ?death_time__id .
+      ?death_time__id skos:prefLabel ?death_time__prefLabel ;
+        time:hasBeginning ?death_time__start ;
+        time:hasEnd ?death_time__end
+    }
+    UNION
+    {
+      ?proxy sch:deathPlace ?death_place__id .
+      ?death_place__id skos:prefLabel ?death_place__prefLabel .
+      BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__dataProviderUrl)
     }
   }
 `
