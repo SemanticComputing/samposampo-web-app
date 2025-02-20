@@ -133,6 +133,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
+            "onlyOnInstancePage": true,
             "minWidth": 300
         }
     ],

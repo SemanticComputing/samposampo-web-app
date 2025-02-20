@@ -10,13 +10,35 @@ export const placeProperties = `
     BIND(?id as ?uri__prefLabel)
   }
   UNION {
+    ?id ^foaf:focus ?proxy .
+    ?proxy skos:prefLabel ?proxyPrefLabel__id, ?proxyPrefLabel__prefLabel .
+    
+    ?proxy dce:source ?proxyPrefLabel__source__prefLabel .
+    BIND(?proxy AS ?proxyPrefLabel__source__id)
+    BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
+  }
+  UNION {
+    ?id ^foaf:focus ?proxy .
+    ?proxy skos:altLabel ?proxyAltLabel__id, ?proxyAltLabel__prefLabel .
+    
+    ?proxy dce:source ?proxyAltLabel__source__prefLabel .
+    BIND(?proxy AS ?proxyAltLabel__source__id)
+    BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
+  }
+  UNION {
     ?id wgs84:lat ?sampledLatitude ;
         wgs84:long ?sampledLongitude .
   }
   UNION {
     ?id ^foaf:focus ?proxy .
-    ?proxy wgs84:lat ?latitude ;
-            wgs84:long ?longitude .
+    ?proxy wgs84:lat ?latitude__id, ?latitude__prefLabel ;
+            wgs84:long ?longitude__id, ?longitude__prefLabel .
+    
+    ?proxy dce:source ?latitude__source__prefLabel, ?longitude__source__prefLabel .
+    BIND(?proxy AS ?latitude__source__id)
+    BIND(?proxy AS ?longitude__source__id)
+    BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?latitude__source__dataProviderUrl)
+    BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?longitude__source__dataProviderUrl)
   }
   UNION {
     ?id ^sch:birthPlace/foaf:focus ?peopleBirth__id .

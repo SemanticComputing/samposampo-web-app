@@ -1,0 +1,104 @@
+{
+    "id": "place_proxies",
+    "endpoint": {
+        "url": "https://ldf.fi/sampo/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesPlaceProxies.js",
+    "baseURI": "http://ldf.fi/sampo",
+    "URITemplate": "<BASE_URI>/proxies/<LOCAL_ID>",
+    "facetClass": "sampos:PlaceProxy",
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "place_proxies": {
+            "instanceConfig": {
+                "propertiesQueryBlock": "placeProxyProperties",
+                "instancePageResultClasses": {
+                    "actorInstancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
+        }
+    },
+    "maps": {
+        "placesLocations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
+        }
+    },
+    "properties": [
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "provided",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": true,
+            "minWidth": 250
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250
+        },
+        {
+            "id": "altLabel",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250
+        },
+        {
+            "id": "latitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": true,
+            "minWidth": 250
+        },
+        {
+            "id": "longitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": true,
+            "minWidth": 250
+        },
+        {
+            "id": "source",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": true,
+            "minWidth": 250
+        }
+    ],
+    "facets": {}
+}

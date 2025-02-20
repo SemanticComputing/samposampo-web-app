@@ -10,7 +10,8 @@
             "historical_events"
         ],
         "onlyInstancePages": [
-            "proxies"
+            "proxies",
+            "place_proxies"
         ]
     },
     "localeConfig": {
