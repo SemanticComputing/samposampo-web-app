@@ -1,0 +1,189 @@
+{
+    "id": "historical_events",
+    "endpoint": {
+        "url": "https://ldf.fi/history/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesHisto.js",
+    "baseURI": "http://ldf.fi/sampo",
+    "URITemplate": "<BASE_URI>/people/<LOCAL_ID>",
+    "facetClass": "crm-org:E5_Event",
+    "frontPageImage": "main_page/people2-452x262.jpg",
+    "searchMode": "faceted-search",
+    "enableDynamicLanguageChange": false,
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "maps": {
+        "placesActors": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
+        },
+        "peopleMigrations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
+        }
+    },
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "historical_events": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "histoPropertiesFacetResults",
+                "pagesize": 30,
+                "sortBy": null,
+                "sortDirection": "desc"
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "histoPropertiesFacetResults",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
+        }
+    },
+    "properties": [
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "time",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "place",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "onlyOnInstancePage": false,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "participant",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "historyField",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "eventType",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "description",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        }
+    ],
+    "facets": {
+        "participant": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "crm-org:P11_had_participant",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "facetLabelPredicate": "rdfs:label",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
+            "sortByPredicate": "crm-org:P11_had_participan/rdfs:label"
+        },
+        "place": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "crm-org:P7_took_place_at",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "facetLabelPredicate": "rdfs:label",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
+            "sortByPredicate": "crm-org:P7_took_place_at/rdfs:label"
+        },
+        "historyField": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "crm-org:P130_shows_features_of",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "facetLabelPredicate": "rdfs:label",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
+            "sortByPredicate": "crm-org:P130_shows_features_of/rdfs:label"
+        },
+        "eventType": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "crm-org:P2_has_type",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "facetLabelPredicate": "rdfs:label",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
+            "sortByPredicate": "crm-org:P2_has_type/rdfs:label"
+        }
+    }
+}
