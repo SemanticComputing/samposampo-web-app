@@ -454,6 +454,14 @@
           "description": "The name of the Place.",
           "textFacetInputPlaceholder": "Search..."
         },
+        "proxyPrefLabel": {
+          "label": "Preferred labels per proxy",
+          "description": "The preferred labels of the Place from all proxies."
+        },
+        "proxyAltLabel": {
+          "label": "Alternative labels per proxy",
+          "description": "The alternative labels of the Place from all proxies."
+        },
         "onMap": {
           "label": "Viewable on a map",
           "description": "Whether the Place can be viewed on a map (has coordinates)"
@@ -489,6 +497,47 @@
         "source": {
           "label": "Data sources",
           "description": "The data sources of the Place"
+        }
+      }
+    },
+    "place_proxies": {
+      "label": "Place proxies",
+      "facetResultsType": "place proxies",
+      "shortDescription": "Proxies of buildings, cities, counties, municipalities, etc.",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      "instancePage": {
+        "label": "Place proxy",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Uniform Resource Identifier"
+        },
+        "provided": {
+          "label": "Provided resource",
+          "description": "The provided resource of the Place Proxy."
+        },
+        "prefLabel": {
+          "label": "Name",
+          "description": "The name of the Place Proxy.",
+          "textFacetInputPlaceholder": "Search..."
+        },
+        "altLabel": {
+          "label": "Alternative labels",
+          "description": "The alternative labels of the Place Proxy."
+        },
+        "latitude": {
+          "label": "Latitude",
+          "description": "Latitude of the Place Proxy"
+        },
+        "longitude": {
+          "label": "Longitude",
+          "description": "Longitude of the Place Proxy"
+        },
+        "source": {
+          "label": "Data source",
+          "description": "The data source of the Place Proxy"
         }
       }
     }

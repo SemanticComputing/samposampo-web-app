@@ -9,7 +9,8 @@
             "wikipedia_extracts"
         ],
         "onlyInstancePages": [
-            "proxies"
+            "proxies",
+            "place_proxies"
         ]
     },
     "localeConfig": {
