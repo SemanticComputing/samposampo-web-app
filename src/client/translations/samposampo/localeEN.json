@@ -397,9 +397,21 @@
           "label": "Image",
           "description": "Image of the Person."
         },
+        "provided": {
+          "label": "SampoSampo resource",
+          "description": "SampoSampo resource."
+        },
+        "sentence": {
+          "label": "Sentence",
+          "description": "Sentences extracted from Wikipedia descriptions."
+        },
         "reference": {
           "label": "Reference",
-          "description": "Sentences extracted from Wikipedia descriptions."
+          "description": "References extracted from Wikipedia descriptions."
+        },
+        "referenced_by": {
+          "label": "Referenced by",
+          "description": "Referenced by another Wikipedia page."
         },
         "gender": {
           "label": "Gender",
