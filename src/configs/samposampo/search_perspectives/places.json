@@ -86,6 +86,30 @@
             "minWidth": 250
         },
         {
+            "id": "proxyPrefLabel",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "onlyOnInstancePage": true,
+            "showSource": true,
+            "sourceExternalLink": false
+        },
+        {
+            "id": "proxyAltLabel",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "onlyOnInstancePage": true,
+            "showSource": true,
+            "sourceExternalLink": false
+        },
+        {
             "id": "sampledLatitude",
             "valueType": "string",
             "makeLink": false,
@@ -107,23 +131,27 @@
         },
         {
             "id": "latitude",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
-            "onlyOnInstancePage": true
+            "onlyOnInstancePage": true,
+            "showSource": true,
+            "sourceExternalLink": false
         },
         {
             "id": "longitude",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
-            "onlyOnInstancePage": true
+            "onlyOnInstancePage": true,
+            "showSource": true,
+            "sourceExternalLink": false
         },
         {
             "id": "peopleBirth",
