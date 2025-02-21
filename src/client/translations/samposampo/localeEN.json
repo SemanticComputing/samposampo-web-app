@@ -397,6 +397,10 @@
           "label": "Image",
           "description": "Image of the Person."
         },
+        "provided": {
+          "label": "SampoSampo resource",
+          "description": "SampoSampo resource."
+        },
         "sentence": {
           "label": "Sentence",
           "description": "Sentences extracted from Wikipedia descriptions."

@@ -69,16 +69,26 @@ export const wikipediaPropertiesInstancePage = `
     BIND(?id as ?uri__prefLabel)
   }
   UNION
+  { 
+    ?id foaf:focus ?provided__id .
+    ?provided__id skos:prefLabel ?provided__prefLabel
+    BIND(CONCAT("/people/page/", REPLACE(STR(?provided__id), "^.*\\\\/(.+)", "$1")) AS ?provided__dataProviderUrl)
+  }
+  UNION
+  { 
+      SELECT DISTINCT ?id ?sentence__id ?sentence__prefLabel 
+    	(CONCAT("/references/page/", REPLACE(STR(?sentence__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
+    WHERE {
+      ?id wlink:has_reference ?sentence__id .
+      ?sentence__id skos:prefLabel ?sentence__prefLabel ; wlink:order ?_order .
+    }
+    ORDER BY ?_order
+  }
+  UNION
   {
-    ?id wlink:has_reference ?sentence__id .
-    ?sentence__id skos:prefLabel ?sentence__prefLabel .
-    BIND (CONCAT("/references/page/", REPLACE(STR(?sentence__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
-
-    OPTIONAL { 
-      ?sentence__id wlink:references ?reference__id .
+      ?id wlink:has_reference/wlink:references ?reference__id .
       ?reference__id skos:prefLabel ?reference__prefLabel .
       BIND (CONCAT("/wikipedia_extracts/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
-    }
   }
   UNION
   {
