@@ -6,10 +6,10 @@
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesWikipediaExtracts.js",
-    "baseURI": "http://ldf.fi/sampo",
-    "URITemplate": "<BASE_URI>/wikipedia_extracts/<LOCAL_ID>",
-    "facetClass": "sampos:PersonProxy",
-    "defaultConstraint": "GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { <SUBJECT> a sampos:PersonProxy ; wlink:has_reference [] } . ",
+    "baseURI": "https://fi.wikipedia.org/wiki",
+    "URITemplate": "<BASE_URI>/<LOCAL_ID>",
+    "facetClass": "wlink:Page",
+    "defaultConstraint": "GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { <SUBJECT> a wlink:Page ; wlink:has_reference [] } . ",
     "frontPageImage": "main_page/works-452x262.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": false,
@@ -43,7 +43,6 @@
                 "tabIcon": "CalendarViewDay",
                 "propertiesQueryBlock": "wikipediaPropertiesFacetResults",
                 "pagesize": 30,
-                "sortBy": "pagelinks",
                 "sortDirection": "desc"
             },
             "instanceConfig": {
@@ -148,7 +147,7 @@
             "minWidth": 300
         },
         {
-            "id": "reference",
+            "id": "sentence",
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
@@ -157,7 +156,28 @@
             "minWidth": 300,
             "showSource": true,
             "sourceExternalLink": false,
-            "onlyOnInstancePage": false,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "reference",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": true,
+            "minWidth": 300,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "referenced_by",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": true,
+            "minWidth": 300,
+            "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         },
         {
