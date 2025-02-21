@@ -1,0 +1,154 @@
+{
+    "id": "place_relations",
+    "endpoint": {
+        "url": "https://ldf.fi/sampo/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesRelations.js",
+    "baseURI": "http://ldf.fi/sampo",
+    "URITemplate": "<BASE_URI>/people/<LOCAL_ID>",
+    "facetClass": "relations:Relation",
+    "frontPageImage": "main_page/people2-452x262.jpg",
+    "searchMode": "faceted-search",
+    "enableDynamicLanguageChange": false,
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "maps": {
+        "placesActors": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
+        },
+        "peopleMigrations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
+        }
+    },
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "place_relations": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "placeRelationProperties",
+                "pagesize": 30,
+                "sortBy": null,
+                "sortDirection": "desc"
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "placeRelationProperties",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
+        }
+    },
+    "properties": [
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "person",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        },
+        {
+            "id": "place",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "onlyOnInstancePage": false
+        },
+        {
+            "id": "type",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
+        }
+    ],
+    "facets": {
+        "person": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "relations:personSubject/^owl:sameAs",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "relations:personSubject/^owl:sameAs/skos:prefLabel"
+        },
+        "title": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title/skos:prefLabel"
+        },
+        "place": {
+            "containerClass": "ten",
+            "predicate": "relations:placeObject/relations:nbf",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "facetType": "hierarchical",
+            "parentProperty": "skos:broader",
+            "sortByPredicate": "relations:placeObject/relations:nbf/skos:prefLabel"
+        },
+        "type": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "relations:relationType",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "relations:relationType/skos:prefLabel"
+        }
+    }
+}

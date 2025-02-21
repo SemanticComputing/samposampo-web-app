@@ -20,7 +20,10 @@ export const prefixes = `
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
   PREFIX gn: <http://www.geonames.org/ontology#>
   PREFIX time: <http://www.w3.org/2006/time#>
-
   PREFIX wlink: <http://ldf.fi/sampo/wikipedia/>
   PREFIX sampos: <http://ldf.fi/schema/sampo/>
+  PREFIX relations: <http://ldf.fi/relse/>
+  PREFIX bioc: <http://ldf.fi/schema/bioc/>
+  PREFIX nbf: <http://ldf.fi/nbf/>
+
 `
