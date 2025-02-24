@@ -147,6 +147,16 @@
             "minWidth": 300
         },
         {
+            "id": "provided",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "minWidth": 300
+        },
+        {
             "id": "sentence",
             "valueType": "object",
             "makeLink": false,
@@ -175,6 +185,17 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
+            "numberedList": true,
+            "minWidth": 300,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "similar",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
             "numberedList": true,
             "minWidth": 300,
             "onlyOnInstancePage": true,
@@ -255,23 +276,23 @@
         "gender": {
             "containerClass": "three",
             "facetType": "list",
-            "predicate": "sch:gender",
+            "predicate": "foaf:focus/sch:gender",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "sortByPredicate": "sch:gender/skos:prefLabel"
+            "sortByPredicate": "foaf:focus/sch:gender/skos:prefLabel"
         },
         "birth_place": {
             "containerClass": "ten",
             "facetType": "list",
-            "predicate": "(^foaf:focus)/sch:birthPlace",
+            "predicate": "foaf:focus/(^foaf:focus)/sch:birthPlace",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
-            "sortByPredicate": "(^foaf:focus)/sch:birthPlace/skos:prefLabel"
+            "sortByPredicate": "foaf:focus/(^foaf:focus)/sch:birthPlace/skos:prefLabel"
         },
         "birth_Timespan": {
             "containerClass": "four",
@@ -280,23 +301,23 @@
             "dataType": "xsd:date",
             "max": null,
             "min": null,
-            "predicate": "(^foaf:focus)/sampos:birth_time",
+            "predicate": "foaf:focus/(^foaf:focus)/sampos:birth_time",
             "startProperty": "time:hasBeginning",
             "endProperty": "time:hasEnd",
-            "sortByPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
-            "sortByAscPredicate": "(^foaf:focus)/sampos:birth_time/time:hasBeginning",
-            "sortByDescPredicate": "(^foaf:focus)/sampos:birth_time/time:hasEnd"
+            "sortByPredicate": "foaf:focus/(^foaf:focus)/sampos:birth_time/time:hasBeginning",
+            "sortByAscPredicate": "foaf:focus/(^foaf:focus)/sampos:birth_time/time:hasBeginning",
+            "sortByDescPredicate": "foaf:focus/(^foaf:focus)/sampos:birth_time/time:hasEnd"
         },
         "death_place": {
             "containerClass": "ten",
             "facetType": "list",
-            "predicate": "(^foaf:focus)/sch:deathPlace",
+            "predicate": "foaf:focus/(^foaf:focus)/sch:deathPlace",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
-            "sortByPredicate": "(^foaf:focus)/sch:deathPlace/skos:prefLabel"
+            "sortByPredicate": "foaf:focus/(^foaf:focus)/sch:deathPlace/skos:prefLabel"
         },
         "death_Timespan": {
             "containerClass": "four",
@@ -305,22 +326,22 @@
             "dataType": "xsd:date",
             "max": null,
             "min": null,
-            "predicate": "(^foaf:focus)/sampos:death_time",
+            "predicate": "foaf:focus/(^foaf:focus)/sampos:death_time",
             "startProperty": "time:hasBeginning",
             "endProperty": "time:hasEnd",
-            "sortByPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
-            "sortByAscPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
-            "sortByDescPredicate": "(^foaf:focus)/sampos:death_time/time:hasEnd"
+            "sortByPredicate": "foaf:focus/(^foaf:focus)/sampos:death_time/time:hasBeginning",
+            "sortByAscPredicate": "foaf:focus/(^foaf:focus)/sampos:death_time/time:hasBeginning",
+            "sortByDescPredicate": "foaf:focus/(^foaf:focus)/sampos:death_time/time:hasEnd"
         },
         "external": {
             "containerClass": "ten",
             "facetType": "list",
-            "predicate": "sampos:in_dataset",
+            "predicate": "foaf:focus/sampos:in_dataset",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "sortByPredicate": "sampos:in_dataset/skos:prefLabel"
+            "sortByPredicate": "foaf:focus/sampos:in_dataset/skos:prefLabel"
         }
     }
 }

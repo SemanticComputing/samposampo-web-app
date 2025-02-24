@@ -6,9 +6,9 @@
             "people",
             "groups",
             "places",
-            "wikipedia_extracts",
             "historical_events",
-            "place_relations"
+            "place_relations",
+            "wikipedia_extracts"
         ],
         "onlyInstancePages": [
             "proxies",

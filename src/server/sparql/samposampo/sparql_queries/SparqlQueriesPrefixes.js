@@ -12,7 +12,7 @@ export const prefixes = `
   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
   PREFIX text: <http://jena.apache.org/text#>
   PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-  PREFIX sch: <https://schema.org/>
+  PREFIX sch: <https://schema.org/> 
   PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
   PREFIX gvp: <http://vocab.getty.edu/ontology#>
   PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>

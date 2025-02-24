@@ -437,6 +437,10 @@
           "label": "External Datasources",
           "description": "External datasets containing information about the person."
         },
+        "similar": {
+          "label": "Similar people",
+          "description": "People linked to same entities."
+        },
         "website": {
           "label": "External Websites",
           "description": "External websites containing information about the person."

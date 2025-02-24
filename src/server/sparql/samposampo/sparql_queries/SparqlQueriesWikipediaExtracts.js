@@ -2,7 +2,7 @@ const perspectiveID = 'wikipedia_extracts'
 
 export const wikipediaPropertiesFacetResults = `
   {
-    ?id skos:prefLabel ?prefLabel__id .
+    ?id skos:prefLabel ?prefLabel__id
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
@@ -25,12 +25,12 @@ export const wikipediaPropertiesFacetResults = `
   }
   UNION
   {
-    ?id sch:gender ?gender__id .
+    ?id foaf:focus/sch:gender ?gender__id .
     ?gender__id skos:prefLabel ?gender__prefLabel .
   }
   UNION
   { 
-    ?proxy foaf:focus ?id
+    ?id foaf:focus/(^foaf:focus) ?proxy
     {
       ?proxy sch:birthPlace ?birth_place__id .
       ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
@@ -41,7 +41,7 @@ export const wikipediaPropertiesFacetResults = `
       ?proxy sampos:birth_time ?birth_Timespan__id .
       ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel ;
         time:hasBeginning ?birth_Timespan__start ;
-        time:hasEnd ?birth_Timespan__end  
+        time:hasEnd ?birth_Timespan__end
     }
     UNION
     {
@@ -103,5 +103,51 @@ export const wikipediaPropertiesInstancePage = `
       skos:prefLabel ?image__title .
     # BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
     BIND (?image__id as ?image__url)
+  }
+  UNION
+  {
+    ?id foaf:focus/sch:gender ?gender__id .
+    ?gender__id skos:prefLabel ?gender__prefLabel .
+  }
+  UNION
+  {
+    SELECT DISTINCT ?id
+      ?similar__id 
+      (CONCAT(?_label, " (", GROUP_CONCAT(DISTINCT ?link; separator="; "), ")") AS ?similar__prefLabel)
+      (CONCAT("/${perspectiveID}/page/", REPLACE(STR(?similar__id), "^.*\\\\/(.+)", "$1")) AS ?similar__dataProviderUrl)
+    WHERE {
+      ?id ^wlink:relates_to [ a wlink:Distance ; wlink:relates_to ?similar__id ; wlink:value ?value ; wlink:link_by/skos:prefLabel ?link ]     
+      FILTER (?id != ?similar__id)
+      ?similar__id skos:prefLabel ?_label
+    } GROUPBY ?id ?similar__id ?_label ORDER BY ?value
+  }
+  UNION
+  { 
+    ?id foaf:focus/(^foaf:focus) ?proxy
+    {
+      ?proxy sch:birthPlace ?birth_place__id .
+      ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
+      BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
+    }
+    UNION
+    {
+      ?proxy sampos:birth_time ?birth_Timespan__id .
+      ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel ;
+        time:hasBeginning ?birth_Timespan__start ;
+        time:hasEnd ?birth_Timespan__end  
+    }
+    UNION
+    {
+      ?proxy sampos:death_time ?death_Timespan__id .
+      ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel ;
+        time:hasBeginning ?death_Timespan__start ;
+        time:hasEnd ?death_Timespan__end
+    }
+    UNION
+    {
+      ?proxy sch:deathPlace ?death_place__id .
+      ?death_place__id skos:prefLabel ?death_place__prefLabel .
+      BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__dataProviderUrl)
+    }
   }
 `
