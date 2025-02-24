@@ -380,7 +380,7 @@
       "shortDescription": "Extracts from biographies in Wikipedia",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       "instancePage": {
-        "label": "Person",
+        "label": "Wikipedia Extract",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
       },
       "properties": {
