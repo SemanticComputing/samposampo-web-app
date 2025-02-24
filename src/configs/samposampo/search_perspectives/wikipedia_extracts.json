@@ -273,6 +273,16 @@
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
         },
+        "reference": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "wlink:has_reference/wlink:references",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "wlink:has_reference/wlink:references/skos:prefLabel"
+        },
         "gender": {
             "containerClass": "three",
             "facetType": "list",

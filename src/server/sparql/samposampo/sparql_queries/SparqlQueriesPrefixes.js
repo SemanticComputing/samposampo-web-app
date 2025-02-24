@@ -12,9 +12,9 @@ export const prefixes = `
   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
   PREFIX text: <http://jena.apache.org/text#>
   PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-  PREFIX sch: <https://schema.org/> 
+  PREFIX sch: <https://schema.org/>
   PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
-  PREFIX gvp: <http://vocab.getty.edu/ontology#>
+  PREFIX gvp: <http://vocab.getty.edu/ontology#> 
   PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>
   PREFIX spatial: <http://jena.apache.org/spatial#>
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
@@ -25,5 +25,4 @@ export const prefixes = `
   PREFIX relations: <http://ldf.fi/relse/>
   PREFIX bioc: <http://ldf.fi/schema/bioc/>
   PREFIX nbf: <http://ldf.fi/nbf/>
-
 `
