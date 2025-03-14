@@ -241,7 +241,7 @@
       }
     },
     "groups": {
-      "label": "Organization",
+      "label": "Organizations",
       "facetResultsType": "organization",
       "shortDescription": "Organizations, Companies, Schools, Groups etc.",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
