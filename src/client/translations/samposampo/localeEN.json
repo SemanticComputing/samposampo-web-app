@@ -241,9 +241,9 @@
       }
     },
     "groups": {
-      "label": "Groups",
-      "facetResultsType": "group",
-      "shortDescription": "Organizations, Companies, Schools, etc.",
+      "label": "Organization",
+      "facetResultsType": "organization",
+      "shortDescription": "Organizations, Companies, Schools, Groups etc.",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       "instancePage": {
         "label": "Group",
