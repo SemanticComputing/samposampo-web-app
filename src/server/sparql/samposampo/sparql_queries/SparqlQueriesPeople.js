@@ -101,15 +101,23 @@ export const personPropertiesInstancePage = `
       BIND (?proxy AS ?gender__source__id)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__source__dataProviderUrl)
     }
-    UNION
+    UNION 
     {
-      ?proxy skos:prefLabel ?altLabel__id .
-      BIND(?altLabel__id AS ?altLabel__prefLabel)
-      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
-
-      ?g skos:prefLabel ?altLabel__source__prefLabel .
-      BIND (?proxy AS ?altLabel__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
+      ?proxy skos:prefLabel ?proxyPrefLabel__id .
+      BIND (?proxyPrefLabel__id AS ?proxyPrefLabel__prefLabel)
+      
+      ?g skos:prefLabel ?proxyPrefLabel__source__prefLabel .
+      BIND(?proxy AS ?proxyPrefLabel__source__id)
+      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
+    }
+    UNION 
+    {
+      ?proxy skos:altLabel ?proxyAltLabel__id .
+      BIND (?proxyAltLabel__id AS ?proxyAltLabel__prefLabel)
+      
+      ?g skos:prefLabel ?proxyAltLabel__source__prefLabel .
+      BIND(?proxy AS ?proxyAltLabel__source__id)
+      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
     }
     UNION
     {

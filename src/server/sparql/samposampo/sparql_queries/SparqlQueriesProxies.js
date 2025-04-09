@@ -6,10 +6,10 @@ export const proxyPropertiesInstancePage = `
   BIND (?id as ?uri__dataProviderUrl)
 
   {
-    GRAPH ?g { ?id skos:prefLabel ?prefLabel__id }
-    ?g skos:prefLabel ?datasource
-    BIND (CONCAT(?prefLabel__id, ' (in ', ?datasource, ')') as ?prefLabel__prefLabel)
-    BIND (CONCAT("/proxies/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+    ?id skos:prefLabel ?prefLabel
+  }
+  UNION  {
+    ?id skos:altLabel ?altLabel
   }
   UNION
   {
@@ -24,13 +24,6 @@ export const proxyPropertiesInstancePage = `
       BIND (CONCAT(?_label, ' (', ?_label2, ')') AS ?other__prefLabel)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?other__id), "^.*\\\\/(.+)", "$1")) AS ?other__dataProviderUrl)
     }
-  }
-  UNION
-  { 
-    ?id skos:altLabel ?altLabel__id 
-    BIND (?altLabel__id AS ?altLabel__prefLabel)
-    BIND (?altLabel__id AS ?altLabel__dataProviderUrl)
-    
   }
   UNION
   { 

@@ -198,6 +198,14 @@
           "label": "Alternative Names",
           "description": "Alternative names of the Person."
         },
+        "proxyPrefLabel": {
+          "label": "Preferred labels per proxy",
+          "description": "The preferred labels of the Person from all proxies."
+        },
+        "proxyAltLabel": {
+          "label": "Alternative labels per proxy",
+          "description": "The alternative labels of the Person from all proxies."
+        },
         "image": {
           "label": "Image",
           "description": "Image of the Person."
@@ -318,7 +326,7 @@
         },
         "altLabel": {
           "label": "Alternative Names",
-          "description": "Alternative names of the Person."
+          "description": "Alternative names of the Person in datasource"
         },
         "provided": {
           "label": "Provided",

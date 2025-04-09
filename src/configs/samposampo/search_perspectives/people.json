@@ -151,16 +151,29 @@
             "minWidth": 300
         },
         {
-            "id": "altLabel",
+            "id": "proxyPrefLabel",
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 300,
+            "minWidth": 150,
+            "onlyOnInstancePage": true,
             "showSource": true,
             "sourceExternalLink": false,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "proxyAltLabel",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
             "onlyOnInstancePage": true,
+            "showSource": true,
+            "sourceExternalLink": false,
             "expandedOnInstancePage": true
         },
         {

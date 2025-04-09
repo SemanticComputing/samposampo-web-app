@@ -59,12 +59,13 @@
     "properties": [
         {
             "id": "prefLabel",
-            "valueType": "object",
+            "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
-            "minWidth": 200
+            "minWidth": 200,
+            "expandedOnInstancePage": true
         },
         {
             "id": "provided",
@@ -74,6 +75,17 @@
             "sortValues": false,
             "numberedList": true,
             "minWidth": 220
+        },
+        {
+            "id": "altLabel",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 70,
+            "priority": 5,
+            "expandedOnInstancePage": true
         },
         {
             "id": "birth_Timespan",
