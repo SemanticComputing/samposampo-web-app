@@ -224,7 +224,7 @@
         },
         "namesake": {
           "label": "Namesakes",
-          "description": "People with similar names."
+          "description": "People with same or similar names."
         },
         "external": {
           "label": "External Datasources",
