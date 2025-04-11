@@ -2,7 +2,7 @@ export const fullTextSearchProperties = `
 VALUES (?type__id ?type__label ?pagetype)
 {
   (sampos:PersonProxy "Person" "/people")
-  (sampos:GroupProxy "Organization" "/groups")
+  (sampos:OrganizationProxy "Organization" "/groups")
   (sampos:PlaceProxy "Place" "/places")
 }
 
