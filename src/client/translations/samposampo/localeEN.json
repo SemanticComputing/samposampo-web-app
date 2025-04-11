@@ -179,6 +179,19 @@
     }
   },
   "perspectives": {
+      "fullTextSearch": {
+        "properties": {
+          "prefLabel": {
+            "label": "Label"
+          },
+          "type": {
+            "label": "Type"
+          },
+          "image": {
+            "label": "Image"
+          }
+        }
+      },
     "people": {
       "label": "People",
       "facetResultsType": "people",
@@ -235,12 +248,12 @@
           "description": "People with same or similar names."
         },
         "external": {
-          "label": "External Datasources",
-          "description": "External datasets containing information about the person."
+          "label": "Data sources",
+          "description": "Datasets containing information about the person."
         },
         "website": {
-          "label": "External Websites",
-          "description": "External websites containing information about the person."
+          "label": "Websites",
+          "description": "Websites containing information about the person."
         },
         "uri": {
           "label": "URI",
@@ -284,8 +297,8 @@
           "description": "Category of the group."
         },
         "external": {
-          "label": "External Datasources",
-          "description": "External datasets containing information about the person."
+          "label": "Data sources",
+          "description": "Datasets containing information about the person."
         },
         "other": {
           "label": "Other datasets",
@@ -301,7 +314,7 @@
         },
         "website": {
           "label": "External Websites",
-          "description": "External websites containing information about the person."
+          "description": "Websites containing information about the person."
         },
         "uri": {
           "label": "URI",
@@ -357,8 +370,8 @@
           "description": "Place of death."
         },
         "external": {
-          "label": "External Datasources",
-          "description": "External datasets containing information about the person."
+          "label": "Data sources",
+          "description": "Datasets containing information about the person."
         },
         "other": {
           "label": "Other datasets",
@@ -374,7 +387,7 @@
         },
         "website": {
           "label": "External Websites",
-          "description": "External websites containing information about the person."
+          "description": "Websites containing information about the person."
         },
         "uri": {
           "label": "URI",
@@ -442,16 +455,16 @@
           "description": "Place of death."
         },
         "external": {
-          "label": "External Datasources",
-          "description": "External datasets containing information about the person."
+          "label": "Data sources",
+          "description": "Datasets containing information about the person."
         },
         "similar": {
           "label": "Similar people",
           "description": "People linked to same entities."
         },
         "website": {
-          "label": "External Websites",
-          "description": "External websites containing information about the person."
+          "label": "Websites",
+          "description": "Websites containing information about the person."
         },
         "uri": {
           "label": "URI",

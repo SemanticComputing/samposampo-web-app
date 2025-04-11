@@ -1,0 +1,44 @@
+{
+    "id": "fullTextSearch",
+    "endpoint": {
+        "url": "https://ldf.fi/sampo/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesFullText.js",
+    "propertiesQueryBlock": "fullTextSearchProperties",
+    "hideCardOnFrontPage": true,
+    "hideTopPerspectiveButton": true,
+    "searchMode": "full-text-search",
+    "properties": [
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 500
+        },
+        {
+            "id": "type",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 160,
+            "makeLink": false,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "hideHeader": true,
+            "minWidth": 60
+        }
+    ]
+}

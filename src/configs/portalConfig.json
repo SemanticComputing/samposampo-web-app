@@ -8,7 +8,8 @@
             "places",
             "historical_events",
             "place_relations",
-            "wikipedia_extracts"
+            "wikipedia_extracts",
+            "fullTextSearch"
         ],
         "onlyInstancePages": [
             "proxies",
@@ -59,7 +60,7 @@
         "tableFontSize": "0.8rem",
         "topBar": {
             "logoImage": "",
-            "showSearchField": false,
+            "showSearchField": true,
             "logoTextTransform": "none",
             "hideLogoTextOnMobile": true,
             "showLanguageButton": true,
