@@ -247,12 +247,11 @@
             "facetType": "list",
             "filterType": "uriFilter",
             "predicate": "^foaf:focus/dce:source",
-            "literal": true,
             "hideUnknownValue": true,
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^foaf:focus/dce:source",
+            "sortByPredicate": "^foaf:focus/dce:source/skos:prefLabel",
             "sortDirection": "desc",
             "pieChartButton": true
         }
