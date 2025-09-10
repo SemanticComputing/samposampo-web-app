@@ -195,7 +195,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 120,
+            "minWidth": 100,
             "showSource": true,
             "sourceExternalLink": false,
             "expandedOnInstancePage": true
@@ -207,7 +207,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 80,
+            "minWidth": 150,
             "showSource": true,
             "sourceExternalLink": false,
             "expandedOnInstancePage": true
@@ -254,7 +254,7 @@
             "externalLink": true,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 80,
+            "minWidth": 150,
             "expandedOnInstancePage": true
         },
         {
@@ -264,7 +264,7 @@
             "externalLink": true,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 80,
+            "minWidth": 150,
             "expandedOnInstancePage": true
         }
     ],

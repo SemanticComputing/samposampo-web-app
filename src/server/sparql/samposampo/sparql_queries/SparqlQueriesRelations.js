@@ -11,12 +11,16 @@ export const placeRelationProperties = `
     }
     UNION
     {
-        ?id relations:personSubject/^owl:sameAs ?person__id .
+        ?id relations:personSubject ?p0 .
+        OPTIONAL { ?p0 ^owl:sameAs ?p1 }
+        BIND (COALESCE(?p1, ?p0) AS ?person__id)
         ?person__id skos:prefLabel ?person__prefLabel .
     }
     UNION
     {
-        ?id relations:placeObject/relations:nbf ?place__id .
+        ?id relations:placeObject ?g0 .
+        OPTIONAL { ?g0 relations:nbf ?g1 }
+        BIND (COALESCE(?g1, ?g0) AS ?place__id)
         ?place__id skos:prefLabel ?place__prefLabel .
     }
     UNION

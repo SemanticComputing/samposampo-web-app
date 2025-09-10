@@ -161,7 +161,7 @@
             "valueType": "object",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
             "minWidth": 300,
             "showSource": true,
@@ -273,6 +273,7 @@
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
         },
+
         "reference": {
             "containerClass": "ten",
             "facetType": "list",
@@ -280,6 +281,7 @@
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
+            "searchField": true,
             "pieChartButton": true,
             "sortByPredicate": "wlink:has_reference/wlink:references/skos:prefLabel"
         },

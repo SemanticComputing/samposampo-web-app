@@ -112,12 +112,12 @@
         "person": {
             "containerClass": "ten",
             "facetType": "list",
-            "predicate": "relations:personSubject/^owl:sameAs",
+            "predicate": "relations:personSubject/^owl:sameAs*",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "sortByPredicate": "relations:personSubject/^owl:sameAs/skos:prefLabel"
+            "sortByPredicate": "relations:personSubject/^owl:sameAs*/skos:prefLabel"
         },
         "title": {
             "containerClass": "ten",
@@ -131,14 +131,15 @@
         },
         "place": {
             "containerClass": "ten",
-            "predicate": "relations:placeObject/relations:nbf",
+            "predicate": "relations:placeObject/relations:nbf*",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
             "facetType": "hierarchical",
             "parentProperty": "skos:broader",
-            "sortByPredicate": "relations:placeObject/relations:nbf/skos:prefLabel"
+            "sortByPredicate": "relations:placeObject/relations:nbf*/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')"
         },
         "type": {
             "containerClass": "ten",
