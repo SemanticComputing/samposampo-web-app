@@ -13,7 +13,7 @@ export const placeProperties = `
     ?id ^foaf:focus ?proxy .
     ?proxy skos:prefLabel ?proxyPrefLabel__id, ?proxyPrefLabel__prefLabel .
     
-    ?proxy dce:source ?proxyPrefLabel__source__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?proxyPrefLabel__source__prefLabel .
     BIND(?proxy AS ?proxyPrefLabel__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
   }
@@ -21,7 +21,7 @@ export const placeProperties = `
     ?id ^foaf:focus ?proxy .
     ?proxy skos:altLabel ?proxyAltLabel__id, ?proxyAltLabel__prefLabel .
     
-    ?proxy dce:source ?proxyAltLabel__source__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?proxyAltLabel__source__prefLabel .
     BIND(?proxy AS ?proxyAltLabel__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
   }
@@ -34,7 +34,7 @@ export const placeProperties = `
     ?proxy wgs84:lat ?latitude__id, ?latitude__prefLabel ;
             wgs84:long ?longitude__id, ?longitude__prefLabel .
     
-    ?proxy dce:source ?latitude__source__prefLabel, ?longitude__source__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?latitude__source__prefLabel, ?longitude__source__prefLabel .
     BIND(?proxy AS ?latitude__source__id)
     BIND(?proxy AS ?longitude__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?latitude__source__dataProviderUrl)
@@ -51,7 +51,8 @@ export const placeProperties = `
     BIND(CONCAT("/people/page/", REPLACE(STR(?peopleDeath__id), "^.*\\\\/(.+)", "$1")) AS ?peopleDeath__dataProviderUrl)
   }
   UNION {
-    ?id ^foaf:focus/dce:source ?source .
+    ?id ^foaf:focus/dce:source ?source__id .
+    ?source__id skos:prefLabel ?source__prefLabel .
   }
 `
 
