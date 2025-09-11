@@ -110,26 +110,6 @@
             "sourceExternalLink": false
         },
         {
-            "id": "sampledLatitude",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 150,
-            "disableSort": true
-        },
-        {
-            "id": "sampledLongitude",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 150,
-            "disableSort": true
-        },
-        {
             "id": "latitude",
             "valueType": "object",
             "makeLink": false,
@@ -152,6 +132,26 @@
             "onlyOnInstancePage": true,
             "showSource": true,
             "sourceExternalLink": false
+        },
+        {
+            "id": "sampledLatitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "disableSort": true
+        },
+        {
+            "id": "sampledLongitude",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150,
+            "disableSort": true
         },
         {
             "id": "peopleBirth",
