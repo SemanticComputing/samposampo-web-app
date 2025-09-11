@@ -10,17 +10,25 @@ export const placeRelationProperties = `
         BIND(?id as ?uri__prefLabel)
     }
     UNION
-    {
-        ?id relations:personSubject ?p0 .
-        OPTIONAL { ?p0 ^owl:sameAs ?p1 }
-        BIND (COALESCE(?p1, ?p0) AS ?person__id)
+    { # New model, link to Provided person
+        ?id relations:personSubject ?person__id .
+        ?person__id skos:prefLabel ?person__prefLabel ; a sch:Person .
+        BIND (CONCAT("/people/page/", REPLACE(STR(?person__id), "^.*\\\\/(.+)", "$1")) AS ?person__dataProviderUrl)
+    }
+    UNION
+    { # Earlier model
+        ?id relations:personSubject/^owl:sameAs ?person__id .
         ?person__id skos:prefLabel ?person__prefLabel .
     }
     UNION
-    {
-        ?id relations:placeObject ?g0 .
-        OPTIONAL { ?g0 relations:nbf ?g1 }
-        BIND (COALESCE(?g1, ?g0) AS ?place__id)
+    { # New model
+        ?id relations:placeObject ?place__id .
+        ?place__id skos:prefLabel ?place__prefLabel .
+        BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
+
+    }
+    { # Earlier model
+        ?id relations:placeObject/relations:nbf ?place__id .
         ?place__id skos:prefLabel ?place__prefLabel .
     }
     UNION
