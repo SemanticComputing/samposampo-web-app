@@ -258,6 +258,10 @@
         "uri": {
           "label": "URI",
           "description": "Uniform Resource Identifier"
+        },
+        "pagelinks":{
+          "label": "Number of datasets",
+          "description": "Number of datasets containing information about a person."
         }
       }
     },
@@ -652,6 +656,10 @@
         "datasource": {
           "label": "Data source",
           "description": "The database from where these relations are extracted."
+        },
+        "person_datasource": {
+          "label": "Data source of the person",
+          "description": "The databases containing information about the people."
         }
       }
     }

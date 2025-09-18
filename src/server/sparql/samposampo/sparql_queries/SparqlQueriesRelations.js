@@ -16,7 +16,7 @@ export const placeRelationProperties = `
         BIND (CONCAT("/people/page/", REPLACE(STR(?person__id), "^.*\\\\/(.+)", "$1")) AS ?person__dataProviderUrl)
     }
     UNION
-    { # Earlier model
+    { # Earlier model, delete when updated
         ?id relations:personSubject/^owl:sameAs ?person__id .
         ?person__id skos:prefLabel ?person__prefLabel .
     }
@@ -24,6 +24,7 @@ export const placeRelationProperties = `
     { # New model
         ?id relations:placeObject ?place__id .
         ?place__id skos:prefLabel ?place__prefLabel .
+        FILTER (LANG(?place__prefLabel) = "fi")
         BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
 
     }
@@ -40,5 +41,10 @@ export const placeRelationProperties = `
     {
         ?id relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title ?title__id .
         ?title__id skos:prefLabel ?title__prefLabel .
+    }
+    UNION
+    {
+        ?id dct:source ?datasource__id .
+        ?datasource__id skos:prefLabel ?datasource__prefLabel .
     }
 `

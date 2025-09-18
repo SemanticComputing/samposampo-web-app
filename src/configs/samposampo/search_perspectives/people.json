@@ -269,9 +269,6 @@
         }
     ],
     "facets": {
-        "pagelinks": {
-            "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; sampos:pagelinks ?orderBy } }"
-        },
         "prefLabel": {
             "containerClass": "one",
             "facetType": "text",
@@ -346,6 +343,16 @@
             "sortDirection": "desc",
             "pieChartButton": true,
             "sortByPredicate": "sampos:in_dataset/skos:prefLabel"
+        },
+        "pagelinks": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "predicate": "sampos:pagelinks",
+            "filterType": "integerFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": false,
+            "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; sampos:pagelinks ?orderBy } }"
         }
     }
 }

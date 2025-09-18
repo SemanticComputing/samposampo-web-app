@@ -106,6 +106,15 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 300
+        } ,
+        {
+            "id": "datasource",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200
         }
     ],
     "facets": {
@@ -160,6 +169,16 @@
             "sortDirection": "desc",
             "pieChartButton": true,
             "sortByPredicate": "dct:source/skos:prefLabel"
+        },
+        "person_datasource": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "relations:personSubject/sampos:in_dataset",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "relations:personSubject/sampos:in_dataset/skos:prefLabel"
         }
     }
 }

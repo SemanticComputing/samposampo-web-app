@@ -14,14 +14,14 @@ export const prefixes = `
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
   PREFIX sch: <https://schema.org/>
-  PREFIX spatial: <http://jena.apache.org/spatial#> 
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+  PREFIX spatial: <http://jena.apache.org/spatial#>
   PREFIX text: <http://jena.apache.org/text#>
   PREFIX time: <http://www.w3.org/2006/time#>
   PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>
-  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
   PREFIX wlink: <http://ldf.fi/sampo/wikipedia/>
-
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+ 
   PREFIX bioc: <http://ldf.fi/schema/bioc/>
   PREFIX nbf: <http://ldf.fi/nbf/>
   PREFIX sampos: <http://ldf.fi/schema/sampo/>
