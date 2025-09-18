@@ -648,6 +648,10 @@
         "type": {
           "label": "Relation type",
           "description": ""
+        },
+        "datasource": {
+          "label": "Data source",
+          "description": "The database from where these relations are extracted."
         }
       }
     }

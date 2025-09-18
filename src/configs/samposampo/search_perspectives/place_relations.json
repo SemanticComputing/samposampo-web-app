@@ -150,6 +150,16 @@
             "sortDirection": "desc",
             "pieChartButton": true,
             "sortByPredicate": "relations:relationType/skos:prefLabel"
+        },
+        "datasource": {
+            "containerClass": "six",
+            "facetType": "list",
+            "predicate": "dct:source",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "dct:source/skos:prefLabel"
         }
     }
 }
