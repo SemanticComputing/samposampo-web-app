@@ -660,6 +660,10 @@
         "person_datasource": {
           "label": "Data source of the person",
           "description": "The databases containing information about the people."
+        },
+        "additionalSource": {
+          "label": "Additional source(s)",
+          "description": "Additional sources for the relation. For AI-generated relations, these are the sources provided by the model for its generated relation."
         }
       }
     }

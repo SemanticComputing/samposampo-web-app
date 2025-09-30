@@ -47,4 +47,10 @@ export const placeRelationProperties = `
         ?id dct:source ?datasource__id .
         ?datasource__id skos:prefLabel ?datasource__prefLabel .
     }
+    UNION
+    {
+        ?id relations:gptSource ?additionalSource__id .
+        ?additionalSource__id relations:sourceName ?additionalSource__prefLabel .
+        ?additionalSource__id relations:sourceLink ?additionalSource__dataProviderUrl .
+    }
 `
