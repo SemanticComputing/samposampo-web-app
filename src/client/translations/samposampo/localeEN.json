@@ -262,6 +262,10 @@
         "pagelinks":{
           "label": "Number of datasets",
           "description": "Number of datasets containing information about a person."
+        },
+        "inconsistencies":{
+          "label": "Inconsistencies",
+          "description": "Inconsistencies in biographical data between different data sources."
         }
       }
     },

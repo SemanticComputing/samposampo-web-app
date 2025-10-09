@@ -353,6 +353,16 @@
             "sortDirection": "desc",
             "pieChartButton": false,
             "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; sampos:pagelinks ?orderBy } }"
+        },
+        "inconsistencies": {
+            "containerClass": "five",
+            "facetType": "list",
+            "predicate": "sampos:has_inconsistency",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "sampos:has_inconsistency/skos:prefLabel"
         }
     }
 }
