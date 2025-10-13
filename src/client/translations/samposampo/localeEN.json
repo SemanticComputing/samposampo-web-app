@@ -542,6 +542,10 @@
         "source": {
           "label": "Data sources",
           "description": "The data sources of the Place"
+        },
+        "inconsistencies":{
+          "label": "Inconsistencies",
+          "description": "Inconsistencies in place data between different data sources."
         }
       }
     },
