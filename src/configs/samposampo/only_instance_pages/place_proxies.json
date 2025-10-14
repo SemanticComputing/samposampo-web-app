@@ -92,7 +92,7 @@
         },
         {
             "id": "source",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": false,

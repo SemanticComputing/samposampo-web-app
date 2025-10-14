@@ -3,8 +3,9 @@ const perspectiveID = 'place_proxies'
 export const placeProxyProperties = `
   {
     ?id skos:prefLabel ?prefLabel__id .
-    ?id dce:source ?source .
-    BIND(CONCAT(?prefLabel__id, ' (in ', ?source, ')') as ?prefLabel__prefLabel)
+    ?id dce:source ?source__id .
+    ?source__id skos:prefLabel ?source__prefLabel .
+    BIND(CONCAT(?prefLabel__id, ' (in ', ?source__prefLabel, ')') as ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
