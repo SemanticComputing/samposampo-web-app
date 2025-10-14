@@ -31,14 +31,31 @@ export const placeProperties = `
   }
   UNION {
     ?id ^foaf:focus ?proxy .
-    ?proxy wgs84:lat ?latitude__id, ?latitude__prefLabel ;
-            wgs84:long ?longitude__id, ?longitude__prefLabel .
-    
-    ?proxy dce:source/skos:prefLabel ?latitude__source__prefLabel, ?longitude__source__prefLabel .
+    ?proxy wgs84:lat ?latitude__id, ?latitude__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?latitude__source__prefLabel .
     BIND(?proxy AS ?latitude__source__id)
-    BIND(?proxy AS ?longitude__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?latitude__source__dataProviderUrl)
+
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy wgs84:lat ?latitude__id .
+      }
+      BIND("red" as ?latitude__color)
+    }
+  }
+  UNION {
+    ?id ^foaf:focus ?proxy .
+    ?proxy wgs84:long ?longitude__id, ?longitude__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?longitude__source__prefLabel .
+    BIND(?proxy AS ?longitude__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?longitude__source__dataProviderUrl)
+
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy wgs84:long ?longitude__id .
+      }
+      BIND("red" as ?longitude__color)
+    }
   }
   UNION {
     ?id ^sch:birthPlace/foaf:focus ?peopleBirth__id .
