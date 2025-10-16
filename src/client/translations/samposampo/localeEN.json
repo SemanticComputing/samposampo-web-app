@@ -78,11 +78,14 @@
   "tabs": {
     "table": "table",
     "map": "map",
+    "csv": "csv",
+    "sparql": "sparql",
     "production_places": "production places",
     "production_places_heatmap": "production heatmap",
     "last_known_locations": "last known locations",
     "lifeyears": "Years of Living",
     "migrations": "migrations",
+
     "network": "network",
     "export": "export",
     "production_dates": "production dates",

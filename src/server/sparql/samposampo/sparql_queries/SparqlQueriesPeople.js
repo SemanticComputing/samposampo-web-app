@@ -211,6 +211,50 @@ export const personPropertiesInstancePage = `
   }
 `
 
+export const csvQueryPeople = `
+SELECT DISTINCT ?id ?name ?gender 
+(GROUP_CONCAT(DISTINCT STR(?_btime); separator=";") AS ?birth_time)
+(GROUP_CONCAT(DISTINCT STR(?_bplace); separator=";") AS ?birth_place)
+
+(GROUP_CONCAT(DISTINCT STR(?_dtime); separator=";") AS ?death_time)
+(GROUP_CONCAT(DISTINCT STR(?_dplace); separator=";") AS ?death_place)
+
+(GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources)
+(GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages)
+
+WHERE {
+  
+  <FILTER> 
+  FILTER(BOUND(?id))
+  ?id a sch:Person ; skos:prefLabel ?name .
+	
+  ?proxy foaf:focus ?id ;
+  	sampos:birth_time/skos:prefLabel ?_btime ;
+  	sampos:death_time/skos:prefLabel ?_dtime .
+  
+  OPTIONAL {
+    ?id sch:gender/skos:prefLabel ?gender .
+    FILTER (LANG(?gender)='en')
+  }
+  
+  OPTIONAL {
+    ?id (^foaf:focus)/sch:birthPlace/skos:prefLabel ?_bplace
+    FILTER (LANG(?_bplace)='en')
+  }
+  
+  OPTIONAL {
+    ?id (^foaf:focus)/sch:deathPlace/skos:prefLabel ?_dplace
+    FILTER (LANG(?_dplace)='en')
+  }
+  
+  OPTIONAL { ?id (^foaf:focus)/owl:sameAs ?_datasource }
+  OPTIONAL { ?id (^foaf:focus)/foaf:page ?_webpage }
+  OPTIONAL { ?id sampos:pagelinks ?_pagelinks }
+} 
+GROUP BY ?id ?name ?gender
+ORDER BY DESC(COALESCE(?_pagelinks, 0)) ?name 
+`
+
 export const peopleMapQuery = `
 SELECT DISTINCT ?id ?lat ?long 
 (COUNT(DISTINCT ?person) AS ?instanceCount)

@@ -119,6 +119,23 @@
         "peopleMigrationsDialog": {
             "sparqlQuery": "peopleMigrationsDialogQuery",
             "filterTarget": "id"
+        },
+        "csvActors": {
+            "tabID": 4,
+            "component": "ExportCSV",
+            "tabPath": "csv",
+            "tabIcon": "CloudDownload",
+            "facetClass": "people",
+            "sparqlQuery": "csvQueryPeople",
+            "filterTarget": "id"
+        },
+        "export": {
+            "tabID": 5,
+            "component": "Export",
+            "tabPath": "sparql",
+            "tabIcon": "ArrowForward",
+            "resultClass": "perspective1",
+            "facetClass": "perspective1"
         }
     },
     "properties": [
