@@ -100,6 +100,13 @@ export const personPropertiesInstancePage = `
       ?g skos:prefLabel ?gender__source__prefLabel .
       BIND (?proxy AS ?gender__source__id)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__source__dataProviderUrl)
+    
+      OPTIONAL {
+        GRAPH <http://ldf.fi/sampo/inconsistencies> {
+          ?proxy sch:gender ?gender__id
+        }
+        BIND("red" as ?gender__color)
+      }
     }
     UNION 
     {
@@ -129,6 +136,13 @@ export const personPropertiesInstancePage = `
       ?g skos:prefLabel ?birth_Timespan__source__prefLabel .
       BIND (?proxy AS ?birth_Timespan__source__id)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_Timespan__source__dataProviderUrl)
+
+      OPTIONAL {
+        GRAPH <http://ldf.fi/sampo/inconsistencies> {
+          ?proxy sampos:birth_time ?birth_Timespan__id
+        }
+        BIND("red" as ?birth_Timespan__color)
+      }
     }
     UNION
     {
@@ -139,6 +153,13 @@ export const personPropertiesInstancePage = `
       ?g skos:prefLabel ?birth_place__source__prefLabel .
       BIND (?proxy AS ?birth_place__source__id)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_place__source__dataProviderUrl)
+
+      OPTIONAL {
+        GRAPH <http://ldf.fi/sampo/inconsistencies> {
+          ?proxy sch:birthPlace ?birth_place__id
+        }
+        BIND("red" as ?birth_place__color)
+      }
     }
     UNION
     {
@@ -150,6 +171,13 @@ export const personPropertiesInstancePage = `
       ?g skos:prefLabel ?death_Timespan__source__prefLabel .
       BIND (?proxy AS ?death_Timespan__source__id)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_Timespan__source__dataProviderUrl)
+
+      OPTIONAL {
+        GRAPH <http://ldf.fi/sampo/inconsistencies> {
+          ?proxy sampos:death_time ?death_Timespan__id
+        }
+        BIND("red" as ?death_Timespan__color)
+      }
     }
     UNION
     {
@@ -160,6 +188,13 @@ export const personPropertiesInstancePage = `
       ?g skos:prefLabel ?death_place__source__prefLabel .
       BIND (?proxy AS ?death_place__source__id)
       BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_place__source__dataProviderUrl)
+
+      OPTIONAL {
+        GRAPH <http://ldf.fi/sampo/inconsistencies> {
+          ?proxy sch:deathPlace ?death_place__id
+        }
+        BIND("red" as ?death_place__color)
+      }
     }
     UNION
     {

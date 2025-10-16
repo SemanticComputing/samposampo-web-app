@@ -355,7 +355,7 @@
             "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; sampos:pagelinks ?orderBy } }"
         },
         "inconsistencies": {
-            "containerClass": "five",
+            "containerClass": "six",
             "facetType": "list",
             "predicate": "sampos:has_inconsistency",
             "filterType": "uriFilter",
