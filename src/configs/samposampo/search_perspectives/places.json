@@ -37,6 +37,22 @@
                         "component": "InstancePageTable",
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
+                    },
+                    "proxyLocations": {
+                        "tabID": 1,
+                        "pageType": "instancePage",
+                        "component": "LeafletMap",
+                        "tabPath": "map",
+                        "tabIcon": "AddLocation",
+                        "sparqlQuery": "proxiesMapQuery",
+                        "facetClass": "places",
+                        "filterTarget": "place",
+                        "resultMapper": "mapInstancePagePlaces",
+                        "instanceConfig": {
+                            "createPopUpContent": "createPopUpContentLetterSampo"
+                        },
+                        "showExternalLayers": false,
+                        "showInstanceCountInClusters": false
                     }
                 }
             }
@@ -59,6 +75,13 @@
     },
     "maps": {
         "placesLocations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
+        },
+        "proxyLocations": {
             "center": [
                 65.0,
                 22.5

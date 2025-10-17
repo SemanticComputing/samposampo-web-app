@@ -26,6 +26,20 @@ export const mapPlaces = sparqlBindings => {
   return results
 }
 
+export const mapInstancePagePlaces = sparqlBindings => {
+  const results = sparqlBindings.map(b => {
+    return {
+      id: b.id.value,
+      lat: b.lat.value,
+      long: b.long.value,
+      prefLabel: { prefLabel: b.prefLabel.value, dataProviderUrl: b.dataProviderUrl.value },
+      markerColor: b.markerColor ? b.markerColor.value : ''
+    }
+  })
+  return results
+}
+
+
 export const mapCoordinates = sparqlBindings => {
   const results = sparqlBindings.map(b => {
     return {

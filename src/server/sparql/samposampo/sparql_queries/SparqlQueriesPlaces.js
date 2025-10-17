@@ -106,3 +106,36 @@ export const peopleRelatedTo = `
     BIND (CONCAT("/people/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
   }
 `
+
+export const proxiesMapQuery = `
+  SELECT DISTINCT ?id ?lat ?long ?prefLabel ?dataProviderUrl ?markerColor
+  WHERE {
+    VALUES ?place { <ID> }
+    ?place a sch:Place .
+    ?id foaf:focus ?place .
+    ?id skos:prefLabel ?proxy_pref_fi .
+    FILTER(LANG(?proxy_pref_fi) = 'fi')
+    ?id skos:prefLabel ?proxy_pref_other .
+    BIND(COALESCE(?proxy_pref_fi, ?proxy_pref_other) as ?proxy_pref)
+    ?id dce:source/skos:prefLabel ?source_pref .
+    ?id wgs84:lat ?lat ; 
+      wgs84:long ?long .
+    
+    BIND(CONCAT(?proxy_pref, ' (in ', ?source_pref, ')') as ?prefLabel)
+    BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?id wgs84:long ?long .
+      }
+      BIND("red" as ?markerColor)
+    }
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?id wgs84:lat ?lat .
+      }
+      BIND("red" as ?markerColor)
+    }
+  }
+  GROUP BY ?id ?lat ?long ?prefLabel ?dataProviderUrl ?markerColor
+`
