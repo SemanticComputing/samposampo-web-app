@@ -298,6 +298,34 @@ export const peopleRelatedTo = `
   }
 `
 
+export const proxiesMapQuery = `
+SELECT DISTINCT ?id ?lat ?long 
+  (CONCAT(?popup_text, ?place_label, ' (', GROUP_CONCAT(DISTINCT ?dataset; separator=', '), ')') as ?prefLabel)
+  ?dataProviderUrl ?markerColor
+WHERE {
+  VALUES ?person { <ID> }
+  ?person a sch:Person .
+  ?proxy foaf:focus ?person .
+  
+  VALUES (?prop ?markerColor ?popup_text) {
+    (sch:deathPlace "red" "Death: ")
+    (sch:birthPlace "blue" "Birth: ")
+  }
+  
+  GRAPH ?g { ?proxy ?prop ?id }
+  ?g skos:prefLabel ?dataset .
+
+  ?id wgs84:lat ?lat ;
+    wgs84:long ?long ;
+    skos:prefLabel ?place_label .
+  
+  FILTER (LANG(?place_label) = 'fi')
+
+  BIND(CONCAT("/places/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+}
+GROUP BY ?id ?lat ?long ?dataProviderUrl ?markerColor ?place_label ?popup_text
+`
+
 export const ageQuery = ` SELECT ?category (count(DISTINCT ?born) AS ?Births) (count(DISTINCT ?deceased) AS ?Deaths)
 WHERE {
   

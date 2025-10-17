@@ -29,6 +29,13 @@
                 22.5
             ],
             "zoom": 4
+        },
+        "proxyLocations": {
+            "center": [
+                65.0,
+                22.5
+            ],
+            "zoom": 4
         }
     },
     "defaultTab": "table",
@@ -53,6 +60,22 @@
                         "component": "InstancePageTable",
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
+                    },
+                    "proxyLocations": {
+                        "tabID": 1,
+                        "pageType": "instancePage",
+                        "component": "LeafletMap",
+                        "tabPath": "map",
+                        "tabIcon": "AddLocation",
+                        "sparqlQuery": "proxiesMapQuery",
+                        "facetClass": "people",
+                        "filterTarget": "person",
+                        "resultMapper": "mapInstancePagePlaces",
+                        "instanceConfig": {
+                            "createPopUpContent": "createPopUpContentLetterSampo"
+                        },
+                        "showExternalLayers": false,
+                        "showInstanceCountInClusters": false
                     }
                 }
             }
