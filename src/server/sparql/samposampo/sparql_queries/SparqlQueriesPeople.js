@@ -211,6 +211,98 @@ export const personPropertiesInstancePage = `
   }
 `
 
+export const peopleByGenderQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  OPTIONAL { ?person__id sch:gender ?_category .
+  	?_category skos:prefLabel ?_label .
+  	FILTER (LANG(?_label)='en')
+  }
+  BIND (COALESCE(?_label, "Unknown") AS ?prefLabel)
+  BIND (COALESCE(?_category, sch:Unknown) AS ?category)
+} 
+GROUPBY ?category ?prefLabel 
+ORDERBY DESC(?instanceCount)
+`
+
+export const peopleByBirthPlaceQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  ?person__id (^foaf:focus)/sch:birthPlace ?category .
+  ?category skos:prefLabel ?prefLabel .
+  FILTER (LANG(?prefLabel)='fi')
+} 
+GROUPBY ?category ?prefLabel 
+ORDERBY DESC(?instanceCount)
+LIMIT 30
+`
+
+export const peopleByDeathPlaceQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  ?person__id (^foaf:focus)/sch:deathPlace ?category .
+  ?category skos:prefLabel ?prefLabel .
+  FILTER (LANG(?prefLabel)='fi')
+} 
+GROUPBY ?category ?prefLabel 
+ORDERBY DESC(?instanceCount)
+LIMIT 30
+`
+
+export const peopleByDatasourcesQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  ?person__id sampos:in_dataset ?category .
+  ?category skos:prefLabel ?prefLabel
+} 
+GROUPBY ?category ?prefLabel 
+ORDERBY DESC(?instanceCount)
+`
+
+export const peopleByNumberOfDatasourcesQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  ?person__id sampos:pagelinks ?category .
+  BIND (str(?category) AS ?prefLabel)
+}
+GROUPBY ?category ?prefLabel
+ORDERBY ?category
+`
+
+export const peopleByInconsistenciesQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  ?person__id sampos:has_inconsistency ?category .
+  ?category skos:prefLabel ?prefLabel
+}
+GROUPBY ?category ?prefLabel
+ORDERBY ?category
+`
+
 export const csvQueryPeople = `
 SELECT DISTINCT ?id ?name ?gender 
 (GROUP_CONCAT(DISTINCT STR(?_btime); separator=";") AS ?birth_time)

@@ -80,19 +80,125 @@
                 }
             }
         },
-        "placesActors": {
+        "peopleCharts": {
             "tabID": 1,
-            "component": "LeafletMap",
-            "tabPath": "map",
-            "tabIcon": "AddLocation",
-            "sparqlQuery": "peopleMapQuery",
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "charts",
+            "tabIcon": "PieChart",
             "facetClass": "people",
-            "filterTarget": "person",
-            "resultMapper": "mapPlaces",
-            "instanceConfig": {
-                "propertiesQueryBlock": "placePropertiesInfoWindow",
-                "relatedInstances": "peopleRelatedTo",
-                "createPopUpContent": "createPopUpContentLetterSampo"
+            "dropdownForResultClasses": true,
+            "sortBy": null,
+            "defaultResultClass": "peopleByBirthPlace",
+            "resultClasses": {
+                "peopleByGender": {
+                    "sparqlQuery": "peopleByGenderQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "peopleByBirthPlace": {
+                    "sparqlQuery": "peopleByBirthPlaceQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "peopleByDeathPlace": {
+                    "sparqlQuery": "peopleByDeathPlaceQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "peopleByDatasources": {
+                    "sparqlQuery": "peopleByDatasourcesQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "peopleByNumberOfDatasources": {
+                    "sparqlQuery": "peopleByNumberOfDatasourcesQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "peopleByInconsistencies": {
+                    "sparqlQuery": "peopleByInconsistenciesQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                }
             }
         },
         "personAges": {
@@ -118,8 +224,23 @@
                 "fillEmptyValues": true
             }
         },
-        "peopleMigrations": {
+        "placesActors": {
             "tabID": 3,
+            "component": "LeafletMap",
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "sparqlQuery": "peopleMapQuery",
+            "facetClass": "people",
+            "filterTarget": "person",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "peopleRelatedTo",
+                "createPopUpContent": "createPopUpContentLetterSampo"
+            }
+        },
+        "peopleMigrations": {
+            "tabID": 4,
             "component": "Deck",
             "tabPath": "migrations",
             "tabIcon": "Redo",
@@ -144,7 +265,7 @@
             "filterTarget": "id"
         },
         "csvActors": {
-            "tabID": 4,
+            "tabID": 5,
             "component": "ExportCSV",
             "tabPath": "csv",
             "tabIcon": "CloudDownload",
@@ -153,7 +274,7 @@
             "filterTarget": "id"
         },
         "export": {
-            "tabID": 5,
+            "tabID": 6,
             "component": "Export",
             "tabPath": "sparql",
             "tabIcon": "ArrowForward",
