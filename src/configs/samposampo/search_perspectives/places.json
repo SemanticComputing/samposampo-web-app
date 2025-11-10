@@ -30,7 +30,7 @@
                 "sortDirection": null
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "placeProperties",
+                "propertiesQueryBlock": "placeInstancePageProperties",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
