@@ -14,8 +14,16 @@ export const placeProperties = `
         wgs84:long ?sampledLongitude .
   }
   UNION {
-    ?id ^foaf:focus/dce:source ?source__id .
-    ?source__id skos:prefLabel ?source__prefLabel .
+    ?id ^foaf:focus ?proxy .
+    ?proxy owl:sameAs ?source__id .
+    BIND(?source__id as ?source__dataProviderUrl)
+    ?proxy dce:source/skos:prefLabel ?source__prefLabel .
+  }
+  UNION {
+    ?id ^foaf:focus ?proxy .
+    ?proxy foaf:page ?website__id .
+    BIND(?website__id as ?website__dataProviderUrl)
+    ?proxy dce:source/skos:prefLabel ?website__prefLabel .
   }
 `
 
@@ -81,14 +89,22 @@ export const placeInstancePageProperties = `
     ?peopleBirth__id skos:prefLabel ?peopleBirth__prefLabel .
     BIND(CONCAT("/people/page/", REPLACE(STR(?peopleBirth__id), "^.*\\\\/(.+)", "$1")) AS ?peopleBirth__dataProviderUrl)
   }
-    UNION {
+  UNION {
     ?id ^sch:deathPlace/foaf:focus ?peopleDeath__id .
     ?peopleDeath__id skos:prefLabel ?peopleDeath__prefLabel .
     BIND(CONCAT("/people/page/", REPLACE(STR(?peopleDeath__id), "^.*\\\\/(.+)", "$1")) AS ?peopleDeath__dataProviderUrl)
   }
   UNION {
-    ?id ^foaf:focus/dce:source ?source__id .
-    ?source__id skos:prefLabel ?source__prefLabel .
+    ?id ^foaf:focus ?proxy .
+    ?proxy owl:sameAs ?source__id .
+    BIND(?source__id as ?source__dataProviderUrl)
+    ?proxy dce:source/skos:prefLabel ?source__prefLabel .
+  }
+  UNION {
+    ?id ^foaf:focus ?proxy .
+    ?proxy foaf:page ?website__id .
+    BIND(?website__id as ?website__dataProviderUrl)
+    ?proxy dce:source/skos:prefLabel ?website__prefLabel .
   }
 `
 

@@ -199,10 +199,20 @@
             "expandedOnInstancePage": true
         },
         {
+            "id": "website",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "source",
             "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
+            "makeLink": true,
+            "externalLink": true,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 250,

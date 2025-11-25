@@ -557,6 +557,10 @@
           "label": "Related to person (death place)",
           "description": "People with the Place as their place of death"
         },
+        "website": {
+          "label": "Websites",
+          "description": "Websites containing information about the Place."
+        },
         "source": {
           "label": "Datasources",
           "description": "The datasources of the Place"
