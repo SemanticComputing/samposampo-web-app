@@ -199,6 +199,17 @@
             "expandedOnInstancePage": true
         },
         {
+            "id": "relation",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "website",
             "valueType": "object",
             "makeLink": true,

@@ -95,6 +95,11 @@ export const placeInstancePageProperties = `
     BIND(CONCAT("/people/page/", REPLACE(STR(?peopleDeath__id), "^.*\\\\/(.+)", "$1")) AS ?peopleDeath__dataProviderUrl)
   }
   UNION {
+    ?id ^relations:placeObject ?relation__id .
+    ?relation__id skos:prefLabel ?relation__prefLabel .
+    BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) AS ?relation__dataProviderUrl)
+  }
+  UNION {
     ?id ^foaf:focus ?proxy .
     ?proxy owl:sameAs ?source__id .
     BIND(?source__id as ?source__dataProviderUrl)
