@@ -98,7 +98,8 @@
     "emloSentReceived": "Sent and received letters",
     "download": "download",
     "recommendations": "recommendations",
-    "share": "share"
+    "share": "share",
+    "wikipedia_extract": "Wikipedia Extracts"
   },
   "table": {
     "rowsPerPage": "Rows per page",
@@ -268,6 +269,22 @@
         "external": {
           "label": "Datasources",
           "description": "Datasets containing information about the person."
+        },
+        "sentence": {
+          "label": "Sentence",
+          "description": "Sentences extracted from Wikipedia descriptions."
+        },
+        "reference": {
+          "label": "Reference",
+          "description": "References extracted from Wikipedia descriptions."
+        },
+        "referenced_by": {
+          "label": "Referenced by",
+          "description": "Referenced by another Wikipedia page."
+        },
+        "similar": {
+          "label": "Similar people",
+          "description": "People linked to same entities."
         },
         "website": {
           "label": "Websites",

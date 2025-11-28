@@ -61,8 +61,101 @@
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
                     },
+                "wikipedia": {
+                            "tabID": 1,
+                            "component": "InstancePageTable",
+                            "tabPath": "wikipedia_extract",
+                            "tabIcon": "MenuBook",
+                            "fetchResultsWhenMounted": true,
+                            "sparqlQuery": "wikipediaInstancePageQuery",
+                            "properties": [
+                            {
+                                "id": "image",
+                                "valueType": "image",
+                                "previewImageHeight": 160,
+                                "makeLink": false,
+                                "externalLink": true,
+                                "sortValues": true,
+                                "numberedList": false,
+                                "hideHeader": true
+                            },
+                            {
+                                "id": "uri",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": true,
+                                "sortValues": true,
+                                "numberedList": false,
+                                "onlyOnInstancePage": true
+                            },
+                            {
+                                "id": "prefLabel",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": false,
+                                "sortValues": true,
+                                "numberedList": false,
+                                "minWidth": 300
+                            },
+                            {
+                                "id": "website",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": true,
+                                "sortValues": true,
+                                "numberedList": false,
+                                "minWidth": 150,
+                                "expandedOnInstancePage": true
+                            },
+                            {
+                                "id": "sentence",
+                                "valueType": "object",
+                                "makeLink": false,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": false,
+                                "minWidth": 300,
+                                "showSource": true,
+                                "sourceExternalLink": false,
+                                "expandedOnInstancePage": true
+                            },
+                            {
+                                "id": "reference",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": false,
+                                "sortValues": true,
+                                "numberedList": true,
+                                "minWidth": 300,
+                                "onlyOnInstancePage": true,
+                                "expandedOnInstancePage": true
+                            },
+                            {
+                                "id": "referenced_by",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": false,
+                                "sortValues": true,
+                                "numberedList": true,
+                                "minWidth": 300,
+                                "onlyOnInstancePage": true,
+                                "expandedOnInstancePage": true
+                            },
+                            {
+                                "id": "similar",
+                                "valueType": "object",
+                                "makeLink": true,
+                                "externalLink": false,
+                                "sortValues": false,
+                                "numberedList": true,
+                                "minWidth": 300,
+                                "onlyOnInstancePage": true,
+                                "expandedOnInstancePage": true
+                            }
+                        ]
+                    },
                     "proxyLocations": {
-                        "tabID": 1,
+                        "tabID": 2,
                         "pageType": "instancePage",
                         "component": "LeafletMap",
                         "tabPath": "map",
@@ -265,7 +358,7 @@
             "filterTarget": "id"
         },
         "csvActors": {
-            "tabID": 5,
+            "tabID": 6,
             "component": "ExportCSV",
             "tabPath": "csv",
             "tabIcon": "CloudDownload",
@@ -274,7 +367,7 @@
             "filterTarget": "id"
         },
         "export": {
-            "tabID": 6,
+            "tabID": 7,
             "component": "Export",
             "tabPath": "sparql",
             "tabIcon": "ArrowForward",
@@ -282,7 +375,7 @@
             "facetClass": "perspective1"
         },
         "share": {
-            "tabID": 7,
+            "tabID": 8,
             "component": "ExportLink",
             "tabPath": "share",
             "tabIcon": "IosShare",

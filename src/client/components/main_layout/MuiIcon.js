@@ -16,6 +16,7 @@ import {
   OndemandVideo,
   KeyboardVoice,
   Autorenew,
+  MenuBook,
   Add,
   PlayArrow,
   MailOutline,
@@ -29,30 +30,31 @@ import has from 'lodash'
 
 const MuiIcon = props => {
   const MuiIcons = {
+    Add: Add,
+    AddLocation: AddLocation,
+    ArrowForward: ArrowForward,
+    Autorenew: Autorenew,
+    BubbleChart: BubbleChart,
     CalendarViewDay: CalendarViewDay,
     CalendarToday: CalendarToday,
+    ClearAll: ClearAll,
+    CloudDownload: CloudDownload,
     TripOrigin: TripOrigin,
     LocationOn: LocationOn,
-    AddLocation: AddLocation,
+    MenuBook: MenuBook,
+    IosShare: IosShare,
     Star: Star,
     Redo: Redo,
     PieChart: PieChart,
-    CloudDownload: CloudDownload,
-    BubbleChart: BubbleChart,
     ShowChart: ShowChart,
     FormatAlignJustify: FormatAlignJustify,
-    ClearAll: ClearAll,
     OndemandVideo: OndemandVideo,
     KeyboardVoice: KeyboardVoice,
-    Autorenew: Autorenew,
-    Add: Add,
     PlayArrow: PlayArrow,
     MailOutline: MailOutline,
     TrendingDown: TrendingDown,
     Tune: Tune,
-    ArrowForward: ArrowForward,
     Subject: Subject,
-    IosShare: IosShare
   }
   if (has(MuiIcons, props.iconName)) {
     const MuiIconComponent = MuiIcons[props.iconName]

@@ -211,6 +211,80 @@ export const personPropertiesInstancePage = `
   }
 `
 
+export const wikipediaInstancePageQuery = `
+SELECT DISTINCT * 
+WHERE {
+
+  BIND (<ID> as ?id)
+  BIND (?id as ?uri__id)
+  BIND (?id as ?uri__prefLabel)
+  BIND (?id as ?uri__dataProviderUrl)
+  
+  ?id skos:prefLabel ?prefLabel__id 
+  BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+
+  {
+    GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+
+    {
+      ?proxy foaf:page ?website__id .
+      ?website__id a/skos:prefLabel ?website__prefLabel .
+      BIND (?website__id as ?website__dataProviderUrl)
+    }
+    UNION
+    {
+      SELECT DISTINCT ?proxy ?sentence__id ?sentence__prefLabel 
+    	(CONCAT("/references/page/", REPLACE(STR(?sentence__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
+      WHERE {
+        ?proxy wlink:has_reference ?sentence__id .
+        ?sentence__id skos:prefLabel ?sentence__prefLabel ; wlink:order ?_order .
+        }
+        ORDER BY ?_order
+    }
+    UNION
+    {
+      ?proxy wlink:has_reference/wlink:references/foaf:focus ?reference__id .
+      ?reference__id skos:prefLabel ?reference__prefLabel .
+      BIND (CONCAT("/people/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+    }
+    UNION
+    {
+      ?proxy wlink:has_reference/wlink:references ?reference__id .
+      FILTER NOT EXISTS { ?reference__id foaf:focus [] }
+      ?reference__id skos:prefLabel ?reference__prefLabel .
+      BIND (CONCAT("/wikipedia_extracts/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+    }
+    UNION
+    {
+      ?referenced_by__id (^foaf:focus)/wlink:has_reference/wlink:references ?proxy .
+      ?referenced_by__id skos:prefLabel ?referenced_by__prefLabel .
+      BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_by__id), "^.*\\\\/(.+)", "$1"), "/wikipedia_extract") AS ?referenced_by__dataProviderUrl)
+    }
+    UNION
+    {
+      SELECT DISTINCT ?proxy
+      ?similar__id 
+      (CONCAT(?_label, " (", GROUP_CONCAT(DISTINCT ?link; separator="; "), ")") AS ?similar__prefLabel)
+      (CONCAT("/people/page/", REPLACE(STR(?similar__id), "^.*\\\\/(.+)", "$1")) AS ?similar__dataProviderUrl)
+      WHERE {
+        ?proxy ^wlink:relates_to [ a wlink:Distance ; wlink:relates_to ?_similar ; wlink:value ?value ; wlink:link_by/skos:prefLabel ?link ] .
+        FILTER (STR(?proxy) != STR(?_similar))
+        ?_similar foaf:focus ?similar__id .
+        ?similar__id skos:prefLabel ?_label .
+      } 
+    GROUPBY ?proxy ?similar__id ?_label ORDER BY ?value
+    }
+  }
+  UNION
+  {
+    ?id sch:image ?image__id ;
+      skos:prefLabel ?image__description ;
+      skos:prefLabel ?image__title .
+    BIND (?image__id as ?image__url)
+  }
+}
+`
+
 export const peopleByGenderQuery = `
 SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
 WHERE {
