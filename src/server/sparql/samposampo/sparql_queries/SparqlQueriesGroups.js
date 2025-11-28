@@ -70,6 +70,14 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    ?id skos:closeMatch? ?namesake__id .
+    FILTER (STR(?id) != STR(?namesake__id))
+    
+    ?namesake__id skos:prefLabel ?namesake__prefLabel .
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?namesake__id), "^.*\\\\/(.+)", "$1")) AS ?namesake__dataProviderUrl)
+  }
+  UNION
+  {
     GRAPH ?g { ?proxy foaf:focus ?id }
     {
       ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .

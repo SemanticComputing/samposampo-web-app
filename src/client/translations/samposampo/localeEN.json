@@ -338,6 +338,10 @@
           "label": "Datasource preview",
           "description": "Datasource preview."
         },
+        "namesake": {
+          "label": "Similar organizations",
+          "description": "Organizations with same or similar names."
+        },
         "website": {
           "label": "External Websites",
           "description": "Websites containing information about the person."

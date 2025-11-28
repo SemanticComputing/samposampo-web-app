@@ -145,6 +145,17 @@
             "expandedOnInstancePage": true
         },
         {
+            "id": "namesake",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "website",
             "valueType": "object",
             "makeLink": true,
