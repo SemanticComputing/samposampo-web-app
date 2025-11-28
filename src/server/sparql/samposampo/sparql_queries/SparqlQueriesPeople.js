@@ -243,14 +243,30 @@ WHERE {
     }
     UNION
     {
+      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?reference__id .
+      ?reference__id a sch:Organization ; skos:prefLabel ?reference__prefLabel .
+	    FILTER (LANG(?reference__prefLabel) = 'fi')
+      BIND (CONCAT("/groups/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+    }
+    UNION
+    {
+      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?reference__id .
+      ?reference__id a sch:Place ; skos:prefLabel ?reference__prefLabel .
+	    FILTER (LANG(?reference__prefLabel) = 'fi')
+      BIND (CONCAT("/places/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+    }
+    UNION
+    {
       ?proxy wlink:has_reference/wlink:references/foaf:focus ?reference__id .
-      ?reference__id skos:prefLabel ?reference__prefLabel .
+      ?reference__id a sch:Person ; skos:prefLabel ?reference__prefLabel .
       BIND (CONCAT("/people/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
     }
     UNION
     {
       ?proxy wlink:has_reference/wlink:references ?reference__id .
       FILTER NOT EXISTS { ?reference__id foaf:focus [] }
+      FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Place }
+      FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Organization }
       ?reference__id skos:prefLabel ?reference__prefLabel .
       BIND (CONCAT("/wikipedia_extracts/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
     }
