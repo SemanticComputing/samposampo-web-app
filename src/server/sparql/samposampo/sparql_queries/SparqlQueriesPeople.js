@@ -243,23 +243,23 @@ WHERE {
     }
     UNION
     {
-      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?reference__id .
-      ?reference__id a sch:Organization ; skos:prefLabel ?reference__prefLabel .
-	    FILTER (LANG(?reference__prefLabel) = 'fi')
-      BIND (CONCAT("/groups/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_group__id .
+      ?referenced_group__id a sch:Organization ; skos:prefLabel ?referenced_group__prefLabel .
+	    FILTER (LANG(?referenced_group__prefLabel) = 'fi')
+      BIND (CONCAT("/groups/page/", REPLACE(STR(?referenced_group__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_group__dataProviderUrl)
     }
     UNION
     {
-      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?reference__id .
-      ?reference__id a sch:Place ; skos:prefLabel ?reference__prefLabel .
-	    FILTER (LANG(?reference__prefLabel) = 'fi')
-      BIND (CONCAT("/places/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_place__id .
+      ?referenced_place__id a sch:Place ; skos:prefLabel ?referenced_place__prefLabel .
+	    FILTER (LANG(?referenced_place__prefLabel) = 'fi')
+      BIND (CONCAT("/places/page/", REPLACE(STR(?referenced_place__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_place__dataProviderUrl)
     }
     UNION
     {
-      ?proxy wlink:has_reference/wlink:references/foaf:focus ?reference__id .
-      ?reference__id a sch:Person ; skos:prefLabel ?reference__prefLabel .
-      BIND (CONCAT("/people/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+      ?proxy wlink:has_reference/wlink:references/foaf:focus ?referenced_person__id .
+      ?referenced_person__id a sch:Person ; skos:prefLabel ?referenced_person__prefLabel .
+      BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_person__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_person__dataProviderUrl)
     }
     UNION
     {

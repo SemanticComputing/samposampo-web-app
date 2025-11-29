@@ -155,6 +155,17 @@
             "minWidth": 300
         },
         {
+            "id": "type",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": true,
+            "minWidth": 300,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": false
+        },
+        {
             "id": "provided",
             "valueType": "object",
             "makeLink": true,
@@ -163,29 +174,6 @@
             "numberedList": false,
             "onlyOnInstancePage": true,
             "minWidth": 300
-        },
-        {
-            "id": "sentence",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": false,
-            "numberedList": false,
-            "minWidth": 300,
-            "showSource": true,
-            "sourceExternalLink": false,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "reference",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": true,
-            "minWidth": 300,
-            "onlyOnInstancePage": true,
-            "expandedOnInstancePage": true
         },
         {
             "id": "referenced_by",
@@ -207,66 +195,6 @@
             "numberedList": true,
             "minWidth": 300,
             "onlyOnInstancePage": true,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "gender",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 50,
-            "showSource": true,
-            "sourceExternalLink": false,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "birth_Timespan",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 120,
-            "showSource": true,
-            "sourceExternalLink": false,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "birth_place",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 80,
-            "showSource": true,
-            "sourceExternalLink": false,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "death_Timespan",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 100,
-            "showSource": true,
-            "sourceExternalLink": false,
-            "expandedOnInstancePage": true
-        },
-        {
-            "id": "death_place",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 80,
-            "showSource": true,
-            "sourceExternalLink": false,
             "expandedOnInstancePage": true
         }
     ],

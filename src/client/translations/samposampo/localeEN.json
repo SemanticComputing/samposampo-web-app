@@ -274,8 +274,20 @@
           "label": "Sentence",
           "description": "Sentences extracted from Wikipedia descriptions."
         },
+        "referenced_person": {
+          "label": "Referenced person",
+          "description": "References extracted from Wikipedia descriptions."
+        },
+        "referenced_place": {
+          "label": "Referenced place",
+          "description": "References extracted from Wikipedia descriptions."
+        },
+        "referenced_group": {
+          "label": "Referenced organization",
+          "description": "References extracted from Wikipedia descriptions."
+        },
         "reference": {
-          "label": "Reference",
+          "label": "Reference in Wikipedia",
           "description": "References extracted from Wikipedia descriptions."
         },
         "referenced_by": {
@@ -506,8 +518,12 @@
           "description": "Datasets containing information about the person."
         },
         "similar": {
-          "label": "Similar people",
-          "description": "People linked to same entities."
+          "label": "Similar resources",
+          "description": "Resources linked to same people."
+        },
+        "type": {
+          "label": "Type",
+          "description": "Type of the resource"
         },
         "website": {
           "label": "Websites",
