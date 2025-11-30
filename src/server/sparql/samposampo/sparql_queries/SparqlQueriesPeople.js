@@ -91,6 +91,13 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
+    ?id ^relations:personSubject ?relation__id .
+    ?relation__id skos:prefLabel ?relation__prefLabel .
+    BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) 
+      AS ?relation__dataProviderUrl)
+  }
+  UNION
+  {
     GRAPH ?g { ?proxy foaf:focus ?id }
     {
       ?proxy sch:gender ?gender__id .
@@ -220,9 +227,11 @@ WHERE {
   BIND (?id as ?uri__prefLabel)
   BIND (?id as ?uri__dataProviderUrl)
   
-  ?id skos:prefLabel ?prefLabel__id 
-  BIND (?prefLabel__id AS ?prefLabel__prefLabel)
-
+  {
+    ?id skos:prefLabel ?prefLabel__id 
+    BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+  }
+  UNION
   {
     GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
 
@@ -278,8 +287,7 @@ WHERE {
     }
     UNION
     {
-      SELECT DISTINCT ?proxy
-      ?similar__id 
+      SELECT DISTINCT ?proxy ?similar__id 
       (CONCAT(?_label, " (", GROUP_CONCAT(DISTINCT ?link; separator="; "), ")") AS ?similar__prefLabel)
       (CONCAT("/people/page/", REPLACE(STR(?similar__id), "^.*\\\\/(.+)", "$1")) AS ?similar__dataProviderUrl)
       WHERE {
@@ -482,25 +490,41 @@ export const peopleRelatedTo = `
 
 export const proxiesMapQuery = `
 SELECT DISTINCT ?id ?lat ?long 
-  (CONCAT(?popup_text, ?place_label, ' (', GROUP_CONCAT(DISTINCT ?dataset; separator=', '), ')') as ?prefLabel)
+  (CONCAT(?popup_text, ": ", ?place_label, ' (', GROUP_CONCAT(DISTINCT ?dataset; separator=', '), ')') as ?prefLabel)
   ?dataProviderUrl ?markerColor
 WHERE {
   VALUES ?person { <ID> }
+  
   ?person a sch:Person .
   ?proxy foaf:focus ?person .
   
-  VALUES (?prop ?markerColor ?popup_text) {
-    (sch:deathPlace "red" "Death: ")
-    (sch:birthPlace "blue" "Birth: ")
+  {
+    GRAPH <http://ldf.fi/sampo/relations> {
+      [] relations:personSubject ?person ;
+      	relations:placeObject ?id ;
+        skos:prefLabel ?dataset 
+    } 
+    BIND ("yellow" AS ?markerColor)
+    BIND ("Relation to place" AS ?popup_text)
   }
-  
-  GRAPH ?g { ?proxy ?prop ?id }
-  ?g skos:prefLabel ?dataset .
+  UNION
+  {
+  	GRAPH ?g { ?proxy sch:deathPlace ?id }
+    ?g skos:prefLabel ?dataset 
+    BIND ("red" AS ?markerColor)
+    BIND ("Death" AS ?popup_text)
+  }
+  UNION
+  {
+    GRAPH ?g { ?proxy sch:birthPlace ?id }
+    ?g skos:prefLabel ?dataset 
+  	BIND ("blue" AS ?markerColor)
+    BIND ("Birth" AS ?popup_text)
+  }
 
   ?id wgs84:lat ?lat ;
     wgs84:long ?long ;
     skos:prefLabel ?place_label .
-  
   FILTER (LANG(?place_label) = 'fi')
 
   BIND(CONCAT("/places/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)

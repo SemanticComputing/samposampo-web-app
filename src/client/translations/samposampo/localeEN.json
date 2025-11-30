@@ -262,6 +262,10 @@
           "label": "Place of Death",
           "description": "Place of death."
         },
+        "relation": {
+          "label": "Person-place relations",
+          "description": "Person-place relations involving the Person"
+        },
         "namesake": {
           "label": "Namesakes",
           "description": "People with same or similar names."
