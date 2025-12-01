@@ -76,6 +76,14 @@ export const wikipediaPropertiesInstancePage = `
   }
   UNION
   {
+    ?id wlink:image ?image__id ;
+      skos:prefLabel ?image__description ;
+      skos:prefLabel ?image__title .
+    # BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
+    BIND (?image__id as ?image__url)
+  }
+  UNION
+  {
       ?id wlink:has_reference/wlink:references ?reference__id .
       ?reference__id skos:prefLabel ?reference__prefLabel .
       BIND (CONCAT("/wikipedia_extracts/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
