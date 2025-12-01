@@ -114,7 +114,20 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 300
-        } ,
+        },
+        {
+            "id": "related",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": true,
+            "minWidth": 300,
+            "showSource": true,
+            "sourceExternalLink": false,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
         {
             "id": "datasource",
             "valueType": "object",

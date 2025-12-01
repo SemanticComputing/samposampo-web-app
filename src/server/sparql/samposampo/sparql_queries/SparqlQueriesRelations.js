@@ -53,4 +53,11 @@ export const placeRelationProperties = `
         ?additionalSource__id relations:sourceName ?additionalSource__prefLabel .
         ?additionalSource__id relations:sourceLink ?additionalSource__dataProviderUrl .
     }
+    UNION 
+    {   # e.g. Warsa photographs refering to multiple people or places
+    	?id relations:sourceLink/(^relations:sourceLink) ?related__id .
+    	FILTER (?id != ?related__id)
+	    ?related__id skos:prefLabel ?related__prefLabel .
+    	BIND (CONCAT("/place_relations/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
+  	}
 `
