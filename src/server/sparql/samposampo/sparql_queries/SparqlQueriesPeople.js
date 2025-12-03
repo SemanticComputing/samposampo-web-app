@@ -233,6 +233,14 @@ WHERE {
   }
   UNION
   {
+    ?id skos:prefLabel []
+    FILTER NOT EXISTS { GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { [] foaf:focus ?id }}
+    BIND (<> AS ?sentence__id)
+    BIND ("This person has no Wikipedia extracts." AS ?sentence__prefLabel)
+    BIND ("#" AS ?sentence__dataProviderUrl)
+  }
+  UNION
+  {
     GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
 
     {
