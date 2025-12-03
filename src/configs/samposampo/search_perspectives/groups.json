@@ -169,7 +169,7 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false,
+            "numberedList": true,
             "minWidth": 80,
             "expandedOnInstancePage": true
         },
@@ -179,7 +179,7 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false,
+            "numberedList": true,
             "minWidth": 80,
             "expandedOnInstancePage": true
         },
