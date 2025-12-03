@@ -371,6 +371,14 @@
           "label": "Datasource preview",
           "description": "Datasource preview."
         },
+        "sentence": {
+          "label": "Sentence",
+          "description": "Sentences extracted from Finnish Wikipedia descriptions refering this group."
+        },
+        "referenced_person": {
+          "label": "Linked people",
+          "description": "People whose Finnish Wikipedia pages have references to this resource."
+        },
         "namesake": {
           "label": "Similar organizations",
           "description": "Organizations with same or similar names."

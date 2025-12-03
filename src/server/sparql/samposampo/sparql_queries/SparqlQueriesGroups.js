@@ -78,6 +78,18 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    ?sentence__id wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?id ;
+          skos:prefLabel ?sentence__prefLabel .
+    
+    ?referenced_person__id (^foaf:focus)/wlink:has_reference ?sentence__id ;
+          a sch:Person ;
+          skos:prefLabel ?referenced_person__prefLabel  .
+  
+    BIND(CONCAT("/people/page/", REPLACE(STR(?referenced_person__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_person__dataProviderUrl)
+    BIND(CONCAT("/people/page/", REPLACE(STR(?referenced_person__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
+  }
+  UNION
+  {
     GRAPH ?g { ?proxy foaf:focus ?id }
     {
       ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .

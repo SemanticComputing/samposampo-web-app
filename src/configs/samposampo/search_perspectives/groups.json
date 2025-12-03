@@ -164,6 +164,26 @@
             "expandedOnInstancePage": true
         },
         {
+            "id": "sentence",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "referenced_person",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "website",
             "valueType": "object",
             "makeLink": true,

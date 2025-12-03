@@ -242,7 +242,6 @@ WHERE {
   UNION
   {
     GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-
     {
       ?proxy foaf:page ?website__id .
       ?website__id a/skos:prefLabel ?website__prefLabel .
