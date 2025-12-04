@@ -1,0 +1,807 @@
+export default {
+  languageLabel: "English",
+  html: {
+    title: "SampoSampo",
+    description: "..."
+  },
+  appTitle: {
+    short: "SampoSampo",
+    mobile: "SampoSampo",
+    long: "&nbsp; &nbsp; SampoSampo &nbsp; &nbsp;",
+    subheading: "\"Here to forge for us the Sampo, Hammer us the lid in colors\""
+  },
+  "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
+  "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
+  selectPerspective: "Select a perspective to search and browse the knowledge graph:",
+  mainPageImageLicence: "Images used under license from Shutterstock.com",
+  backendErrorText: "One of the backend services is not available at the moment. Please try again later.",
+  infoHeader: {
+    toggleInstructions: "Click to show or hide instructions"
+  },
+  topBar: {
+    feedback: "feedback",
+    info: {
+      info: "Info",
+      blog: "Project blog",
+      blogUrl: "https://seco.cs.aalto.fi/tools/sampo-ui/",
+      aboutThePortal: "About the Portal"
+    },
+    searchBarPlaceHolder: "Search all content",
+    searchBarPlaceHolderShort: "Search",
+    instructions: "instructions"
+  },
+  facetBar: {
+    results: "Results",
+    filters: "Filters",
+    activeFilters: "Active filters:",
+    removeAllFilters: "Remove all",
+    narrowDownBy: "Narrow down by",
+    filterOptions: "Filter options",
+    filterByName: "Filter by name",
+    filterByBoundingBox: "Filter by bounding box",
+    selectionOptions: "Selection options",
+    selectAlsoSubconcepts: "Automatically select all subconcepts",
+    doNotSelectSubconcepts: "Do not select subconcepts",
+    sortingOptions: "Sorting options",
+    sortAlphabetically: "Sort alphabetically",
+    sortByNumberOfSearchResults: "Sort by number of search results",
+    useDisjunction: "Use logical OR between selections",
+    useConjuction: "Use logical AND between selections",
+    minYear: "Min year",
+    maxYear: "Max year",
+    min: "Min",
+    max: "Max",
+    facetSearchFieldPlaceholder: "Search...",
+    applyFacetSelection: "apply",
+    pieChart: {
+      tooltip: "Pie chart"
+    },
+    barChart: {
+      tooltip: "Bar chart",
+      language: {
+        title: "Language",
+        xaxisTitle: "Language",
+        yaxisTitle: "Manuscript count",
+        seriesTitle: "Manuscript count"
+      }
+    },
+    lineChart: {
+      tooltip: "Line chart",
+      productionTimespan: {
+        title: "Manuscript production by decade",
+        xaxisTitle: "Decade",
+        yaxisTitle: "Manuscript count",
+        seriesTitle: "Manuscript count"
+      }
+    }
+  },
+  tabs: {
+    table: "table",
+    map: "map",
+    csv: "csv",
+    sparql: "sparql",
+    production_places: "production places",
+    production_places_heatmap: "production heatmap",
+    last_known_locations: "last known locations",
+    lifeyears: "Years of Living",
+    charts: "Charts",
+    migrations: "migrations",
+    network: "network",
+    export: "export",
+    production_dates: "production dates",
+    event_dates: "event dates",
+    map_clusters: "clustered map",
+    map_markers: "map",
+    heatmap: "heatmap",
+    statistics: "statistics",
+    emloLetterNetwork: "Network of letters",
+    emloSentReceived: "Sent and received letters",
+    download: "download",
+    recommendations: "recommendations",
+    share: "share",
+    wikipedia_extract: "Wikipedia Extracts"
+  },
+  table: {
+    rowsPerPage: "Rows per page",
+    of: "of"
+  },
+  lineChart: {
+    productionCount: "Production",
+    transferCount: "Transfer of custody",
+    observationCount: "Observation",
+    sentCount: "Sent",
+    receivedCount: "Received",
+    allCount: "All"
+  },
+  apexCharts: {
+    grouping: "Sort by:",
+    property: "Ominaisuus:",
+    chartType: "Chart type:",
+    pie: "Pie chart",
+    bar: "Column chart",
+    resultClasses: {
+      peopleByGender: "Gender",
+      peopleByBirthPlace: "Birth place",
+      peopleByDeathPlace: "Death place",
+      peopleByDatasources: "Datasource",
+      peopleByNumberOfDatasources: "Number of datasources",
+      peopleByInconsistencies: "Inconsistencies"
+    }
+  },
+  exportToYasgui: "open the result table query in yasgui sparql editor",
+  openInLinkedDataBrowser: "open in linked data browser",
+  resultsAsCSV: "download the search results as a CSV table",
+  facets: {
+    dateFacet: {
+      invalidDate: "Epäkelpo päivämäärä.",
+      toBeforeFrom: "Alkupäivämäärän täytyy olla ennen loppupäivämäärää.",
+      minDate: "Aikaisin sallittu päivämäärä on {minDate}",
+      maxDate: "Myöhäisin sallittu päivämäärä on {maxDate}",
+      cancel: "Peruuta",
+      fromLabel: "Alku",
+      toLabel: "Loppu"
+    },
+    textFacet: {
+      inputLabel: "Etsi nimellä"
+    },
+    sliderFacet: {
+      invalidStartOrEnd: "Min value must be smaller than max value. The smallest value can be {min} and the largest value can be {max}."
+    }
+  },
+  leafletMap: {
+    basemaps: {
+      mapbox: {
+        "light-v10": "Mapbox Light (OpenStreetMap)"
+      },
+      googleRoadmap: "Google Maps",
+      topographicalMapNLS: "Topographical map (National Land Survey of Finland)",
+      backgroundMapNLS: "Background map (National Land Survey of Finland)",
+      airMapNLS: "Aerial map (National Land Survey of Finland)"
+    },
+    externalLayers: {
+      "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_alue": "Register of Archaeological Sites, areas (Finnish Heritage Agency)",
+      "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
+      "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue": "Register of Archaeological Sites, areas (Finnish Heritage Agency)",
+      "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
+      fhaLidar: "Elevation model (Finnish Heritage Agency)",
+      karelianMaps: "Karelian maps, 1:100 000 topographic (SeCo)",
+      senateAtlas: "Senate atlas, 1:21 000 topographic (SeCo)",
+      "kotus:pitajat": "Finnish parishes in 1938 (Institute for the Languages of Finland)",
+      "kotus:rajat-sms-alueet": "Dialectical regions in Finland (Institute for the Languages of Finland)",
+      "kotus:rajat-sms-alueosat": "Dialectical subregions in Finland (Institute for the Languages of Finland)",
+      "kotus:rajat-lansi-ita": "Border between western and eastern dialects in Finland (Institute for the Languages of Finland)"
+    },
+    mapModeButtons: {
+      markers: "Markers",
+      heatmap: "Heatmap"
+    },
+    wrongZoomLevel: "The map zoom level has to at least 11",
+    wrongZoomLevelFHA: "The map zoom level has to be at least 13 in order to show this layer",
+    tooManyResults: "More than 500 results, please use clustered map or heatmap"
+  },
+  instancePageGeneral: {
+    introduction: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a human-readable summary of the data points that link to this {entity}. The data included in this summary reflect only those data points used in the MMM Portal. Click the Open in Linked Data Browser on button on the Export tab to view the complete set of classes and properties linked to this record. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> To cite this record, use its url. You can use also use the url to return directly to the record at any time. </p>",
+    repetition: "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasources to create the MMM record. </p>"
+  },
+  deckGlMap: {
+    arcColouring: "Arc colouring:",
+    showMoreInformation: "Click to show more information.",
+    placesMsMigrations: {
+      legendTitle: "Arc colouring",
+      legendFrom: "Manuscript production place",
+      legendTo: "Last known location",
+      from: "Production place:",
+      to: "Last known location:",
+      count: "Manuscript count",
+      listHeadingSingleInstance: "Manuscript:",
+      listHeadingMultipleInstances: "Manuscripts:"
+    }
+  },
+  perspectives: {
+      fullTextSearch: {
+        properties: {
+          prefLabel: {
+            label: "Label"
+          },
+          type: {
+            label: "Type"
+          },
+          image: {
+            label: "Image"
+          }
+        }
+      },
+    people: {
+      label: "People",
+      facetResultsType: "people",
+      shortDescription: "Historical Finnish people",
+      longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+         
+        From this perspective, you can search for information about the historical people in this dataset.  The data is exported from multiple data sources, see facet 'Datasources' at the bottom left. You can use the facets to limit the results by chosen biographical features.<br>
+        
+        NB.: much of the data is generated through computation. Erroneous or repetitive records may be present due to errors in the source data or the processing.<br>
+        
+        </p>The result view can be selected using the tabs:
+        <ul class="MuiTypography-root MuiTypography-body1">
+          <li>
+            The <strong>TABLE</STRONG> tab lists all the people in the data. One row of the table contains the information related to one person. Selecting the name of an actor takes you to a more detailed Actor instance page. Image(s): Wikidata/Wikimedia Commons.
+          </li>
+          <li>
+            The <strong>CHARTS</strong> tab allows you to visualize several biographical features with column or bar charts.
+          </li>
+          <li>
+            The <strong>YEARS OF LIVING</strong> tab shows a time series of the years of birth and death.
+          </li>
+          <li>
+            The <strong>MAP</strong> tab visualises the places of birth and death associated with the actors. Clicking on the place markers will open a list of people associated with the place.
+          </li>
+          <li>
+            The <strong>MIGRATIONS</strong> tab visualises the places of birth (blue end of the arcs) and death (red end) of the people. First howering over and then clicking on an arc shows an popup window with a list of people associated with the places.
+          </li>
+          <li>
+            The <strong>CSV</strong> tab allows you to download the results in tabular form to your own computer.
+            </li>
+            <li>
+            From the <strong>SPARQL</strong> query tab, you can follow the link to the Yasgui service and see the query used to retrieve the results from the database.
+            </li>
+            <li>
+           The <strong>SHARE</strong> tab provides a permanent link to the search you have made. You can use it to find the search later and to refer to the material.
+          </li>
+        </ul>
+        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+          General information about the project is available at the <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.`,
+      instancePage: {
+        label: "Person",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Person.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        altLabel: {
+          label: "Alternative Names",
+          description: "Alternative names of the Person."
+        },
+        proxyPrefLabel: {
+          label: "Preferred labels per proxy",
+          description: "The preferred labels of the Person from all proxies."
+        },
+        proxyAltLabel: {
+          label: "Alternative labels per proxy",
+          description: "The alternative labels of the Person from all proxies."
+        },
+        image: {
+          label: "Image",
+          description: "Image of the Person."
+        },
+        gender: {
+          label: "Gender",
+          description: "Gender of the person."
+        },
+        birth_Timespan: {
+          label: "Time of Birth",
+          description: "Time of birth."
+        },
+        birth_place: {
+          label: "Place of Birth",
+          description: "Place of birth."
+        },
+        death_Timespan: {
+          label: "Time of Death",
+          description: "Time of death."
+        },
+        death_place: {
+          label: "Place of Death",
+          description: "Place of death."
+        },
+        relation: {
+          label: "Person-place relations",
+          description: "Person-place relations involving the Person"
+        },
+        namesake: {
+          label: "Namesakes",
+          description: "People with same or similar names."
+        },
+        external: {
+          label: "Datasources",
+          description: "Datasets containing information about the person."
+        },
+        sentence: {
+          label: "Sentence",
+          description: "Sentences extracted from Wikipedia descriptions."
+        },
+        referenced_person: {
+          label: "Referenced person",
+          description: "References extracted from Wikipedia descriptions."
+        },
+        referenced_place: {
+          label: "Referenced place",
+          description: "References extracted from Wikipedia descriptions."
+        },
+        referenced_group: {
+          label: "Referenced organization",
+          description: "References extracted from Wikipedia descriptions."
+        },
+        reference: {
+          label: "Reference in Wikipedia",
+          description: "References extracted from Wikipedia descriptions."
+        },
+        referenced_by: {
+          label: "Referenced by",
+          description: "Referenced by another Wikipedia page."
+        },
+        similar: {
+          label: "Similar people",
+          description: "People linked to same entities."
+        },
+        website: {
+          label: "Websites",
+          description: "Websites containing information about the person."
+        },
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        },
+        "pagelinks":{
+          label: "Number of datasources",
+          description: "Number of datasets containing information about a person."
+        },
+        "inconsistencies":{
+          label: "Inconsistencies",
+          description: "Inconsistencies in biographical data between different datasources."
+        }
+      }
+    },
+    groups: {
+      label: "Organizations",
+      facetResultsType: "organization",
+      shortDescription: "Organizations, Companies, Schools, Groups etc.",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Group",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Group.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        altLabel: {
+          label: "Alternative Names",
+          description: "Alternative names of the Group."
+        },
+        image: {
+          label: "Image",
+          description: "Image of the Person."
+        },
+        estimated_time: {
+          label: "Estimated time",
+          description: "Estimated time of activity."
+        },
+        location: {
+          label: "Location",
+          description: "Location of the group."
+        },
+        category: {
+          label: "Category",
+          description: "Category of the group."
+        },
+        external: {
+          label: "Datasources",
+          description: "Datasets containing information about the person."
+        },
+        other: {
+          label: "Other datasources",
+          description: "Same person in other datasources."
+        },
+        webpage_preview: {
+          label: "Webpage preview",
+          description: "Webpage preview."
+        },
+        datasource_preview: {
+          label: "Datasource preview",
+          description: "Datasource preview."
+        },
+        sentence: {
+          label: "Sentence",
+          description: "Sentences extracted from Finnish Wikipedia descriptions refering this group."
+        },
+        referenced_person: {
+          label: "Linked people",
+          description: "People whose Finnish Wikipedia pages have references to this resource."
+        },
+        namesake: {
+          label: "Similar organizations",
+          description: "Organizations with same or similar names."
+        },
+        website: {
+          label: "External Websites",
+          description: "Websites containing information about the person."
+        },
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        }
+      }
+    },
+    proxies: {
+      label: "Proxy",
+      facetResultsType: "people",
+      shortDescription: "Proxy perspective description",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Person information in one datasource",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Person.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        altLabel: {
+          label: "Alternative Names",
+          description: "Alternative names of the Person in datasource"
+        },
+        provided: {
+          label: "Provided",
+          description: "Provided resource."
+        },
+        image: {
+          label: "Image",
+          description: "Image of the Person."
+        },
+        gender: {
+          label: "Gender",
+          description: "Gender of the person."
+        },
+        birth_Timespan: {
+          label: "Time of Birth",
+          description: "Time of birth."
+        },
+        birth_place: {
+          label: "Place of Birth",
+          description: "Place of birth."
+        },
+        death_Timespan: {
+          label: "Time of Death",
+          description: "Time of death."
+        },
+        death_place: {
+          label: "Place of Death",
+          description: "Place of death."
+        },
+        external: {
+          label: "Datasources",
+          description: "Datasets containing information about the person."
+        },
+        other: {
+          label: "Other datasources",
+          description: "Same person in other datasources."
+        },
+        webpage_preview: {
+          label: "Webpage preview",
+          description: "Webpage preview."
+        },
+        datasource_preview: {
+          label: "Datasource preview",
+          description: "Datasource preview."
+        },
+        website: {
+          label: "External Websites",
+          description: "Websites containing information about the person."
+        },
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        }
+      }
+    },
+    wikipedia_extracts: {
+      label: "Wikipedia Extracts",
+      facetResultsType: "people",
+      shortDescription: "Extracts from biographies in Wikipedia",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Wikipedia Extract",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Person.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        altLabel: {
+          label: "Alternative Names",
+          description: "Alternative names of the Person."
+        },
+        image: {
+          label: "Image",
+          description: "Image of the Person."
+        },
+        provided: {
+          label: "SampoSampo resource",
+          description: "SampoSampo resource."
+        },
+        sentence: {
+          label: "Sentence",
+          description: "Sentences extracted from Wikipedia descriptions."
+        },
+        reference: {
+          label: "Reference",
+          description: "References extracted from Wikipedia descriptions."
+        },
+        referenced_by: {
+          label: "Referenced by",
+          description: "Referenced by another Wikipedia page."
+        },
+        gender: {
+          label: "Gender",
+          description: "Gender of the person."
+        },
+        birth_Timespan: {
+          label: "Time of Birth",
+          description: "Time of birth."
+        },
+        birth_place: {
+          label: "Place of Birth",
+          description: "Place of birth."
+        },
+        death_Timespan: {
+          label: "Time of Death",
+          description: "Time of death."
+        },
+        death_place: {
+          label: "Place of Death",
+          description: "Place of death."
+        },
+        external: {
+          label: "Datasources",
+          description: "Datasets containing information about the person."
+        },
+        similar: {
+          label: "Similar resources",
+          description: "Resources linked to same people."
+        },
+        type: {
+          label: "Type",
+          description: "Type of the resource"
+        },
+        website: {
+          label: "Websites",
+          description: "Websites containing information about the person."
+        },
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        }
+      }
+    },
+    places: {
+      label: "Places",
+      facetResultsType: "places",
+      shortDescription: "Buildings, cities, counties, municipalities, etc.",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Place",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        },
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Place.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        proxyPrefLabel: {
+          label: "Preferred labels per proxy",
+          description: "The preferred labels of the Place from all proxies."
+        },
+        proxyAltLabel: {
+          label: "Alternative labels per proxy",
+          description: "The alternative labels of the Place from all proxies."
+        },
+        onMap: {
+          label: "Viewable on a map",
+          description: "Whether the Place can be viewed on a map (has coordinates)"
+        },
+        sampledLatitude: {
+          label: "Sampled latitude",
+          description: "Sampled latitude of the Place (used for map visualizations)"
+        },
+        sampledLongitude: {
+          label: "Sampled longitude",
+          description: "Sampled longitude of the Place (used for map visualizations)"
+        },
+        latitude: {
+          label: "Latitude",
+          description: "Latitude of the Place"
+        },
+        longitude: {
+          label: "Longitude",
+          description: "Longitude of the Place"
+        },
+        relatedPeople: {
+          label: "Related to person",
+          description: "People with the Place as their place of birth or death"
+        },
+        peopleBirth: {
+          label: "Related to person (birth place)",
+          description: "People with the Place as their place of birth"
+        },
+        peopleDeath: {
+          label: "Related to person (death place)",
+          description: "People with the Place as their place of death"
+        },
+        relation: {
+          label: "Part of a person-place relation",
+          description: "Person-place relations involving the Place"
+        },
+        website: {
+          label: "Websites",
+          description: "Websites containing information about the Place."
+        },
+        source: {
+          label: "Datasources",
+          description: "The datasources of the Place"
+        },
+        "inconsistencies":{
+          label: "Inconsistencies",
+          description: "Inconsistencies in place data between different datasources."
+        }
+      }
+    },
+    historical_events: {
+      label: "Events",
+      facetResultsType: "events",
+      shortDescription: "Historical events",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Historical event",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+          uri: {
+            label: "URI",
+            description: "Uniform Resource Identifier"
+          },
+          prefLabel: {
+            label: "Name",
+            description: "The name of the Place.",
+            textFacetInputPlaceholder: "Search..."
+          },
+          place: {
+            label: "Place",
+            description: "Place of the event"
+          },
+          historyField: {
+            label: "Field of history",
+            description: ""
+          },
+          eventType: {
+            label: "Type of event",
+            description: ""
+          },
+          description: {
+            label: "Description",
+            description: ""
+          },
+          time: {
+            label: "Time span",
+            description: ""
+          },
+          participant: {
+            label: "Participant",
+            description: "Actor related to the event"
+          }
+      }
+    },
+    place_proxies: {
+      label: "Place proxies",
+      facetResultsType: "place proxies",
+      shortDescription: "Proxies of buildings, cities, counties, municipalities, etc.",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Place proxy",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        provided: {
+          label: "Provided resource",
+          description: "The provided resource of the Place Proxy."
+        },
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Place Proxy.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        altLabel: {
+          label: "Alternative labels",
+          description: "The alternative labels of the Place Proxy."
+        },
+        latitude: {
+          label: "Latitude",
+          description: "Latitude of the Place Proxy"
+        },
+        longitude: {
+          label: "Longitude",
+          description: "Longitude of the Place Proxy"
+        },
+        source: {
+          label: "Data source",
+          description: "The data source of the Place Proxy"
+        }
+      }
+    },
+    place_relations: {
+      label: "Person-place relations",
+      facetResultsType: "relations",
+      shortDescription: "Search relation between persons and places",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Relation",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        prefLabel: {
+          label: "Description",
+          description: "Hußman readable description of the relation."
+        },
+        person: {
+          label: "Person",
+          description: ""
+        },
+        place: {
+          label: "Place",
+          description: ""
+        },
+        title: {
+          label: "Title or occupation",
+          description: ""
+        },
+        type: {
+          label: "Relation type",
+          description: ""
+        },
+        datasource: {
+          label: "Data source",
+          description: "The database from where these relations are extracted."
+        },
+        person_datasource: {
+          label: "Data source of the person",
+          description: "The databases containing information about the people."
+        },
+        related: {
+          label: "Related relations",
+          description: "Other related relations, e.g., in cases where multiple people or places are mentioned in the same event."
+        },
+        additionalSource: {
+          label: "Additional source(s)",
+          description: "Additional sources for the relation. For AI-generated relations, these are the sources provided by the model for its generated relation."
+        }
+      }
+    }
+  },
+  aboutThePortalPartOne: "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> About the Portal </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Morbi nunc ex, ultrices vitae molestie eu, fringilla quis dolor. Vivamus in enim nibh. Nunc rutrum molestie ex eget dictum. Mauris lectus leo, ultrices in sodales ac, fermentum ut massa. In porta, mauris sed facilisis lacinia, eros magna sollicitudin tortor, quis venenatis nisl ipsum lacinia justo. Duis pretium bibendum consequat. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In hac habitasse platea dictumst. Curabitur consectetur aliquet est, ac dapibus ante semper vitae. Sed consequat at est ac lobortis. In vitae metus in ligula pretium vehicula. Aliquam maximus ac massa euismod eleifend. Vestibulum vehicula mattis libero at tempus. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Data </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p>",
+  aboutThePortalPartTwo: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Data Reuse </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> More Information </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p>",
+  instructions: "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> Instructions </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The search functionality of this semantic portal is based on the <a href=\"https://doi.org/10.2200/S00190ED1V01Y200904ICR005\" target='_blank' rel='noopener noreferrer'> faceted search</a> paradigm. By default each perspective displays all results from the corresponding class. This default result set can be narrowed down by using the filters on the left. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Using a single filter </h2> <h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\"> Selecting values within a filter </h3> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> All possible values for a filter are displayed either as a list or as a hierarchical tree structure (if available). The number of results is shown in brackets for each value. Once a value is selected, the results are automatically updated. To prevent further selections that do not return any results, also the possible values for all other filters are updated at the same time. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Multiple values can be selected within a single filter. Selecting multiple values generates results that contain any of the selected values. For example, selecting both <i>Saint Augustine</i> and <i>Saint Jerome</i> as an Author returns results that include either <i>Saint Augustine</i> <strong>OR</strong> <i>Saint Jerome</i> as an Author. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Selected values of a filter appear in the Active filters section at the top of the list of filters. To deselect a filter, click the X mark next to it within the Active filters section. You can also deselect a filter value by unchecking the checkmark in the filter’s value list. The Active filters section only appears if there are filter values currently selected. </p> <h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\"> Searching within a filter </h3> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Search within a filter by using the search field at the top of each filter. All possible values of a filter remain visible at all times. The values of the filter that match the search term are indicated by a purple underline. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Steps for searching within filters: </p> <ol class=\"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom\"> <li> Type search term into search field. If there are matches, a number will appear to the right of the search field, indicating the number of filter values that match the search term. </li> <li> Click the arrows to the right of the search field to cycle through the results. As you click the arrow, a different filter value will appear at the top of the list. Matched filters are underlined in purple. </li> <li> Click the checkmark next to a filter value to activate it. The results (and also other filters) are automatically updated. </li> </ol> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Using multiple filters simultaneously </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The effectiveness of faceted search is realized when multiple filters are applied at the same time. As in many e-commerce sites, a logical AND is always used between the filters. For example selecting <i>Saint Augustine </i> and <i>Saint Jerome</i> as an Author and <i>Sir Thomas Phillipps</i> and <i> Thomas Thorpe</i> as an Owner, the results are narrowed down as follows: </p> <p class=\"MuiTypography-root MuiTypography-body1\"> (Author: <i>Saint Augustine</i> <strong>OR</strong> Author: <i>Saint Jerome</i>) </p> <p class=\"MuiTypography-root MuiTypography-body1\"> <strong>AND</strong> </p> <p class=\"MuiTypography-root MuiTypography-body1\"> (Owner: <i>Sir Thomas Phillipps</i> <strong>OR</strong> Owner: <i>Thomas Thorpe</i>) </p>",
+  feedback: "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> Feedback </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This semantic portal has been developed by ... </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> We are interested in your feedback on the functionality, coverage, and usefulness of the portal and its data. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Please complete our <a href=\"\" target='_blank' rel='noopener noreferrer'>Feedback Survey Form (add link).</a> </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> You can also contact us via email: ... or DM us on Twitter: ... </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Please be aware that this portal’s response times may be affected by the size and complexity of the underlying knowledge graph. </p>",
+  exportLink: {
+    viewLabel: "Tab",
+    viewInstructions: "Choose the tab in which the query will open",
+    fieldLabel: "Generated link (read-only)",
+    infoBody: "You can share the query you made by using the link below. The link is generated based on what you have selected for different facets and will open the search view of this perpsective with those choices on the selected tab. You can change the opened tab to any of the supported ones using the dropdown menu below. If you make additional choices while on this page, the link will be automatically updated to include those.",
+    warningTitle: "Generated link might be too long for some browsers",
+    warningBody: "The current length of the generated link is more than 2,000 characters. Browsers have different limits for the maximum lengths of links they can handle. <strong>This link might not work on all browsers</strong> — you can reduce the length of the link by deselecting some facet options.",
+    errorTitle: "Generated link is too long",
+    errorBody: "The current length of the generated link is more than 15,800 characters. <strong>The server will refuse to handle requests that go over certain length limits</strong> — you can reduce the length of the link by deselecting some facet options.",
+    copyLinkToClipboard: "Copy link to clipboard"
+  }
+}

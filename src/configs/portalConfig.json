@@ -23,7 +23,8 @@
             {
                 "id": "en",
                 "label": "English",
-                "filename": "localeEN.json"
+                "filename": "localeEN",
+                "format": "js"
             },
             {
                 "id": "fi",
