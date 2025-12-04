@@ -216,40 +216,41 @@ export default {
       facetResultsType: "people",
       shortDescription: "Historical Finnish people",
       longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
-         
-        From this perspective, you can search for information about the historical people in this dataset.  The data is exported from multiple data sources, see facet 'Datasources' at the bottom left. You can use the facets to limit the results by chosen biographical features.<br>
-        
-        NB.: much of the data is generated through computation. Erroneous or repetitive records may be present due to errors in the source data or the processing.<br>
-        
-        </p>The result view can be selected using the tabs:
-        <ul class="MuiTypography-root MuiTypography-body1">
-          <li>
-            The <strong>TABLE</STRONG> tab lists all the people in the data. One row of the table contains the information related to one person. Selecting the name of an actor takes you to a more detailed Actor instance page. Image(s): Wikidata/Wikimedia Commons.
-          </li>
-          <li>
-            The <strong>CHARTS</strong> tab allows you to visualize several biographical features with column or bar charts.
-          </li>
-          <li>
-            The <strong>YEARS OF LIVING</strong> tab shows a time series of the years of birth and death.
-          </li>
-          <li>
-            The <strong>MAP</strong> tab visualises the places of birth and death associated with the actors. Clicking on the place markers will open a list of people associated with the place.
-          </li>
-          <li>
-            The <strong>MIGRATIONS</strong> tab visualises the places of birth (blue end of the arcs) and death (red end) of the people. First howering over and then clicking on an arc shows an popup window with a list of people associated with the places.
-          </li>
-          <li>
-            The <strong>CSV</strong> tab allows you to download the results in tabular form to your own computer.
-            </li>
-            <li>
-            From the <strong>SPARQL</strong> query tab, you can follow the link to the Yasgui service and see the query used to retrieve the results from the database.
-            </li>
-            <li>
-           The <strong>SHARE</strong> tab provides a permanent link to the search you have made. You can use it to find the search later and to refer to the material.
-          </li>
-        </ul>
-        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
-          General information about the project is available at the <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.`,
+From this perspective, you can search for information about the historical people in this dataset.  The data is exported from multiple data sources, see facet 'Datasources' at the bottom left. You can use the facets to limit the results by chosen biographical features.<br>
+
+NB.: much of the data is generated through computation. Erroneous or repetitive records may be present due to errors in the source data or the processing.<br>
+</p>
+<p>The result view can be selected using the tabs:
+  <ul class="MuiTypography-root MuiTypography-body1">
+    <li>
+      The <strong>TABLE</STRONG> tab lists all the people in the data. One row of the table contains the information related to one person. Selecting the name of an result takes you to a more detailed Person instance page. Image(s): Wikidata/Wikimedia Commons.
+    </li>
+    <li>
+      The <strong>CHARTS</strong> tab allows you to visualize several biographical features with column or bar charts.
+    </li>
+    <li>
+      The <strong>YEARS OF LIVING</strong> tab shows a time series of the years of birth and death.
+    </li>
+    <li>
+      The <strong>MAP</strong> tab visualises the places of birth and death associated with the actors. Clicking on the place markers will open a list of people associated with the place.
+    </li>
+    <li>
+      The <strong>MIGRATIONS</strong> tab visualises the places of birth (blue end of the arcs) and death (red end) of the people. First howering over and then clicking on an arc shows an popup window with a list of people associated with the places.
+    </li>
+    <li>
+      The <strong>CSV</strong> tab allows you to download the results in tabular form to your own computer.
+      </li>
+      <li>
+      From the <strong>SPARQL</strong> query tab, you can follow the link to the Yasgui service and see the query used to retrieve the results from the database.
+      </li>
+      <li>
+      The <strong>SHARE</strong> tab provides a permanent link to the search you have made. You can use it to find the search later and to refer to the material.
+    </li>
+  </ul>
+</p>
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
+<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+</p>`,
       instancePage: {
         label: "Person",
         description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
@@ -358,7 +359,34 @@ export default {
       label: "Organizations",
       facetResultsType: "organization",
       shortDescription: "Organizations, Companies, Schools, Groups etc.",
-      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+From this perspective, you can search for information about the organizations in the dataset.  The data is exported from multiple data sources, see facet 'Datasources' at the bottom left. You can use the facets to limit the results by chosen features.<br>
+
+NB.: much of the data is generated through computation. Erroneous or repetitive records may be present due to errors in the source data or the processing.<br>
+</p>
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">The result view can be selected using the tabs:
+  <ul>
+    <li>
+      The <strong>TABLE</STRONG> tab lists all the organizations in the data. One row of the table contains the information related to one organization. Selecting the name of an result takes you to a more detailed Organization instance page. Image(s): Wikidata/Wikimedia Commons.
+    </li>
+    <li>
+      The <strong>MAP</strong> tab visualises the locations associated with the organizations. Clicking on the place markers will open a list of organizations associated with the place.
+    </li>
+    <li>
+      The <strong>CSV</strong> tab allows you to download the results in tabular form to your own computer.
+      </li>
+    <li>
+      From the <strong>SPARQL</strong> query tab, you can follow the link to the Yasgui service and see the query used to retrieve the results from the database.
+    </li>
+    <li>
+      The <strong>SHARE</strong> tab provides a permanent link to the search you have made. You can use it to find the search later and to refer to the material.
+    </li>
+  </ul>
+</p>
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+General information about the project is available at the 
+<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+</p>`,
       instancePage: {
         label: "Group",
         description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"

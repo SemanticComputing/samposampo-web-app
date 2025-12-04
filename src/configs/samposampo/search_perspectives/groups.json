@@ -65,8 +65,25 @@
                 "createPopUpContent": "createPopUpContentLetterSampo"
             }
         },
-        "share": {
+        "csvActors": {
             "tabID": 2,
+            "component": "ExportCSV",
+            "tabPath": "csv",
+            "tabIcon": "CloudDownload",
+            "facetClass": "groups",
+            "sparqlQuery": "csvQueryGroup",
+            "filterTarget": "id"
+        },
+        "export": {
+            "tabID": 3,
+            "component": "Export",
+            "tabPath": "sparql",
+            "tabIcon": "ArrowForward",
+            "resultClass": "groups",
+            "facetClass": "groups"
+        },
+        "share": {
+            "tabID": 4,
             "component": "ExportLink",
             "tabPath": "share",
             "tabIcon": "IosShare",
@@ -225,16 +242,6 @@
             "pieChartButton": true,
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortByPredicate": "(^foaf:focus)/sch:location/skos:prefLabel"
-        },
-        "category": {
-            "containerClass": "ten",
-            "facetType": "text",
-            "predicate": "(^foaf:focus)/sampos:category",
-            "filterType": "uriFilter",
-            "sortBy": "instanceCount",
-            "sortDirection": "desc",
-            "pieChartButton": true,
-            "sortByPredicate": "(^foaf:focus)/sampos:category"
         },
         "external": {
             "containerClass": "ten",
