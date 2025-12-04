@@ -188,6 +188,7 @@
             "sortValues": true,
             "numberedList": true,
             "minWidth": 80,
+            "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         },
         {
@@ -198,6 +199,7 @@
             "sortValues": true,
             "numberedList": true,
             "minWidth": 80,
+            "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         },
         {
