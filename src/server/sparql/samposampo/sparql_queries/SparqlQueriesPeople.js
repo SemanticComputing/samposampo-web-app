@@ -408,48 +408,63 @@ GROUPBY ?category ?prefLabel
 ORDERBY ?category
 `
 
-export const csvQueryPeople = `
-SELECT DISTINCT ?id ?name ?gender 
-(GROUP_CONCAT(DISTINCT STR(?_btime); separator=";") AS ?birth_time)
-(GROUP_CONCAT(DISTINCT STR(?_bplace); separator=";") AS ?birth_place)
-
-(GROUP_CONCAT(DISTINCT STR(?_dtime); separator=";") AS ?death_time)
-(GROUP_CONCAT(DISTINCT STR(?_dplace); separator=";") AS ?death_place)
-
-(GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources)
-(GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages)
-
+export const csvQueryPeople = `SELECT DISTINCT ?id 
+  ?name ?gender 
+  ?pagelinks 
+	?birth_times  ?birth_places
+	?death_times  ?death_places
+	?datasources  ?webpages
 WHERE {
-  
   <FILTER> 
   FILTER(BOUND(?id))
   ?id a sch:Person ; skos:prefLabel ?name .
-	
-  ?proxy foaf:focus ?id ;
-  	sampos:birth_time/skos:prefLabel ?_btime ;
-  	sampos:death_time/skos:prefLabel ?_dtime .
   
   OPTIONAL {
     ?id sch:gender/skos:prefLabel ?gender .
     FILTER (LANG(?gender)='en')
   }
   
-  OPTIONAL {
-    ?id (^foaf:focus)/sch:birthPlace/skos:prefLabel ?_bplace
-    FILTER (LANG(?_bplace)='en')
+  {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_btime); separator=";") AS ?birth_times) WHERE {
+      ?proxy foaf:focus ?id ; sampos:birth_time/skos:prefLabel ?_btime
+    } GROUPBY ?id 
+  }
+  
+  {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_dtime); separator=";") AS ?death_times) WHERE {
+      ?proxy foaf:focus ?id ; sampos:death_time/skos:prefLabel ?_dtime
+    } GROUPBY ?id 
   }
   
   OPTIONAL {
-    ?id (^foaf:focus)/sch:deathPlace/skos:prefLabel ?_dplace
-    FILTER (LANG(?_dplace)='en')
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_bplace); separator=";") AS ?birth_places) WHERE {
+      ?proxy foaf:focus ?id ;sch:birthPlace/skos:prefLabel ?_bplace
+        FILTER (LANG(?_bplace)='en')
+    } GROUPBY ?id
   }
   
-  OPTIONAL { ?id (^foaf:focus)/owl:sameAs ?_datasource }
-  OPTIONAL { ?id (^foaf:focus)/foaf:page ?_webpage }
-  OPTIONAL { ?id sampos:pagelinks ?_pagelinks }
-} 
-GROUP BY ?id ?name ?gender
-ORDER BY DESC(COALESCE(?_pagelinks, 0)) ?name 
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_dplace); separator=";") AS ?death_places) WHERE {
+      ?proxy foaf:focus ?id ;sch:deathPlace/skos:prefLabel ?_dplace
+        FILTER (LANG(?_dplace)='en')
+    } GROUPBY ?id 
+  }
+  
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources) WHERE {
+      ?proxy foaf:focus ?id ; owl:sameAs ?_datasource 
+    } GROUPBY ?id 
+  }
+  
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages) WHERE {
+      ?proxy foaf:focus ?id ; foaf:page ?_webpage 
+    } GROUPBY ?id 
+  }
+  
+  OPTIONAL { ?id sampos:pagelinks ?pagelinks }
+}
+ORDER BY DESC(COALESCE(?pagelinks, 0)) ?name 
 `
 
 export const peopleMapQuery = `
