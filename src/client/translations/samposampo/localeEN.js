@@ -28,7 +28,8 @@ export default {
     },
     searchBarPlaceHolder: "Search all content",
     searchBarPlaceHolderShort: "Search",
-    instructions: "instructions"
+    instructions: "instructions",
+    instructionsUrl: "https://seco.cs.aalto.fi/projects/ss/samposampo-instructions.pdf",
   },
   facetBar: {
     results: "Results",
