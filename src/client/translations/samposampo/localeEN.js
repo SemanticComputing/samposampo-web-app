@@ -23,12 +23,13 @@ export default {
     info: {
       info: "Info",
       blog: "Project blog",
-      blogUrl: "https://seco.cs.aalto.fi/tools/sampo-ui/",
+      blogUrl: "https://seco.cs.aalto.fi/projects/ss/",
       aboutThePortal: "About the Portal"
     },
     searchBarPlaceHolder: "Search all content",
     searchBarPlaceHolderShort: "Search",
-    instructions: "instructions"
+    instructions: "instructions",
+    instructionsUrl: "https://seco.cs.aalto.fi/projects/ss/samposampo-instructions.pdf",
   },
   facetBar: {
     results: "Results",
