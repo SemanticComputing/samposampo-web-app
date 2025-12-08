@@ -180,8 +180,8 @@ export default {
     tooManyResults: "More than 500 results, please use clustered map or heatmap"
   },
   instancePageGeneral: {
-    introduction: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a human-readable summary of the data points that link to this {entity}. The data included in this summary reflect only those data points used in the MMM Portal. Click the Open in Linked Data Browser on button on the Export tab to view the complete set of classes and properties linked to this record. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> To cite this record, use its url. You can use also use the url to return directly to the record at any time. </p>",
-    repetition: "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasources to create the MMM record. </p>"
+    introduction: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a human-readable summary of the data points that link to this {entity}. The data included in this summary reflect only those data points used in the SampoSampo Portal. Click the Open in Linked Data Browser on button on the Export tab to view the complete set of classes and properties linked to this record. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> To cite this record, use its url. You can use also use the url to return directly to the record at any time. </p>",
+    repetition: "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasources to create the SampoSampo record. </p>"
   },
   deckGlMap: {
     arcColouring: "Arc colouring:",
@@ -253,7 +253,34 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
 </p>`,
       instancePage: {
         label: "Person",
-        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+        description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+        This is the instance page of an person. The result view can be selected using the tabs:
+        </p>
+        <p>
+        <ul class="MuiTypography-root MuiTypography-body1">
+          <li>
+            The <strong>TABLE</STRONG> tab lists detailed information about the person like biographical details extracted for various datasources, links to related resources in SampoSampo portal and to external sources.
+            <br>
+            Image source: Wikidata/Wikimedia Commons. 
+          </li>
+          <li>
+            The <strong>WIKIPEDIA EXTRACTS</strong> shows the sentences extracted from the Finnish Wikipedia page of the person as well as links to related resources, e.g., other people, organizations, places and general Wikipedia pages.
+            <br>
+            NB. This view contains information only for those that have a page in Finnish Wikipedia.
+          </li>
+          <li>
+            The <strong>MAP</strong> tab visualises the places of birth and death associated with the person as well as places associated with the lifetime of the person. 
+            <br>
+            Clicking on the place markers will open a list of events explaining the connection to the place.
+          </li>
+          <li>
+            The <strong>EXPORT</strong> view allows you to view the SPARQL query used to generate the result table view into YASGUI query editor or examine the person data in the Saha editor.
+          </li>
+        </ul>
+      </p>
+      <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+      </p>`
       },
       properties: {
         prefLabel: {
