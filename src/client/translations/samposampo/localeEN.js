@@ -254,7 +254,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
       instancePage: {
         label: "Person",
         description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
-        This is the instance page of an person. The result view can be selected using the tabs:
+        The result view can be selected using the tabs:
         </p>
         <p>
         <ul class="MuiTypography-root MuiTypography-body1">
@@ -416,7 +416,24 @@ General information about the project is available at the
 </p>`,
       instancePage: {
         label: "Group",
-        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+        description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+        The result view can be selected using the tabs:
+        </p>
+        <p>
+        <ul class="MuiTypography-root MuiTypography-body1">
+          <li>
+            The <strong>TABLE</STRONG> tab lists detailed information about the organization extracted for various datasources, links to related resources in SampoSampo portal and to external sources.
+            <br>
+            Image source: Wikidata/Wikimedia Commons. 
+          </li>
+          <li>
+            The <strong>EXPORT</strong> view allows you to view the SPARQL query used to generate the result table view into YASGUI query editor or examine the organization data in the Saha editor.
+          </li>
+        </ul>
+      </p>
+      <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+      </p>`
       },
       properties: {
         prefLabel: {
@@ -430,11 +447,11 @@ General information about the project is available at the
         },
         image: {
           label: "Image",
-          description: "Image of the Person."
+          description: "Possible image representing the Organization."
         },
         estimated_time: {
           label: "Estimated time",
-          description: "Estimated time of activity."
+          description: "Estimated time of activity. NB. if this information is not directly available at the datasources, it is infered e.g. from the durations of person memberships."
         },
         location: {
           label: "Location",
@@ -446,11 +463,11 @@ General information about the project is available at the
         },
         external: {
           label: "Datasources",
-          description: "Datasets containing information about the person."
+          description: "Datasets containing information about the organization."
         },
         other: {
           label: "Other datasources",
-          description: "Same person in other datasources."
+          description: "Same organization in other datasources."
         },
         webpage_preview: {
           label: "Webpage preview",
@@ -474,7 +491,7 @@ General information about the project is available at the
         },
         website: {
           label: "External Websites",
-          description: "Websites containing information about the person."
+          description: "Websites containing information about the organization."
         },
         uri: {
           label: "URI",

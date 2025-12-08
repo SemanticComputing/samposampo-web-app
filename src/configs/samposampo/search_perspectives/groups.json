@@ -46,6 +46,13 @@
                         "component": "InstancePageTable",
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
+                    },
+                    "instancePageExport": {
+                        "tabID": 1,
+                        "component": "Export",
+                        "tabPath": "export",
+                        "tabIcon": "CloudDownload",
+                        "pageType": "instancePage"
                     }
                 }
             }
@@ -170,17 +177,6 @@
             "expandedOnInstancePage": true
         },
         {
-            "id": "namesake",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 80,
-            "onlyOnInstancePage": true,
-            "expandedOnInstancePage": true
-        },
-        {
             "id": "sentence",
             "valueType": "object",
             "makeLink": true,
@@ -198,6 +194,17 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": true,
+            "minWidth": 80,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "namesake",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
             "minWidth": 80,
             "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
