@@ -151,6 +151,17 @@
             "expandedOnInstancePage": true
         },
         {
+            "id": "place",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": false
+        },
+        {
             "id": "estimated_time",
             "valueType": "string",
             "makeLink": false,

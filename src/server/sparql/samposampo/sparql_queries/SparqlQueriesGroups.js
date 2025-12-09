@@ -92,6 +92,14 @@ export const groupPropertiesInstancePage = `
   {
     GRAPH ?g { ?proxy foaf:focus ?id }
     {
+      ?proxy owl:sameAs ?link .
+      [] owl:sameAs ?link ; a sampos:PlaceProxy ; foaf:focus ?place__id .
+      ?place__id skos:prefLabel ?place__prefLabel .
+      FILTER (LANG(?place__prefLabel)='en')
+	    BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
+    }
+    UNION
+    {
       ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .
       BIND(?altLabel__id AS ?altLabel__prefLabel)
       BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)

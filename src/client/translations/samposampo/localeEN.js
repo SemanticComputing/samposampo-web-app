@@ -307,7 +307,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
         },
         gender: {
           label: "Gender",
-          description: "Gender of the person."
+          description: "Gender of the person. The value 'Unknown' appears when the information has not been available in the source datasets."
         },
         birth_Timespan: {
           label: "Time of Birth",
@@ -457,6 +457,10 @@ General information about the project is available at the
         location: {
           label: "Location",
           description: "Location of the group."
+        },
+        place: {
+          label: "Related place",
+          description: "Related resource in the ontology of places."
         },
         category: {
           label: "Category",
@@ -612,30 +616,7 @@ General information about the project is available at the
           label: "Referenced by",
           description: "Referenced by another Wikipedia page."
         },
-        gender: {
-          label: "Gender",
-          description: "Gender of the person."
-        },
-        birth_Timespan: {
-          label: "Time of Birth",
-          description: "Time of birth."
-        },
-        birth_place: {
-          label: "Place of Birth",
-          description: "Place of birth."
-        },
-        death_Timespan: {
-          label: "Time of Death",
-          description: "Time of death."
-        },
-        death_place: {
-          label: "Place of Death",
-          description: "Place of death."
-        },
-        external: {
-          label: "Datasources",
-          description: "Datasets containing information about the person."
-        },
+        
         similar: {
           label: "Similar resources",
           description: "Resources linked to same people."

@@ -8,12 +8,12 @@
             "places",
             "historical_events",
             "place_relations",
-            "wikipedia_extracts",
             "fullTextSearch"
         ],
         "onlyInstancePages": [
             "proxies",
-            "place_proxies"
+            "place_proxies",
+            "wikipedia_extracts"
         ]
     },
     "localeConfig": {
