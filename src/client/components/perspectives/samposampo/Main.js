@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 import has from 'lodash'
 import MainCard from './MainCard'
 import { getSpacing } from '../../../helpers/helpers'
+import Button from '@mui/material/Button'
 
 /**
  * A component for generating a front page for a semantic portal.
@@ -14,6 +15,15 @@ import { getSpacing } from '../../../helpers/helpers'
 const Main = props => {
   const { perspectives, screenSize, layoutConfig } = props
   const { mainPage } = layoutConfig
+  const mainPerspectives = []
+  const informationPerspectives = []
+  perspectives.forEach(perspective => {
+    if (perspective.id == 'datasets' || perspective.searchMode === 'dummy-internal') {
+      informationPerspectives.push(perspective)
+    } else if (perspective.id !== 'fullTextSearch') {
+      mainPerspectives.push(perspective)
+    }
+  })
   let headingVariant = 'h5'
   let subheadingVariant = 'body1'
   let descriptionVariant = 'body1'
@@ -147,7 +157,7 @@ const Main = props => {
           container spacing={screenSize === 'sm' ? 2 : 1}
           justifyContent={screenSize === 'xs' || screenSize === 'sm' ? 'center' : 'flex-start'}
         >
-          {perspectives.map(perspective => {
+          {mainPerspectives.map(perspective => {
             const hideCard = (has(perspective.hideCardOnFrontPage) && perspective.hideCardOnFrontPage)
             if (!hideCard) {
               return (
@@ -162,6 +172,9 @@ const Main = props => {
             return null
           })}
         </Grid>
+        <div>
+           <hr />
+        </div>
         <Box
           sx={theme => ({
             marginTop: theme.spacing(1),
@@ -169,7 +182,51 @@ const Main = props => {
             justifyContent: 'center'
           })}
         >
+        <Typography variant={descriptionVariant} align='center' color='textPrimary'>
+            {intl.get('selectInformationPerspective')}
+          </Typography>
+          </Box>
+          <Grid
+          container spacing={screenSize === 'sm' ? 2 : 1}
+          justifyContent='center'
+        >
+          {informationPerspectives.map(perspective => {
+            const hideCard = (has(perspective.hideCardOnFrontPage) && perspective.hideCardOnFrontPage)
+            if (!hideCard) {
+              return (
+                <MainCard
+                  key={perspective.id}
+                  perspective={perspective}
+                  cardHeadingVariant='h5'
+                  cardHeight={110}
+                  cardHeightMd={110}
+                  rootUrl={props.rootUrl}
+                />
+              )
+            }
+            return null
+          })}
+        </Grid>
+        <hr />
+        <Typography variant={descriptionVariant} align='center' color='textPrimary'>
+          {intl.getHTML('mainPageLinkText') ? intl.getHTML('mainPageLinkText') : null}<br></br>
+        </Typography>
+        <Box sx={{ textAlign: 'center' }}>
+        {intl.get('mainPageLinks').map(b => {
+          return (
+            <Box key={b.title} sx={{ display: 'inline-block', margin: 0.5 }}>
+              <a href={b.link}>
+                <Button variant='contained' color='primary'>
+                  {b.title}
+                </Button>
+              </a>
+            </Box>
+          )
+        })}
+        </Box>
+          <hr />
           <Typography
+            align='center'
             sx={theme => ({
               marginTop: theme.spacing(0.5),
               fontSize: '0.7em'
@@ -177,9 +234,9 @@ const Main = props => {
           >
             {intl.getHTML('mainPageImageLicence')}
           </Typography>
+          </Box>
         </Box>
-      </Box>
-    </Box>
+
   )
 }
 

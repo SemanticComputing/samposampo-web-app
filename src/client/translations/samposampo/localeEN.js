@@ -18,6 +18,13 @@ export default {
   infoHeader: {
     toggleInstructions: "Click to show or hide instructions"
   },
+  mainPageLinkText: "Select example searches, visualizations, and linked information",
+  mainPageLinks: [
+      {
+        title: 'Instance page of Mikael Agricola',
+        link: '/people/page/p5571210016405644958/table'
+      }
+  ],
   topBar: {
     feedback: "feedback",
     info: {
