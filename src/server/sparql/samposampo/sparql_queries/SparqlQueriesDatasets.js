@@ -10,8 +10,10 @@ export const datasetProperties = `
     BIND(?id as ?uri__prefLabel)
   }
   UNION
-  { 
-    ?id foaf:webpage ?website 
+  {
+    ?id foaf:webpage ?website__id .
+    BIND (STR(?website__id) AS ?website__prefLabel)
+    BIND (?website__id AS ?website__dataProviderUrl)
   }
   UNION
   { 

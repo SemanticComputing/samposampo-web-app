@@ -76,8 +76,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 80,
-            "onlyOnInstancePage": false
+            "minWidth": 80
         },
         {
             "id": "number_of_organizations",
@@ -86,8 +85,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 80,
-            "onlyOnInstancePage": false
+            "minWidth": 80
         },
         {
             "id": "number_of_places",
@@ -96,18 +94,15 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 80,
-            "onlyOnInstancePage": false
+            "minWidth": 80
         },
         {
             "id": "website",
             "valueType": "object",
             "makeLink": true,
             "externalLink": true,
-            "sortValues": true,
             "numberedList": false,
-            "minWidth": 250,
-            "expandedOnInstancePage": true
+            "minWidth": 250
         }
     ],
     "facets": {

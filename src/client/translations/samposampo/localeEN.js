@@ -925,7 +925,7 @@ General information about the project is available at the
           description: "Number of places extracted from the dataset"
         },
         website: {
-          label: "Website (TBA)",
+          label: "Website",
           description: ""
         }
       }
