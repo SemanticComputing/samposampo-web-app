@@ -102,11 +102,11 @@ export const groupPropertiesInstancePage = `
     {
       ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .
       BIND(?altLabel__id AS ?altLabel__prefLabel)
-      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
+      BIND(CONCAT("/group_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
 
       ?g skos:prefLabel ?altLabel__source__prefLabel .
       BIND (?proxy AS ?altLabel__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
+      BIND (CONCAT("/group_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
     }
     UNION
     {

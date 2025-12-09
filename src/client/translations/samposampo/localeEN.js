@@ -504,6 +504,59 @@ General information about the project is available at the
         }
       }
     },
+    group_proxies: {
+      label: "Proxy",
+      facetResultsType: "group",
+      shortDescription: "Proxy perspective description",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      instancePage: {
+        label: "Organization information in one datasource",
+        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+      },
+      properties: {
+        prefLabel: {
+          label: "Name",
+          description: "The name of the Organization.",
+          textFacetInputPlaceholder: "Search..."
+        },
+        altLabel: {
+          label: "Alternative Names",
+          description: "Alternative names of the Organization in datasource"
+        },
+        provided: {
+          label: "Provided",
+          description: "Provided resource."
+        },
+        image: {
+          label: "Image",
+          description: "Image of the Organization."
+        },
+        external: {
+          label: "Datasources",
+          description: "Datasets containing information about the person."
+        },
+        other: {
+          label: "Other datasources",
+          description: "Same person in other datasources."
+        },
+        webpage_preview: {
+          label: "Webpage preview",
+          description: "Webpage preview."
+        },
+        datasource_preview: {
+          label: "Datasource preview",
+          description: "Datasource preview."
+        },
+        website: {
+          label: "External Websites",
+          description: "Websites containing information about the person."
+        },
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        }
+      }
+    },
     proxies: {
       label: "Proxy",
       facetResultsType: "people",
