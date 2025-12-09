@@ -10,12 +10,16 @@ export const datasetProperties = `
     BIND(?id as ?uri__prefLabel)
   }
   UNION
-    { 
-      SELECT DISTINCT ?id 
+  { 
+    ?id foaf:webpage ?website 
+  }
+  UNION
+  { 
+    SELECT DISTINCT ?id 
         (COUNT(?prs) AS ?number_of_people) 
         (COUNT(?org) AS ?number_of_organizations) 
         (COUNT(?plc) AS ?number_of_places)
-      WHERE {
+    WHERE {
         {
         ?prs a sch:Person ; sampos:in_dataset ?id
         }
@@ -27,7 +31,7 @@ export const datasetProperties = `
         {
           ?plc a sampos:PlaceProxy ; dce:source ?id
         }
-      } 
+      }
       GROUP BY ?id 
     }
 `

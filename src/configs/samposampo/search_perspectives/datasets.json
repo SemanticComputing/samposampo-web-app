@@ -63,7 +63,7 @@
         {
             "id": "prefLabel",
             "valueType": "object",
-            "makeLink": true,
+            "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -117,6 +117,15 @@
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
+        },
+        "number_of_people": {
+            "sortByPattern": "{ SELECT ?id (COUNT(?prs) AS ?orderBy) WHERE { VALUES ?facetClass { <FACET_CLASS> } ?id a ?facetClass . OPTIONAL { ?prs a sch:Person ; sampos:in_dataset ?id }} GROUP BY ?id }"
+        },
+        "number_of_organizations": {
+            "sortByPattern": "{ SELECT ?id (COUNT(?org) AS ?orderBy) WHERE { VALUES ?facetClass { <FACET_CLASS> } ?id a ?facetClass . OPTIONAL { ?org a sch:Organization ; sampos:in_dataset ?id }} GROUP BY ?id }"
+        },
+        "number_of_places": {
+            "sortByPattern": "{ SELECT ?id (COUNT(?plc) AS ?orderBy) WHERE { VALUES ?facetClass { <FACET_CLASS> } ?id a ?facetClass . OPTIONAL { ?plc a sampos:PlaceProxy ; dce:source ?id }} GROUP BY ?id }"
         }
     }
 }
