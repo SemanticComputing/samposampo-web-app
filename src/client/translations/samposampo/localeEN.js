@@ -859,7 +859,7 @@ General information about the project is available at the
       properties: {
         prefLabel: {
           label: "Description",
-          description: "Hußman readable description of the relation."
+          description: "Human readable description of the relation."
         },
         person: {
           label: "Person",
@@ -892,6 +892,34 @@ General information about the project is available at the
         additionalSource: {
           label: "Additional source(s)",
           description: "Additional sources for the relation. For AI-generated relations, these are the sources provided by the model for its generated relation."
+        }
+      }
+    },
+    datasets: {
+      label: "Datasets",
+      facetResultsType: "datasets",
+      shortDescription: "Overview of source datasets",
+      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      properties: {
+        prefLabel: {
+          label: "Title",
+          description: "Name of the dataset"
+        },
+        number_of_people: {
+          label: "Number of people",
+          description: "Number of people extracted from the dataset"
+        },
+        number_of_organizations: {
+          label: "Number of organizations",
+          description: "Number of organizations extracted from the dataset"
+        },
+        number_of_places: {
+          label: "Number of places",
+          description: "Number of places extracted from the dataset"
+        },
+        website: {
+          label: "Website",
+          description: ""
         }
       }
     }

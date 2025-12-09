@@ -1,0 +1,122 @@
+{
+    "id": "datasets",
+    "endpoint": {
+        "url": "https://ldf.fi/sampo/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesDatasets.js",
+    "baseURI": "http://ldf.fi/sampo",
+    "URITemplate": "<BASE_URI>/datasets/<LOCAL_ID>",
+    "facetClass": "sampos:Dataset",
+    "frontPageImage": "main_page/places-452x262.jpg",
+    "searchMode": "faceted-search",
+    "enableDynamicLanguageChange": false,
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "datasets": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "datasetProperties",
+                "pagesize": 30,
+                "sortBy": null,
+                "sortDirection": null
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "placeInstancePageProperties",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
+        },
+        "share": {
+            "tabID": 2,
+            "component": "ExportLink",
+            "tabPath": "share",
+            "tabIcon": "IosShare",
+            "resultClass": "datasets",
+            "facetClass": "datasets"
+        }
+    },
+    "properties": [
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250
+        },
+        {
+            "id": "number_of_people",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "onlyOnInstancePage": false
+        },
+        {
+            "id": "number_of_organizations",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "onlyOnInstancePage": false
+        },
+        {
+            "id": "number_of_places",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80,
+            "onlyOnInstancePage": false
+        },
+        {
+            "id": "website",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "expandedOnInstancePage": true
+        }
+    ],
+    "facets": {
+        "prefLabel": {
+            "containerClass": "one",
+            "facetType": "text",
+            "filterType": "textFilter",
+            "sortByPredicate": "skos:prefLabel",
+            "textQueryProperty": "skos:prefLabel"
+        }
+    }
+}

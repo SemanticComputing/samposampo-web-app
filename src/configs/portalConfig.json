@@ -8,6 +8,7 @@
             "places",
             "historical_events",
             "place_relations",
+            "datasets",
             "fullTextSearch"
         ],
         "onlyInstancePages": [
