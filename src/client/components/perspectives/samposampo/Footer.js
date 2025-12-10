@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import Box from '@mui/material/Box'
 import aaltoLogo from '../../../img/logos/Aalto_SCI_EN_13_BLACK_2_cropped.png'
 import hyLogo from '../../../img/logos/university-of-helsinki-logo-transparent-black.png'
-import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
+import heldigLogo from '../../../img/logos/heldig_logo9.png'
+import HSSHLogo from '../../../img/logos/HSSH_tunniste.png'
+import dariahLogo from '../../../img/logos/dariah_logo_transparent.png'
 
 /**
  * A component for creating a footer. The logos are imported inside this component.
@@ -98,6 +100,52 @@ const Footer = props => {
           component='img'
           src={heldigLogo}
           alt='Helsinki Centre for Digital Humanities logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://www.helsinki.fi/en/helsinki-institute-social-sciences-and-humanities'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          width: 118,
+          height: 30,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            width: 130,
+            height: 33
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={HSSHLogo}
+          alt='Helsinki Institute for Social Sciences and Humanities logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://www.dariah.fi/'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          width: 118,
+          height: 30,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            width: 130,
+            height: 33
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={dariahLogo}
+          alt='DARIAH-FI logo'
           sx={{
             height: '100%'
           }}
