@@ -23,7 +23,20 @@ export default {
       {
         title: 'Instance page of Mikael Agricola',
         link: '/people/page/p5571210016405644958/table'
+      },
+      {
+        title: 'Performance venues in OperaSampo',
+        link: '/en/groups/faceted-search/map?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B10%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FOperaSampo%22%2C%22prefLabel%22%3A%22OperaSampo%22%2C%22instanceCount%22%3A134%7D%7D%7D%5D'
+      },
+      {
+        title: 'Lifetimes of WarSampo people',
+        link: '/en/people/faceted-search/lifeyears?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B12%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FWarSampo%22%2C%22prefLabel%22%3A%22WarSampo%22%2C%22instanceCount%22%3A4154%7D%7D%7D%5D'
+      },
+      {
+        title: 'Places related to C.G.E. Mannerheim',
+        link: '/people/page/p2838987257481784015/map'
       }
+      
   ],
   topBar: {
     feedback: "feedback",

@@ -13,7 +13,7 @@ export const prefixes = `
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
-  PREFIX sch: <https://schema.org/>
+  PREFiX sch: <https://schema.org/> 
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
   PREFIX spatial: <http://jena.apache.org/spatial#>
   PREFIX text: <http://jena.apache.org/text#>
