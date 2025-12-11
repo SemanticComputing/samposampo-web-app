@@ -100,6 +100,11 @@ export const placeInstancePageProperties = `
     BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) AS ?relation__dataProviderUrl)
   }
   UNION {
+    ?id (^sch:location)/foaf:focus ?group__id .
+    ?group__id skos:prefLabel ?group__prefLabel .
+    BIND(CONCAT("/groups/page/", REPLACE(STR(?group__id), "^.*\\\\/(.+)", "$1")) AS ?group__dataProviderUrl)
+  }
+  UNION {
     ?id ^foaf:focus ?proxy .
     ?proxy owl:sameAs ?source__id .
     BIND(?source__id as ?source__dataProviderUrl)

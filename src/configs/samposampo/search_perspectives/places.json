@@ -190,7 +190,7 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false,
+            "numberedList": true,
             "minWidth": 250,
             "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
@@ -201,7 +201,7 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false,
+            "numberedList": true,
             "minWidth": 250,
             "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
@@ -212,7 +212,18 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false,
+            "numberedList": true,
+            "minWidth": 250,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "group",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": true,
             "minWidth": 250,
             "onlyOnInstancePage": true,
             "expandedOnInstancePage": true

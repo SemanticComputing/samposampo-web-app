@@ -476,7 +476,7 @@ General information about the project is available at the
         },
         location: {
           label: "Location",
-          description: "Location of the group."
+          description: "Place of the headquarter or an area of activity"
         },
         place: {
           label: "Related place",
@@ -770,6 +770,10 @@ General information about the project is available at the
         relation: {
           label: "Part of a person-place relation",
           description: "Person-place relations involving the Place"
+        },
+        group: {
+          label: "Related organizations",
+          description: "Organizations with activities in this place"
         },
         website: {
           label: "Websites",
