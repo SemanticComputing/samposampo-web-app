@@ -35,8 +35,11 @@ export default {
       {
         title: 'Places related to C.G.E. Mannerheim',
         link: '/people/page/p2838987257481784015/map'
+      },
+      {
+        title: 'People related to The Hitchhiker’s Guide to the Galaxy by their Wikipedia pages',
+        link: '/en/wikipedia_extracts/page/Linnunradan_käsikirja_liftareille/table'
       }
-      
   ],
   topBar: {
     feedback: "feedback",

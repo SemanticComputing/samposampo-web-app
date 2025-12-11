@@ -76,7 +76,7 @@ export const wikipediaPropertiesInstancePage = `
   }
   UNION
   {
-    ?id wlink:image ?image__id ;
+    ?id <http://schema.org/image> ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
     # BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
@@ -90,10 +90,16 @@ export const wikipediaPropertiesInstancePage = `
   }
   UNION
   {
-    [] wlink:has_reference/wlink:references ?id ;
-      foaf:focus ?referenced_by__id .
+    ?sentence__id wlink:references ?id ; skos:prefLabel ?_label .
+    [] wlink:has_reference ?sentence__id ;
+    	foaf:focus ?referenced_by__id .
     ?referenced_by__id skos:prefLabel ?referenced_by__prefLabel .
+    BIND (CONCAT(
+      REPLACE(?referenced_by__prefLabel, "^(.+) [0-9()-]+$","$1"),
+      ": ", 
+      ?_label) AS ?sentence__prefLabel)
     BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_by__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_by__dataProviderUrl)
+    BIND (?referenced_by__dataProviderUrl AS ?sentence__dataProviderUrl)
   }
   UNION
   {

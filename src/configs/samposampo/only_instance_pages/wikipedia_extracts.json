@@ -162,7 +162,6 @@
             "sortValues": false,
             "numberedList": true,
             "minWidth": 300,
-            "onlyOnInstancePage": true,
             "expandedOnInstancePage": false
         },
         {
@@ -172,8 +171,18 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "onlyOnInstancePage": true,
             "minWidth": 300
+        },
+        {
+            "id": "sentence",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "minWidth": 300,
+            "expandedOnInstancePage": true
         },
         {
             "id": "referenced_by",
@@ -183,7 +192,6 @@
             "sortValues": true,
             "numberedList": true,
             "minWidth": 300,
-            "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         },
         {
@@ -194,7 +202,6 @@
             "sortValues": false,
             "numberedList": true,
             "minWidth": 300,
-            "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         }
     ]
