@@ -104,17 +104,34 @@ export const placeInstancePageProperties = `
     ?group__id skos:prefLabel ?group__prefLabel .
     BIND(CONCAT("/groups/page/", REPLACE(STR(?group__id), "^.*\\\\/(.+)", "$1")) AS ?group__dataProviderUrl)
   }
-  UNION {
+  UNION
+  {
     ?id ^foaf:focus ?proxy .
     ?proxy owl:sameAs ?source__id .
     BIND(?source__id as ?source__dataProviderUrl)
     ?proxy dce:source/skos:prefLabel ?source__prefLabel .
+
+    OPTIONAL {
+      [] owl:sameAs ?source__id ; 
+         a sampos:OrganizationProxy ;
+         foaf:focus ?group__id .
+      ?group__id skos:prefLabel ?group__prefLabel .
+	    BIND (CONCAT("/groups/page/", REPLACE(STR(?group__id), "^.*\\\\/(.+)", "$1")) AS ?group__dataProviderUrl)
+    }
   }
   UNION {
     ?id ^foaf:focus ?proxy .
     ?proxy foaf:page ?website__id .
     BIND(?website__id as ?website__dataProviderUrl)
     ?proxy dce:source/skos:prefLabel ?website__prefLabel .
+
+    OPTIONAL {
+      [] foaf:page ?website__id ; 
+         a sampos:OrganizationProxy ;
+         foaf:focus ?group__id .
+      ?group__id skos:prefLabel ?group__prefLabel .
+	    BIND (CONCAT("/groups/page/", REPLACE(STR(?group__id), "^.*\\\\/(.+)", "$1")) AS ?group__dataProviderUrl)
+    }
   }
 `
 

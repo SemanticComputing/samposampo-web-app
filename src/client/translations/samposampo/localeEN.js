@@ -531,7 +531,24 @@ General information about the project is available at the
       longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       instancePage: {
         label: "Organization information in one datasource",
-        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+        description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+        The result view can be selected using the tabs:
+        </p>
+        <p>
+        <ul class="MuiTypography-root MuiTypography-body1">
+          <li>
+            The <strong>TABLE</STRONG> tab lists detailed information about the organization extracted from one of the datasources, links to related resources in SampoSampo portal and to external sources.
+            <br>
+            Image source: Wikidata/Wikimedia Commons. 
+          </li>
+          <li>
+            The <strong>EXPORT</strong> view allows you to view the SPARQL query used to generate the result table view into YASGUI query editor or examine the organization data in the Saha editor.
+          </li>
+        </ul>
+      </p>
+      <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+      </p>`
       },
       properties: {
         prefLabel: {
@@ -553,11 +570,11 @@ General information about the project is available at the
         },
         external: {
           label: "Datasources",
-          description: "Datasets containing information about the person."
+          description: "Datasets containing information about the Organization."
         },
         other: {
           label: "Other datasources",
-          description: "Same person in other datasources."
+          description: "Same Organization in other datasources."
         },
         webpage_preview: {
           label: "Webpage preview",
@@ -569,7 +586,7 @@ General information about the project is available at the
         },
         website: {
           label: "External Websites",
-          description: "Websites containing information about the person."
+          description: "Websites containing information about the Organization."
         },
         uri: {
           label: "URI",
