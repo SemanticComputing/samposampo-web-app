@@ -303,7 +303,7 @@ WHERE {
         ?_similar foaf:focus ?similar__id .
         ?similar__id skos:prefLabel ?_label .
       } 
-    GROUPBY ?proxy ?similar__id ?_label ORDER BY ?value
+    GROUP BY ?proxy ?similar__id ?_label ORDER BY ?value
     }
   }
   UNION
@@ -331,7 +331,7 @@ WHERE {
   BIND (COALESCE(?_category, sch:Unknown) AS ?category)
 } 
 GROUPBY ?category ?prefLabel 
-ORDERBY DESC(?instanceCount)
+ORDER BY DESC(?instanceCount)
 `
 
 export const peopleByBirthPlaceQuery = `
@@ -346,7 +346,7 @@ WHERE {
   FILTER (LANG(?prefLabel)='fi')
 } 
 GROUPBY ?category ?prefLabel 
-ORDERBY DESC(?instanceCount)
+ORDER BY DESC(?instanceCount)
 LIMIT 30
 `
 
@@ -362,7 +362,7 @@ WHERE {
   FILTER (LANG(?prefLabel)='fi')
 } 
 GROUPBY ?category ?prefLabel 
-ORDERBY DESC(?instanceCount)
+ORDER BY DESC(?instanceCount)
 LIMIT 30
 `
 
@@ -377,7 +377,7 @@ WHERE {
   ?category skos:prefLabel ?prefLabel
 } 
 GROUPBY ?category ?prefLabel 
-ORDERBY DESC(?instanceCount)
+ORDER BY DESC(?instanceCount)
 `
 
 export const peopleByNumberOfDatasourcesQuery = `
@@ -391,7 +391,7 @@ WHERE {
   BIND (str(?category) AS ?prefLabel)
 }
 GROUPBY ?category ?prefLabel
-ORDERBY ?category
+ORDER BY ?category
 `
 
 export const peopleByInconsistenciesQuery = `
@@ -405,7 +405,7 @@ WHERE {
   ?category skos:prefLabel ?prefLabel
 }
 GROUPBY ?category ?prefLabel
-ORDERBY ?category
+ORDER BY ?category
 `
 
 export const csvQueryPeople = `SELECT DISTINCT ?id 
@@ -427,39 +427,39 @@ WHERE {
   {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_btime); separator=";") AS ?birth_times) WHERE {
       ?proxy foaf:focus ?id ; sampos:birth_time/skos:prefLabel ?_btime
-    } GROUPBY ?id 
+    } GROUP BY ?id 
   }
   
   {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_dtime); separator=";") AS ?death_times) WHERE {
       ?proxy foaf:focus ?id ; sampos:death_time/skos:prefLabel ?_dtime
-    } GROUPBY ?id 
+    } GROUP BY ?id 
   }
   
   OPTIONAL {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_bplace); separator=";") AS ?birth_places) WHERE {
       ?proxy foaf:focus ?id ;sch:birthPlace/skos:prefLabel ?_bplace
         FILTER (LANG(?_bplace)='en')
-    } GROUPBY ?id
+    } GROUP BY ?id
   }
   
   OPTIONAL {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_dplace); separator=";") AS ?death_places) WHERE {
       ?proxy foaf:focus ?id ;sch:deathPlace/skos:prefLabel ?_dplace
         FILTER (LANG(?_dplace)='en')
-    } GROUPBY ?id 
+    } GROUP BY ?id 
   }
   
   OPTIONAL {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources) WHERE {
       ?proxy foaf:focus ?id ; owl:sameAs ?_datasource 
-    } GROUPBY ?id 
+    } GROUP BY ?id 
   }
   
   OPTIONAL {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages) WHERE {
       ?proxy foaf:focus ?id ; foaf:page ?_webpage 
-    } GROUPBY ?id 
+    } GROUP BY ?id 
   }
   
   OPTIONAL { ?id sampos:pagelinks ?pagelinks }
@@ -562,7 +562,7 @@ WHERE {
 
 	  	?person__id a sch:Person .
       ?_proxy foaf:focus ?person__id ; sampos:birth_time/time:hasBeginning [] .
-    } GROUPBY ?person__id }
+    } GROUP BY ?person__id }
   FILTER (BOUND(?proxy))
   {
     ?proxy sampos:birth_time/time:hasBeginning ?time .
@@ -576,7 +576,7 @@ WHERE {
   
   BIND (STR(year(?time)) AS ?category)
   FILTER (?category <= STR(YEAR(NOW())))
-} GROUPBY ?category ORDER BY ?category
+} GROUP BY ?category ORDER BY ?category
 `
 
 export const peopleMigrationsQuery = `

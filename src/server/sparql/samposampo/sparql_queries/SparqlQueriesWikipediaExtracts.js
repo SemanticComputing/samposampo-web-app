@@ -123,6 +123,6 @@ export const wikipediaPropertiesInstancePage = `
       FILTER NOT EXISTS { ?similar__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Place }
       FILTER NOT EXISTS { ?similar__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Organization }
       ?similar__id skos:prefLabel ?_label .
-    } GROUPBY ?id ?similar__id ?_label ORDER BY DESC(COUNT(?proxy))
+    } GROUP BY ?id ?similar__id ?_label ORDER BY DESC(COUNT(?proxy))
   }
 `

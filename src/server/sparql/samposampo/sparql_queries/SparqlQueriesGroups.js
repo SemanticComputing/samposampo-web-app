@@ -66,7 +66,7 @@ export const groupPropertiesInstancePage = `
     WHERE {
     [] foaf:focus ?id ;
        sampos:estimated_time [ time:hasBeginning ?_start ; time:hasEnd ?_end ]
-    } GROUPBY ?id
+    } GROUP BY ?id
   }
   UNION
   {
