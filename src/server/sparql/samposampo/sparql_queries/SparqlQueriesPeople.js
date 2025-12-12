@@ -330,7 +330,7 @@ WHERE {
   BIND (COALESCE(?_label, "Unknown") AS ?prefLabel)
   BIND (COALESCE(?_category, sch:Unknown) AS ?category)
 } 
-GROUPBY ?category ?prefLabel 
+GROUP BY ?category ?prefLabel 
 ORDER BY DESC(?instanceCount)
 `
 
@@ -345,7 +345,7 @@ WHERE {
   ?category skos:prefLabel ?prefLabel .
   FILTER (LANG(?prefLabel)='fi')
 } 
-GROUPBY ?category ?prefLabel 
+GROUP BY ?category ?prefLabel 
 ORDER BY DESC(?instanceCount)
 LIMIT 30
 `
@@ -361,7 +361,7 @@ WHERE {
   ?category skos:prefLabel ?prefLabel .
   FILTER (LANG(?prefLabel)='fi')
 } 
-GROUPBY ?category ?prefLabel 
+GROUP BY ?category ?prefLabel 
 ORDER BY DESC(?instanceCount)
 LIMIT 30
 `
@@ -376,7 +376,7 @@ WHERE {
   ?person__id sampos:in_dataset ?category .
   ?category skos:prefLabel ?prefLabel
 } 
-GROUPBY ?category ?prefLabel 
+GROUP BY ?category ?prefLabel 
 ORDER BY DESC(?instanceCount)
 `
 
@@ -390,7 +390,7 @@ WHERE {
   ?person__id sampos:pagelinks ?category .
   BIND (str(?category) AS ?prefLabel)
 }
-GROUPBY ?category ?prefLabel
+GROUP BY ?category ?prefLabel
 ORDER BY ?category
 `
 
@@ -404,7 +404,7 @@ WHERE {
   ?person__id sampos:has_inconsistency ?category .
   ?category skos:prefLabel ?prefLabel
 }
-GROUPBY ?category ?prefLabel
+GROUP BY ?category ?prefLabel
 ORDER BY ?category
 `
 
