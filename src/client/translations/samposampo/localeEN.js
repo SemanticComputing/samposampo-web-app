@@ -29,8 +29,16 @@ export default {
         link: '/en/groups/faceted-search/map?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B10%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FOperaSampo%22%2C%22prefLabel%22%3A%22OperaSampo%22%2C%22instanceCount%22%3A134%7D%7D%7D%5D'
       },
       {
+        title: 'People related to Symbolism by their Wikipedia pages',
+        link: '/en/wikipedia_extracts/page/Symbolismi/table'
+      },
+      {
         title: 'Lifetimes of WarSampo people',
         link: '/en/people/faceted-search/lifeyears?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B12%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FWarSampo%22%2C%22prefLabel%22%3A%22WarSampo%22%2C%22instanceCount%22%3A4154%7D%7D%7D%5D'
+      },
+      {
+        title: 'Migrations of Females in ArtSampo',
+        link: '/en/people/faceted-search/migrations?constraints=%5B%7B%22facetId%22%3A%22gender%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B1%5D%2C%22node%22%3A%7B%22id%22%3A%22https%3A%2F%2Fschema.org%2FFemale%22%2C%22prefLabel%22%3A%22Female%22%2C%22instanceCount%22%3A19754%7D%7D%7D%2C%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B17%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FArtSampo%22%2C%22prefLabel%22%3A%22ArtSampo%22%2C%22instanceCount%22%3A170%7D%7D%7D%5D'
       },
       {
         title: 'Places related to C.G.E. Mannerheim',
