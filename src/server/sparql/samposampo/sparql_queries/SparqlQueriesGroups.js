@@ -95,47 +95,46 @@ export const groupPropertiesInstancePage = `
   UNION
   {
     GRAPH ?g { ?proxy foaf:focus ?id }
-    {
-      ?proxy owl:sameAs ?link .
-      [] owl:sameAs ?link ; a sampos:PlaceProxy ; foaf:focus ?place__id .
-      ?place__id skos:prefLabel ?place__prefLabel .
-      FILTER (LANG(?place__prefLabel)='en')
-	    BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .
-      BIND(?altLabel__id AS ?altLabel__prefLabel)
-      BIND(CONCAT("/group_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
+    ?proxy owl:sameAs ?link .
+    [] owl:sameAs ?link ; a sampos:PlaceProxy ; foaf:focus ?place__id .
+    ?place__id skos:prefLabel ?place__prefLabel .
+    FILTER (LANG(?place__prefLabel)='en')
+    BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
+  }
+  UNION
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .
+    BIND(?altLabel__id AS ?altLabel__prefLabel)
+    BIND(CONCAT("/group_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__dataProviderUrl)
 
-      ?g skos:prefLabel ?altLabel__source__prefLabel .
-      BIND (?proxy AS ?altLabel__source__id)
-      BIND (CONCAT("/group_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy sampos:category ?category
-    }
-    UNION
-    {
-      ?proxy sch:location ?location__id .
-      ?location__id skos:prefLabel ?location__prefLabel .
-      BIND (CONCAT("/places/page/", REPLACE(STR(?location__id), "^.*\\\\/(.+)", "$1")) AS ?location__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy foaf:page ?website__id ; skos:prefLabel ?_label .
-      ?website__id a/skos:prefLabel ?_label2 .
-      BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?website__prefLabel)
-      BIND (?website__id as ?website__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy owl:sameAs ?external__id  ; skos:prefLabel ?_label .
-      ?external__id a/skos:prefLabel  ?_label2 .
-      BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?external__prefLabel)
-      BIND (?external__id as ?external__dataProviderUrl)
-    }
+    ?g skos:prefLabel ?altLabel__source__prefLabel .
+    BIND (?proxy AS ?altLabel__source__id)
+    BIND (CONCAT("/group_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?altLabel__source__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id (^foaf:focus)/sampos:category ?category
+  }
+  UNION
+  {
+    ?id (^foaf:focus)/sch:location ?location__id .
+    ?location__id skos:prefLabel ?location__prefLabel .
+    BIND (CONCAT("/places/page/", REPLACE(STR(?location__id), "^.*\\\\/(.+)", "$1")) AS ?location__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id (^foaf:focus)/foaf:page ?website__id ; skos:prefLabel ?_label .
+    ?website__id a/skos:prefLabel ?_label2 .
+    BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?website__prefLabel)
+    BIND (?website__id as ?website__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id (^foaf:focus)/owl:sameAs ?external__id  ; skos:prefLabel ?_label .
+    ?external__id a/skos:prefLabel  ?_label2 .
+    BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?external__prefLabel)
+    BIND (?external__id as ?external__dataProviderUrl)
   }
 `
 

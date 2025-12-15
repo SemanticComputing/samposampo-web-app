@@ -568,7 +568,8 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         },
         {
             "id": "external",
@@ -578,7 +579,8 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
-            "expandedOnInstancePage": true
+            "expandedOnInstancePage": true,
+            "disableSort": true
         }
     ],
     "facets": {

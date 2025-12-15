@@ -94,7 +94,8 @@
             "makeLink": true,
             "externalLink": true,
             "numberedList": false,
-            "minWidth": 250
+            "minWidth": 250,
+            "disableSort": true
         }
     ],
     "facets": {

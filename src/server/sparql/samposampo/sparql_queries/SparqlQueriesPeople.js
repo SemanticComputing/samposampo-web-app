@@ -99,122 +99,126 @@ export const personPropertiesInstancePage = `
   UNION
   {
     GRAPH ?g { ?proxy foaf:focus ?id }
-    {
-      ?proxy sch:gender ?gender__id .
-      ?gender__id skos:prefLabel ?gender__prefLabel .
-      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__dataProviderUrl)
+    ?proxy sch:gender ?gender__id .
+    ?gender__id skos:prefLabel ?gender__prefLabel .
+    BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__dataProviderUrl)
 
-      ?g skos:prefLabel ?gender__source__prefLabel .
-      BIND (?proxy AS ?gender__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__source__dataProviderUrl)
+    ?g skos:prefLabel ?gender__source__prefLabel .
+    BIND (?proxy AS ?gender__source__id)
+    BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__source__dataProviderUrl)
+  
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy sch:gender ?gender__id
+      }
+      BIND("red" as ?gender__color)
+    }
+  }
+  UNION 
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy skos:prefLabel ?proxyPrefLabel__id .
+    BIND (?proxyPrefLabel__id AS ?proxyPrefLabel__prefLabel)
     
-      OPTIONAL {
-        GRAPH <http://ldf.fi/sampo/inconsistencies> {
-          ?proxy sch:gender ?gender__id
-        }
-        BIND("red" as ?gender__color)
+    ?g skos:prefLabel ?proxyPrefLabel__source__prefLabel .
+    BIND(?proxy AS ?proxyPrefLabel__source__id)
+    BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
+  }
+  UNION 
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy skos:altLabel ?proxyAltLabel__id .
+    BIND (?proxyAltLabel__id AS ?proxyAltLabel__prefLabel)
+    
+    ?g skos:prefLabel ?proxyAltLabel__source__prefLabel .
+    BIND(?proxy AS ?proxyAltLabel__source__id)
+    BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
+  }
+  UNION
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy sampos:birth_time ?birth_Timespan__id .
+    ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel .
+    OPTIONAL { ?birth_Timespan__id time:hasBeginning ?birth_Timespan__start }
+    OPTIONAL { ?birth_Timespan__id time:hasEnd ?birth_Timespan__end } 
+
+    ?g skos:prefLabel ?birth_Timespan__source__prefLabel .
+    BIND (?proxy AS ?birth_Timespan__source__id)
+    BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_Timespan__source__dataProviderUrl)
+
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy sampos:birth_time ?birth_Timespan__id
       }
+      BIND("red" as ?birth_Timespan__color)
     }
-    UNION 
-    {
-      ?proxy skos:prefLabel ?proxyPrefLabel__id .
-      BIND (?proxyPrefLabel__id AS ?proxyPrefLabel__prefLabel)
-      
-      ?g skos:prefLabel ?proxyPrefLabel__source__prefLabel .
-      BIND(?proxy AS ?proxyPrefLabel__source__id)
-      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
-    }
-    UNION 
-    {
-      ?proxy skos:altLabel ?proxyAltLabel__id .
-      BIND (?proxyAltLabel__id AS ?proxyAltLabel__prefLabel)
-      
-      ?g skos:prefLabel ?proxyAltLabel__source__prefLabel .
-      BIND(?proxy AS ?proxyAltLabel__source__id)
-      BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy sampos:birth_time ?birth_Timespan__id .
-      ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel .
-      OPTIONAL { ?birth_Timespan__id time:hasBeginning ?birth_Timespan__start }
-      OPTIONAL { ?birth_Timespan__id time:hasEnd ?birth_Timespan__end } 
+  }
+  UNION
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy sch:birthPlace ?birth_place__id .
+    ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
+    BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
 
-      ?g skos:prefLabel ?birth_Timespan__source__prefLabel .
-      BIND (?proxy AS ?birth_Timespan__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_Timespan__source__dataProviderUrl)
+    ?g skos:prefLabel ?birth_place__source__prefLabel .
+    BIND (?proxy AS ?birth_place__source__id)
+    BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_place__source__dataProviderUrl)
 
-      OPTIONAL {
-        GRAPH <http://ldf.fi/sampo/inconsistencies> {
-          ?proxy sampos:birth_time ?birth_Timespan__id
-        }
-        BIND("red" as ?birth_Timespan__color)
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy sch:birthPlace ?birth_place__id
       }
+      BIND("red" as ?birth_place__color)
     }
-    UNION
-    {
-      ?proxy sch:birthPlace ?birth_place__id .
-      ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
-      BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
+  }
+  UNION
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy sampos:death_time ?death_Timespan__id .
+    ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel .
+    OPTIONAL { ?death_Timespan__id time:hasBeginning ?death_Timespan__start }
+    OPTIONAL { ?death_Timespan__id time:hasEnd ?death_Timespan__end }
 
-      ?g skos:prefLabel ?birth_place__source__prefLabel .
-      BIND (?proxy AS ?birth_place__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?birth_place__source__dataProviderUrl)
+    ?g skos:prefLabel ?death_Timespan__source__prefLabel .
+    BIND (?proxy AS ?death_Timespan__source__id)
+    BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_Timespan__source__dataProviderUrl)
 
-      OPTIONAL {
-        GRAPH <http://ldf.fi/sampo/inconsistencies> {
-          ?proxy sch:birthPlace ?birth_place__id
-        }
-        BIND("red" as ?birth_place__color)
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy sampos:death_time ?death_Timespan__id
       }
+      BIND("red" as ?death_Timespan__color)
     }
-    UNION
-    {
-      ?proxy sampos:death_time ?death_Timespan__id .
-      ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel .
-      OPTIONAL { ?death_Timespan__id time:hasBeginning ?death_Timespan__start }
-      OPTIONAL { ?death_Timespan__id time:hasEnd ?death_Timespan__end }
+  }
+  UNION
+  {
+    GRAPH ?g { ?proxy foaf:focus ?id }
+    ?proxy sch:deathPlace ?death_place__id .
+    ?death_place__id skos:prefLabel ?death_place__prefLabel .
+    BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__dataProviderUrl)
 
-      ?g skos:prefLabel ?death_Timespan__source__prefLabel .
-      BIND (?proxy AS ?death_Timespan__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_Timespan__source__dataProviderUrl)
+    ?g skos:prefLabel ?death_place__source__prefLabel .
+    BIND (?proxy AS ?death_place__source__id)
+    BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_place__source__dataProviderUrl)
 
-      OPTIONAL {
-        GRAPH <http://ldf.fi/sampo/inconsistencies> {
-          ?proxy sampos:death_time ?death_Timespan__id
-        }
-        BIND("red" as ?death_Timespan__color)
+    OPTIONAL {
+      GRAPH <http://ldf.fi/sampo/inconsistencies> {
+        ?proxy sch:deathPlace ?death_place__id
       }
+      BIND("red" as ?death_place__color)
     }
-    UNION
-    {
-      ?proxy sch:deathPlace ?death_place__id .
-      ?death_place__id skos:prefLabel ?death_place__prefLabel .
-      BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__dataProviderUrl)
-
-      ?g skos:prefLabel ?death_place__source__prefLabel .
-      BIND (?proxy AS ?death_place__source__id)
-      BIND (CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?death_place__source__dataProviderUrl)
-
-      OPTIONAL {
-        GRAPH <http://ldf.fi/sampo/inconsistencies> {
-          ?proxy sch:deathPlace ?death_place__id
-        }
-        BIND("red" as ?death_place__color)
-      }
-    }
-    UNION
-    {
-      ?proxy foaf:page ?website__id .
-      ?website__id a/skos:prefLabel ?website__prefLabel .
-      BIND (?website__id as ?website__dataProviderUrl)
-    }
-    UNION
-    {
-      ?proxy owl:sameAs ?external__id .
-      ?external__id a/skos:prefLabel ?external__prefLabel .
-      BIND (?external__id as ?external__dataProviderUrl)
-    }
+  }
+  UNION
+  {
+    ?id (^foaf:focus)/foaf:page ?website__id .
+    ?website__id a/skos:prefLabel ?website__prefLabel .
+    BIND (?website__id as ?website__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id (^foaf:focus)/owl:sameAs ?external__id .
+    ?external__id a/skos:prefLabel ?external__prefLabel .
+    BIND (?external__id as ?external__dataProviderUrl)
   }
 `
 

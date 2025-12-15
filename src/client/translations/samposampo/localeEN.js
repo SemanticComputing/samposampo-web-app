@@ -8,7 +8,7 @@ export default {
     short: "SampoSampo",
     mobile: "SampoSampo",
     long: "&nbsp; &nbsp; SampoSampo &nbsp; &nbsp;",
-    subheading: "\"Here to forge for us the Sampo, Hammer us the lid in colors\""
+    subheading: "\"Connecting Everything to Everything Else\""
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
@@ -25,24 +25,24 @@ export default {
         link: '/people/page/p5571210016405644958/table'
       },
       {
-        title: 'Performance venues in OperaSampo',
-        link: '/en/groups/faceted-search/map?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B10%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FOperaSampo%22%2C%22prefLabel%22%3A%22OperaSampo%22%2C%22instanceCount%22%3A134%7D%7D%7D%5D'
-      },
-      {
-        title: 'People related to Symbolism by their Wikipedia pages',
-        link: '/en/wikipedia_extracts/page/Symbolismi/table'
+        title: 'Places related to C.G.E. Mannerheim',
+        link: '/people/page/p2838987257481784015/map'
       },
       {
         title: 'Lifetimes of WarSampo people',
         link: '/en/people/faceted-search/lifeyears?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B12%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FWarSampo%22%2C%22prefLabel%22%3A%22WarSampo%22%2C%22instanceCount%22%3A4154%7D%7D%7D%5D'
       },
       {
-        title: 'Migrations of Females in ArtSampo',
+        title: 'Performance venues in OperaSampo',
+        link: '/en/groups/faceted-search/map?constraints=%5B%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B10%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FOperaSampo%22%2C%22prefLabel%22%3A%22OperaSampo%22%2C%22instanceCount%22%3A134%7D%7D%7D%5D'
+      },
+      {
+        title: 'Lifelines of Female Artists in Art Sampo',
         link: '/en/people/faceted-search/migrations?constraints=%5B%7B%22facetId%22%3A%22gender%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B1%5D%2C%22node%22%3A%7B%22id%22%3A%22https%3A%2F%2Fschema.org%2FFemale%22%2C%22prefLabel%22%3A%22Female%22%2C%22instanceCount%22%3A19754%7D%7D%7D%2C%7B%22facetId%22%3A%22external%22%2C%22filterType%22%3A%22uriFilter%22%2C%22value%22%3A%7B%22path%22%3A%5B17%5D%2C%22node%22%3A%7B%22id%22%3A%22http%3A%2F%2Fldf.fi%2Fsampo%2Fdatasets%2FArtSampo%22%2C%22prefLabel%22%3A%22ArtSampo%22%2C%22instanceCount%22%3A170%7D%7D%7D%5D'
       },
       {
-        title: 'Places related to C.G.E. Mannerheim',
-        link: '/people/page/p2838987257481784015/map'
+        title: 'People related to Symbolism by their Wikipedia pages',
+        link: '/en/wikipedia_extracts/page/Symbolismi/table'
       },
       {
         title: 'People related to The Hitchhiker’s Guide to the Galaxy by their Wikipedia pages',
@@ -53,7 +53,7 @@ export default {
     feedback: "feedback",
     info: {
       info: "Info",
-      blog: "Project blog",
+      blog: "Project homepage",
       blogUrl: "https://seco.cs.aalto.fi/projects/ss/",
       aboutThePortal: "About the Portal"
     },
@@ -117,7 +117,7 @@ export default {
     last_known_locations: "last known locations",
     lifeyears: "Years of Living",
     charts: "Charts",
-    migrations: "migrations",
+    migrations: "Lifelines",
     network: "network",
     export: "export",
     production_dates: "production dates",
@@ -281,7 +281,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
   </ul>
 </p>
 <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
-<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
 </p>`,
       instancePage: {
         label: "Person",
@@ -311,7 +311,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
         </ul>
       </p>
       <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
-      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
       </p>`
       },
       properties: {
@@ -444,7 +444,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
 </p>
 <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
 General information about the project is available at the 
-<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
 </p>`,
       instancePage: {
         label: "Group",
@@ -464,7 +464,7 @@ General information about the project is available at the
         </ul>
       </p>
       <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
-      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
       </p>`
       },
       properties: {
@@ -558,7 +558,7 @@ General information about the project is available at the
         </ul>
       </p>
       <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
-      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">project blog</a>.
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
       </p>`
       },
       properties: {
