@@ -78,7 +78,7 @@
             "tabPath": "csv",
             "tabIcon": "CloudDownload",
             "facetClass": "groups",
-            "sparqlQuery": "csvQueryGroup",
+            "sparqlQuery": "csvQueryGroups",
             "filterTarget": "id"
         },
         "export": {

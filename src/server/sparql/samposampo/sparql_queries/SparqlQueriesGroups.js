@@ -172,3 +172,39 @@ export const groupsRelatedTo = `
     BIND (CONCAT("/${perspectiveID}/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
   }
 `
+
+export const csvQueryGroups = `SELECT DISTINCT ?id 
+  ?name 
+  ?pagelinks 
+  # ?location ?datasources  ?webpages 
+WHERE {
+  
+  <FILTER>
+  FILTER(BOUND(?id))
+  ?id a sch:Organization ; 
+    skos:prefLabel ?name .
+  
+  # NB these blocks currently result to a timeout:
+  #OPTIONAL {
+  #  SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_place); separator=";") AS ?location) WHERE {
+  #    ?id (^foaf:focus)/sch:location/skos:prefLabel ?_place
+  #      FILTER (LANG(?_place)='en')
+  #  } GROUP BY ?id
+  #}
+  
+  #OPTIONAL {
+  #  SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources) WHERE {
+  #    ?id (^foaf:focus)/owl:sameAs ?_datasource 
+  #  } GROUP BY ?id 
+  #}
+  
+  # OPTIONAL {
+  #  SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages) WHERE {
+  #    ?id (^foaf:focus)/foaf:page ?_webpage 
+  #  } GROUP BY ?id 
+  # }
+  
+  OPTIONAL { ?id sampos:pagelinks ?pagelinks }
+}
+ORDER BY DESC(COALESCE(?pagelinks, 0)) ?name 
+`
