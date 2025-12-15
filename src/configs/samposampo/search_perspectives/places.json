@@ -257,21 +257,6 @@
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
         },
-        "onMap": {
-            "containerClass": "four",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "sampos:hasCoordinates",
-            "literal": true,
-            "valueType": "xsd:boolean",
-            "hideUnknownValue": true,
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "sampos:hasCoordinates",
-            "sortDirection": "desc",
-            "pieChartButton": true
-        },
         "relatedPeople": {
             "containerClass": "ten",
             "facetType": "list",
