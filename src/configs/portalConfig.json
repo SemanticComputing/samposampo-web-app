@@ -62,7 +62,9 @@
         "paginationToolbarHeight": 37,
         "tableFontSize": "0.8rem",
         "topBar": {
-            "logoImage": "",
+            "logoImage": "logos/samposampo-logo-white.png",
+            "logoImageHeight": 64,
+            "logoImageReducedHeight": 44,
             "showSearchField": true,
             "logoTextTransform": "none",
             "hideLogoTextOnMobile": true,
@@ -70,8 +72,8 @@
             "feedbackLink": "https://link.webropolsurveys.com/S/8A75235135D79EF2",
             "externalInstructions": true,
             "externalAboutPage": false,
-            "reducedHeight": 48,
-            "defaultHeight": 64,
+            "reducedHeight": 56,
+            "defaultHeight": 76,
             "mobileMenuBreakpoint": 1360,
             "infoDropdown": [
                 {
