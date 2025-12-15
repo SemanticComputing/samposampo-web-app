@@ -948,14 +948,14 @@ General information about the project is available at the
       }
     },
     datasets: {
-      label: "Datasets",
-      facetResultsType: "datasets",
-      shortDescription: "Overview of source datasets",
+      label: "Datasources",
+      facetResultsType: "datasources",
+      shortDescription: "Overview of SampoSampo datasources",
       longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       properties: {
         prefLabel: {
           label: "Title",
-          description: "Name of the dataset"
+          description: "Name of the datasource"
         },
         number_of_people: {
           label: "Number of people",
