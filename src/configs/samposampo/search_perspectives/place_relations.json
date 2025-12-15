@@ -77,15 +77,6 @@
             "onlyOnInstancePage": true
         },
         {
-            "id": "prefLabel",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 300
-        },
-        {
             "id": "person",
             "valueType": "object",
             "makeLink": true,
@@ -105,6 +96,15 @@
             "showSource": true,
             "sourceExternalLink": false,
             "onlyOnInstancePage": false
+        },
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 300
         },
         {
             "id": "type",
