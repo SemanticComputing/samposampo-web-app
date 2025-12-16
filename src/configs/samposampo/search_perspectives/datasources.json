@@ -1,13 +1,13 @@
 {
-    "id": "datasets",
+    "id": "datasources",
     "endpoint": {
         "url": "https://ldf.fi/sampo/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
-    "sparqlQueriesFile": "SparqlQueriesDatasets.js",
+    "sparqlQueriesFile": "SparqlQueriesDatasources.js",
     "baseURI": "http://ldf.fi/sampo",
-    "URITemplate": "<BASE_URI>/datasets/<LOCAL_ID>",
+    "URITemplate": "<BASE_URI>/datasources/<LOCAL_ID>",
     "facetClass": "sampos:Dataset",
     "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
@@ -18,13 +18,13 @@
     "defaultTab": "table",
     "defaultInstancePageTab": "table",
     "resultClasses": {
-        "datasets": {
+        "datasources": {
             "paginatedResultsConfig": {
                 "tabID": 0,
                 "component": "ResultTable",
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "datasetProperties",
+                "propertiesQueryBlock": "datasourceProperties",
                 "pagesize": 30,
                 "sortBy": null,
                 "sortDirection": null

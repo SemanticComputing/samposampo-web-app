@@ -1,6 +1,6 @@
-const perspectiveID = 'proxies'
+const perspectiveID = 'datasources'
 
-export const datasetProperties = `
+export const datasourceProperties = `
   {
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)

@@ -7,7 +7,7 @@
             "groups",
             "places",
             "place_relations",
-            "datasets",
+            "datasources",
             "fullTextSearch"
         ],
         "onlyInstancePages": [
