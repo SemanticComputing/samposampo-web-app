@@ -91,6 +91,16 @@
             "minWidth": 250
         },
         {
+            "id": "otherSource",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250,
+            "expandedOnInstancePage": true
+        },
+        {
             "id": "source",
             "valueType": "object",
             "makeLink": true,

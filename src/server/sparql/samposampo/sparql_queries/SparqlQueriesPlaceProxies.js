@@ -6,7 +6,7 @@ export const placeProxyProperties = `
     ?id dce:source ?source__id .
     ?source__id skos:prefLabel ?source__prefLabel .
     ?id owl:sameAs ?source__dataProviderUrl .
-    BIND(CONCAT(?prefLabel__id, ' (in ', ?source__prefLabel, ')') as ?prefLabel__prefLabel)
+    BIND(?prefLabel__id as ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
@@ -26,5 +26,14 @@ export const placeProxyProperties = `
   }
   UNION {
     ?id wgs84:long ?longitude .
+  }
+  UNION {
+    ?id foaf:focus ?provided__id .
+    ?otherSource__id foaf:focus ?provided__id .
+    FILTER(?id != ?otherSource__id)
+    ?otherSource__id skos:prefLabel ?_label ;
+                      dce:source/skos:prefLabel ?_sourceLabel .
+    BIND(CONCAT(?_label, " (", ?_sourceLabel, ")") as ?otherSource__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?otherSource__id), "^.*\\\\/(.+)", "$1")) AS ?otherSource__dataProviderUrl)
   }
 `

@@ -907,7 +907,7 @@ General information about the project is available at the
       shortDescription: "Proxies of buildings, cities, counties, municipalities, etc.",
       longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       instancePage: {
-        label: "Place proxy",
+        label: "Place information in one data source",
         description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
         The result view can be selected using the tabs:
         </p>
@@ -951,6 +951,10 @@ General information about the project is available at the
         uri: {
           label: "URI",
           description: "The Uniform Resource Identifier (URI) of the Place Proxy"
+        },
+        otherSource: {
+          label: "Other data sources",
+          description: "The same place in other data sources"
         }
       }
     },
