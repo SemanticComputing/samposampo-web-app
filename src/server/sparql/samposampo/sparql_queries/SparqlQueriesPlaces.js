@@ -40,17 +40,21 @@ export const placeInstancePageProperties = `
   }
   UNION {
     ?id ^foaf:focus ?proxy .
-    ?proxy skos:prefLabel ?proxyPrefLabel__id, ?proxyPrefLabel__prefLabel .
+    ?proxy skos:prefLabel ?proxyPrefLabel__id .
+    BIND(?proxyPrefLabel__id as ?proxyPrefLabel__prefLabel)
     
-    ?proxy dce:source/skos:prefLabel ?proxyPrefLabel__source__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?proxyPrefLabel__source__prefLabel_ .
+    BIND(CONCAT("[", STR(LANG(?proxyPrefLabel__prefLabel)), "]", ?proxyPrefLabel__source__prefLabel_) as ?proxyPrefLabel__source__prefLabel)
     BIND(?proxy AS ?proxyPrefLabel__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
   }
   UNION {
     ?id ^foaf:focus ?proxy .
-    ?proxy skos:altLabel ?proxyAltLabel__id, ?proxyAltLabel__prefLabel .
+    ?proxy skos:altLabel ?proxyAltLabel__id .
+    BIND(?proxyAltLabel__id as ?proxyAltLabel__prefLabel)
     
-    ?proxy dce:source/skos:prefLabel ?proxyAltLabel__source__prefLabel .
+    ?proxy dce:source/skos:prefLabel ?proxyAltLabel__source__prefLabel_ .
+    BIND(CONCAT("[", STR(LANG(?proxyAltLabel__prefLabel)), "]", ?proxyAltLabel__source__prefLabel_) as ?proxyAltLabel__source__prefLabel)
     BIND(?proxy AS ?proxyAltLabel__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
   }

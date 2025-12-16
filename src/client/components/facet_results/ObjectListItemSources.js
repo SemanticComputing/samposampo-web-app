@@ -6,6 +6,7 @@ import { orderBy } from 'lodash'
 const ObjectListItemSources = props => {
   let { data, externalLink } = props
   data = Array.isArray(data) ? data : [data]
+  data = data.map((val, ) => { return Array.isArray(val.prefLabel) ? {...val, prefLabel: val.prefLabel.join(", ") } : val })
   data = orderBy(data, 'prefLabel')
 
   return (
