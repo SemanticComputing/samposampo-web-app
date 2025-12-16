@@ -6,7 +6,6 @@
             "people",
             "groups",
             "places",
-            "historical_events",
             "place_relations",
             "datasets",
             "fullTextSearch"
