@@ -1006,7 +1006,16 @@ General information about the project is available at the
       label: "Data sources",
       facetResultsType: "data sources",
       shortDescription: "Overview of SampoSampo data sources",
-      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+From this perspective, you can search for information about the data sources of the SampoSampo dataset.
+<br>
+In this overview you can see the amounts of people, organizations, and places extracted from each data source.
+</p>
+
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+General information about the project is available at the 
+<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
+</p>`,
       properties: {
         prefLabel: {
           label: "Title",
