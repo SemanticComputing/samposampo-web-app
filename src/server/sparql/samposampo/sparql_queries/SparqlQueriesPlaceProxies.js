@@ -5,6 +5,7 @@ export const placeProxyProperties = `
     ?id skos:prefLabel ?prefLabel__id .
     ?id dce:source ?source__id .
     ?source__id skos:prefLabel ?source__prefLabel .
+    ?id owl:sameAs ?source__dataProviderUrl .
     BIND(CONCAT(?prefLabel__id, ' (in ', ?source__prefLabel, ')') as ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)

@@ -93,8 +93,8 @@
         {
             "id": "source",
             "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
+            "makeLink": true,
+            "externalLink": true,
             "sortValues": false,
             "numberedList": true,
             "minWidth": 250
