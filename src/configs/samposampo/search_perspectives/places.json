@@ -11,7 +11,7 @@
     "facetClass": "sch:Place",
     "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
-    "enableDynamicLanguageChange": false,
+    "enableDynamicLanguageChange": true,
     "defaultActiveFacets": [
         "prefLabel"
     ],

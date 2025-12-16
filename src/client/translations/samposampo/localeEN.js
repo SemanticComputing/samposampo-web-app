@@ -796,11 +796,11 @@ General information about the project is available at the
         },
         proxyPrefLabel: {
           label: "Preferred labels per proxy",
-          description: "The preferred labels of the Place from all proxies."
+          description: "The preferred labels of the Place from all proxies. Includes different language variations (e.g., Finnish, Swedish and English) available from proxies."
         },
         proxyAltLabel: {
           label: "Alternative labels per proxy",
-          description: "The alternative labels of the Place from all proxies."
+          description: "The alternative labels of the Place from all proxies. Includes different language variations (e.g., Finnish, Swedish and English) available from proxies."
         },
         onMap: {
           label: "Viewable on a map",

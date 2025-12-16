@@ -4,6 +4,7 @@ export const placeProperties = `
   {
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    FILTER(LANG(?prefLabel__prefLabel) = "<LANG>")
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
@@ -31,6 +32,7 @@ export const placeInstancePageProperties = `
   {
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    FILTER(LANG(?prefLabel__prefLabel) = "<LANG>")
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
@@ -147,7 +149,7 @@ export const placesMapQuery = `
 `
 
 export const placePropertiesInfoWindow = `
-  OPTIONAL { ?id skos:prefLabel ?_label }
+  OPTIONAL { ?id skos:prefLabel ?_label . FILTER(LANG(?_label) = "<LANG>") }
   BIND (COALESCE(?_label, "<place>") AS ?prefLabel__id)
   BIND (?prefLabel__id AS ?prefLabel__prefLabel)
   BIND (CONCAT("/places/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
@@ -211,7 +213,7 @@ WHERE {
   <FILTER> 
   FILTER(BOUND(?id))
   ?id a sch:Place ; skos:prefLabel ?name .
-  FILTER(LANG(?name) = 'en')
+  FILTER(LANG(?name) = '<LANG>')
 
   {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_prefl); separator=";") AS ?pref_labels) WHERE {
