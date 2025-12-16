@@ -57,7 +57,7 @@ export const proxyPropertiesInstancePage = `
     
     BIND (CONCAT(COALESCE(?external__classlabel, ?external__id), " (webpage)") AS ?external__prefLabel)
     BIND (?external__id AS ?external__dataProviderUrl)
-    BIND('<iframe width="100%" src="' + STR(?external__id) + '"></iframe>' AS ?webpage_preview)
+    BIND (CONCAT("<iframe width=\\"100%\\" src=\\"", STR(?external__id), "\\"></iframe>") AS ?webpage_preview)
   }
   UNION
   {
@@ -69,6 +69,6 @@ export const proxyPropertiesInstancePage = `
     
     BIND (CONCAT(COALESCE(?external__classlabel, ?external__id), " (datasource)") AS ?external__prefLabel)
     BIND (?external__id AS ?external__dataProviderUrl)
-    BIND('<iframe width="100%" src="' + STR(?external__id) + '"></iframe>' AS ?datasource_preview)
+    BIND (CONCAT("<iframe width=\\"100%\\" src=\\"", STR(?external__id), "\\"></iframe>") AS ?datasource_preview)
   }
 `
