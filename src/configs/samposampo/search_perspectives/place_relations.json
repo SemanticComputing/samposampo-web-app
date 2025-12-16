@@ -16,14 +16,7 @@
         "prefLabel"
     ],
     "maps": {
-        "placesActors": {
-            "center": [
-                65.0,
-                22.5
-            ],
-            "zoom": 4
-        },
-        "peopleMigrations": {
+        "placesLocations": {
             "center": [
                 65.0,
                 22.5
@@ -55,6 +48,21 @@
                         "tabIcon": "CalendarViewDay"
                     }
                 }
+            }
+        },
+        "placesLocations": {
+            "tabID": 1,
+            "component": "LeafletMap",
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "sparqlQuery": "relationMapQuery",
+            "facetClass": "place_relations",
+            "filterTarget": "relation",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "placePropertiesInfoWindow",
+                "relatedInstances": "relatedRelations",
+                "createPopUpContent": "createPopUpContentLetterSampo"
             }
         },
         "share": {
@@ -131,8 +139,8 @@
         {
             "id": "datasource",
             "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
+            "makeLink": true,
+            "externalLink": true,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 200
@@ -172,14 +180,14 @@
         },
         "place": {
             "containerClass": "ten",
-            "predicate": "relations:placeObject/relations:nbf*",
+            "predicate": "relations:placeObject",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
             "facetType": "hierarchical",
             "parentProperty": "skos:broader",
-            "sortByPredicate": "relations:placeObject/relations:nbf*/skos:prefLabel",
+            "sortByPredicate": "relations:placeObject/skos:prefLabel",
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')"
         },
         "type": {
@@ -193,7 +201,7 @@
             "sortByPredicate": "relations:relationType/skos:prefLabel"
         },
         "datasource": {
-            "containerClass": "six",
+            "containerClass": "ten",
             "facetType": "list",
             "predicate": "dct:source",
             "filterType": "uriFilter",

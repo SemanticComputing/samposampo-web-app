@@ -155,8 +155,8 @@ export default {
       peopleByGender: "Gender",
       peopleByBirthPlace: "Birth place",
       peopleByDeathPlace: "Death place",
-      peopleByDatasources: "Datasource",
-      peopleByNumberOfDatasources: "Number of datasources",
+      peopleByDatasources: "Data source",
+      peopleByNumberOfDatasources: "Number of data sources",
       peopleByInconsistencies: "Inconsistencies"
     }
   },
@@ -213,7 +213,7 @@ export default {
   },
   instancePageGeneral: {
     introduction: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a human-readable summary of the data points that link to this {entity}. The data included in this summary reflect only those data points used in the SampoSampo Portal. Click the Open in Linked Data Browser on button on the Export tab to view the complete set of classes and properties linked to this record. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> To cite this record, use its url. You can use also use the url to return directly to the record at any time. </p>",
-    repetition: "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasources to create the SampoSampo record. </p>"
+    repetition: "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different data sources to create the SampoSampo record. </p>"
   },
   deckGlMap: {
     arcColouring: "Arc colouring:",
@@ -365,8 +365,8 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
           description: "People with same or similar names."
         },
         external: {
-          label: "Datasources",
-          description: "Datasets containing information about the person."
+          label: "Data sources",
+          description: "Data sources providing information about the person."
         },
         sentence: {
           label: "Sentence",
@@ -405,8 +405,8 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
           description: "Uniform Resource Identifier"
         },
         "pagelinks":{
-          label: "Number of datasources",
-          description: "Number of datasets containing information about a person."
+          label: "Number of data sources",
+          description: "Number of Data sources providing information about a person."
         },
         "inconsistencies":{
           label: "Inconsistencies",
@@ -498,11 +498,11 @@ General information about the project is available at the
           description: "Category of the group."
         },
         external: {
-          label: "Datasources",
-          description: "Datasets containing information about the organization."
+          label: "Data sources",
+          description: "Data sources providing information about the organization."
         },
         other: {
-          label: "Other datasources",
+          label: "Other data sources",
           description: "Same organization in other datasources."
         },
         webpage_preview: {
@@ -548,7 +548,7 @@ General information about the project is available at the
         <p>
         <ul class="MuiTypography-root MuiTypography-body1">
           <li>
-            The <strong>TABLE</STRONG> tab lists detailed information about the organization extracted from one of the datasources, links to related resources in SampoSampo portal and to external sources.
+            The <strong>TABLE</STRONG> tab lists detailed information about the organization extracted from one of the data sources, links to related resources in SampoSampo portal and to external sources.
             <br>
             Image source: Wikidata/Wikimedia Commons. 
           </li>
@@ -580,11 +580,11 @@ General information about the project is available at the
           description: "Image of the Organization."
         },
         external: {
-          label: "Datasources",
-          description: "Datasets containing information about the Organization."
+          label: "Data sources",
+          description: "Data sources providing information about the Organization."
         },
         other: {
-          label: "Other datasources",
+          label: "Other data sources",
           description: "Same Organization in other datasources."
         },
         webpage_preview: {
@@ -653,12 +653,12 @@ General information about the project is available at the
           description: "Place of death."
         },
         external: {
-          label: "Datasources",
-          description: "Datasets containing information about the person."
+          label: "Data sources",
+          description: "Data sources providing information about the person."
         },
         other: {
-          label: "Other datasources",
-          description: "Same person in other datasources."
+          label: "Other data sources",
+          description: "Same person in other data sources."
         },
         webpage_preview: {
           label: "Webpage preview",
@@ -1002,27 +1002,27 @@ General information about the project is available at the
         }
       }
     },
-    datasets: {
-      label: "Datasources",
-      facetResultsType: "datasources",
-      shortDescription: "Overview of SampoSampo datasources",
+    datasources: {
+      label: "Data sources",
+      facetResultsType: "data sources",
+      shortDescription: "Overview of SampoSampo data sources",
       longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       properties: {
         prefLabel: {
           label: "Title",
-          description: "Name of the datasource"
+          description: "Name of the data source"
         },
         number_of_people: {
           label: "Number of people",
-          description: "Number of people extracted from the dataset"
+          description: "Number of people extracted from the data source"
         },
         number_of_organizations: {
           label: "Number of organizations",
-          description: "Number of organizations extracted from the dataset"
+          description: "Number of organizations extracted from the data source"
         },
         number_of_places: {
           label: "Number of places",
-          description: "Number of places extracted from the dataset"
+          description: "Number of places extracted from the data source"
         },
         website: {
           label: "Website",
