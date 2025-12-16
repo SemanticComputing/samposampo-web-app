@@ -201,3 +201,53 @@ export const proxiesMapQuery = `
   }
   GROUP BY ?id ?lat ?long ?prefLabel ?dataProviderUrl ?markerColor
 `
+
+export const csvQueryPlaces = `SELECT DISTINCT ?id ?name 
+  ?pref_labels ?alt_labels
+  ?sampledLatitude ?sampledLongitude
+  ?coordinates
+  ?datasources ?webpages
+WHERE {
+  <FILTER> 
+  FILTER(BOUND(?id))
+  ?id a sch:Place ; skos:prefLabel ?name .
+  FILTER(LANG(?name) = 'en')
+
+  {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_prefl); separator=";") AS ?pref_labels) WHERE {
+      ?id skos:prefLabel ?_prefl .
+    } GROUP BY ?id 
+  }
+
+  {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_altl); separator=";") AS ?alt_labels) WHERE {
+      ?id skos:altLabel ?_altl .
+    } GROUP BY ?id
+  }
+
+  ?id wgs84:lat ?sampledLatitude ;
+      wgs84:long ?sampledLongitude .
+  
+  {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_coordinates); separator=";") AS ?coordinates) WHERE {
+      ?proxy foaf:focus ?id ;
+            wgs84:lat ?_lat ;
+            wgs84:long ?_long .
+      BIND(CONCAT(STR(?_lat), ",", STR(?_long)) as ?_coordinates)
+    } GROUP BY ?id 
+  }
+  
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources) WHERE {
+      ?proxy foaf:focus ?id ; owl:sameAs ?_datasource 
+    } GROUP BY ?id 
+  }
+  
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages) WHERE {
+      ?proxy foaf:focus ?id ; foaf:page ?_webpage 
+    } GROUP BY ?id 
+  }
+}
+ORDER BY ?name 
+`
