@@ -3,7 +3,8 @@
     "endpoint": {
         "url": "https://ldf.fi/history/sparql",
         "useAuth": true,
-        "prefixesFile": "SparqlQueriesPrefixes.js"
+        "prefixesFile": "SparqlQueriesPrefixes.js",
+        "triplestore": "qlever"
     },
     "sparqlQueriesFile": "SparqlQueriesHisto.js",
     "baseURI": "http://ldf.fi/sampo",
