@@ -3,7 +3,8 @@
     "endpoint": {
         "url": "https://ldf.fi/sampo-qlever/sparql",
         "useAuth": true,
-        "prefixesFile": "SparqlQueriesPrefixes.js"
+        "prefixesFile": "SparqlQueriesPrefixes.js",
+        "triplestore": "qlever"
     },
     "sparqlQueriesFile": "SparqlQueriesFullText.js",
     "propertiesQueryBlock": "fullTextSearchProperties",
