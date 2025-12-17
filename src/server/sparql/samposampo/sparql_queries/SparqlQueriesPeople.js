@@ -2,6 +2,7 @@ const perspectiveID = 'people'
 
 export const personPropertiesFacetResults = `
   {
+    <SUBQUERY>
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
@@ -11,6 +12,7 @@ export const personPropertiesFacetResults = `
   }
   UNION
   {
+    <SUBQUERY>
     ?id sch:image ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
@@ -19,11 +21,13 @@ export const personPropertiesFacetResults = `
   }
   UNION
   {
+    <SUBQUERY>
     ?id sch:gender ?gender__id .
     ?gender__id skos:prefLabel ?gender__prefLabel .
   }
   UNION
   { 
+    <SUBQUERY>
     ?proxy foaf:focus ?id
     {
       ?proxy sch:birthPlace ?birth_place__id .
@@ -66,8 +70,8 @@ export const personPropertiesFacetResults = `
 `
 
 export const personPropertiesInstancePage = `
-  {
-    ?id skos:prefLabel ?prefLabel__id .
+  { 
+    <ID> skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
@@ -76,14 +80,14 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    ?id sch:image ?image__id ;
+    <ID> sch:image ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
     BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
   }
   UNION
   {
-    [] foaf:focus ?id ; (skosxl:prefLabel|skosxl:altLabel)/skos:closeMatch? ?_label .
+    [] foaf:focus <ID> ; (skosxl:prefLabel|skosxl:altLabel)/skos:closeMatch? ?_label .
     ?_label (^(skosxl:prefLabel|skosxl:altLabel))/skos:closeMatch?/foaf:focus ?namesake__id .
     FILTER (STR(?id) != STR(?namesake__id))
     ?namesake__id skos:prefLabel ?namesake__prefLabel .
@@ -91,14 +95,14 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    ?id ^relations:personSubject ?relation__id .
+    <ID> ^relations:personSubject ?relation__id .
     ?relation__id skos:prefLabel ?relation__prefLabel .
     BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) 
       AS ?relation__dataProviderUrl)
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy sch:gender ?gender__id .
     ?gender__id skos:prefLabel ?gender__prefLabel .
     BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__dataProviderUrl)
@@ -116,7 +120,7 @@ export const personPropertiesInstancePage = `
   }
   UNION 
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy skos:prefLabel ?proxyPrefLabel__id .
     BIND (?proxyPrefLabel__id AS ?proxyPrefLabel__prefLabel)
     
@@ -126,7 +130,7 @@ export const personPropertiesInstancePage = `
   }
   UNION 
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy skos:altLabel ?proxyAltLabel__id .
     BIND (?proxyAltLabel__id AS ?proxyAltLabel__prefLabel)
     
@@ -136,7 +140,7 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy sampos:birth_time ?birth_Timespan__id .
     ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel .
     OPTIONAL { ?birth_Timespan__id time:hasBeginning ?birth_Timespan__start }
@@ -155,7 +159,7 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy sch:birthPlace ?birth_place__id .
     ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
     BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
@@ -173,7 +177,7 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy sampos:death_time ?death_Timespan__id .
     ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel .
     OPTIONAL { ?death_Timespan__id time:hasBeginning ?death_Timespan__start }
@@ -192,7 +196,7 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus ?id }
+    GRAPH ?g { ?proxy foaf:focus <ID> }
     ?proxy sch:deathPlace ?death_place__id .
     ?death_place__id skos:prefLabel ?death_place__prefLabel .
     BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__dataProviderUrl)
@@ -210,13 +214,13 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    ?id (^foaf:focus)/foaf:page ?website__id .
+    <ID> (^foaf:focus)/foaf:page ?website__id .
     ?website__id a/skos:prefLabel ?website__prefLabel .
     BIND (?website__id as ?website__dataProviderUrl)
   }
   UNION
   {
-    ?id (^foaf:focus)/owl:sameAs ?external__id .
+    <ID> (^foaf:focus)/owl:sameAs ?external__id .
     ?external__id a/skos:prefLabel ?external__prefLabel .
     BIND (?external__id as ?external__dataProviderUrl)
   }

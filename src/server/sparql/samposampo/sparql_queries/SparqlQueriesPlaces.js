@@ -2,6 +2,7 @@ const perspectiveID = 'places'
 
 export const placeProperties = `
   {
+    <SUBQUERY>
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     FILTER(LANG(?prefLabel__prefLabel) = "<LANG>")
@@ -11,16 +12,19 @@ export const placeProperties = `
     BIND(?id as ?uri__prefLabel)
   }
   UNION {
+    <SUBQUERY>
     ?id wgs84:lat ?sampledLatitude ;
         wgs84:long ?sampledLongitude .
   }
   UNION {
+    <SUBQUERY>
     ?id ^foaf:focus ?proxy .
     ?proxy owl:sameAs ?source__id .
     BIND(?source__id as ?source__dataProviderUrl)
     ?proxy dce:source/skos:prefLabel ?source__prefLabel .
   }
   UNION {
+    <SUBQUERY>
     ?id ^foaf:focus ?proxy .
     ?proxy foaf:page ?website__id .
     BIND(?website__id as ?website__dataProviderUrl)

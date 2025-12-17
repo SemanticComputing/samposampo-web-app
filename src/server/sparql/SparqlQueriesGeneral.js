@@ -50,6 +50,14 @@ export const facetResultSetQuery = `
   }
 `
 
+export const facetResultSetQueryQLever = `
+  SELECT *
+  WHERE {
+    <RESULT_SET_PROPERTIES>
+  }
+  <ORDER_BY>
+`
+
 export const facetValuesQuery = `
   SELECT DISTINCT ?id ?prefLabel ?selected ?parent ?instanceCount {
     {

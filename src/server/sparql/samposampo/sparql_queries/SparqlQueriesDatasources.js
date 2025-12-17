@@ -2,6 +2,7 @@ const perspectiveID = 'datasources'
 
 export const datasourceProperties = `
   {
+    <SUBQUERY>
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
@@ -11,6 +12,7 @@ export const datasourceProperties = `
   }
   UNION
   {
+    <SUBQUERY>
     ?id foaf:webpage ?website__id .
     BIND (STR(?website__id) AS ?website__prefLabel)
     BIND (?website__id AS ?website__dataProviderUrl)
@@ -22,6 +24,7 @@ export const datasourceProperties = `
         (COUNT(?org) AS ?number_of_organizations) 
         (COUNT(?plc) AS ?number_of_places)
     WHERE {
+        <SUBQUERY>
         {
         ?prs a sch:Person ; sampos:in_dataset ?id
         }

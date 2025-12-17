@@ -2,6 +2,7 @@ const perspectiveID = 'groups'
 
 export const groupPropertiesFacetResults = `
   {
+    <SUBQUERY>
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
@@ -11,6 +12,7 @@ export const groupPropertiesFacetResults = `
   }
   UNION
   {
+    <SUBQUERY>
     ?id sch:image ?image__id ;
     skos:prefLabel ?image__description ;
     skos:prefLabel ?image__title .
@@ -19,6 +21,7 @@ export const groupPropertiesFacetResults = `
   }
   UNION
   {
+    <SUBQUERY>
     ?proxy foaf:focus ?id
     {
       ?proxy skos:prefLabel ?altLabel

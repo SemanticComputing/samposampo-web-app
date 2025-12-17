@@ -6,6 +6,7 @@ import { generateConstraintsBlock } from './Filters'
 import {
   countQuery,
   facetResultSetQuery,
+  facetResultSetQueryQLever,
   instanceQuery
 } from './SparqlQueriesGeneral'
 
@@ -20,7 +21,7 @@ export const getPaginatedResults = ({
   resultFormat,
   dynamicLangTag,
 }) => {
-  let q = facetResultSetQuery
+  let orderBy = sortBy
   const perspectiveConfig = backendSearchConfig[resultClass]
   const {
     endpoint,
@@ -30,6 +31,12 @@ export const getPaginatedResults = ({
     defaultConstraint = null,
     langTagSecondary = null
   } = perspectiveConfig
+  let q
+  // if (endpoint.triplestore === 'qlever') {
+  q = facetResultSetQueryQLever
+  //} else {
+  //  q = facetResultSetQuery
+  //}
   const langTag = enableDynamicLanguageChange ? dynamicLangTag : perspectiveConfig.langTag || null
   const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
   const {
@@ -39,10 +46,27 @@ export const getPaginatedResults = ({
     resultMapperConfig = null,
     postprocess = null
   } = resultClassConfig.paginatedResultsConfig
+  q = q.replaceAll('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
+  // if (endpoint.triplestore === 'qlever') {
+  q = q.replaceAll('<SUBQUERY>', `
+    {
+    # score and literal are used only for Jena full text index
+      SELECT DISTINCT ?id <SCORE> ?orderBy {
+      <FILTER>
+      VALUES ?facetClass { <FACET_CLASS> }
+      ?id <FACET_CLASS_PREDICATE> ?facetClass .
+      <ORDER_BY_TRIPLE>
+    }
+    <GROUP_BY>
+    <ORDER_BY>
+    <PAGE>
+  }
+  FILTER(BOUND(?id))`)
+  // }
   if (constraints == null && defaultConstraint == null) {
-    q = q.replace('<FILTER>', '# no filters')
+    q = q.replaceAll('<FILTER>', '# no filters')
   } else {
-    q = q.replace('<FILTER>', generateConstraintsBlock({
+    q = q.replaceAll('<FILTER>', generateConstraintsBlock({
       backendSearchConfig,
       facetClass: resultClass, // use resultClass as facetClass
       constraints,
@@ -51,41 +75,52 @@ export const getPaginatedResults = ({
       facetID: null
     }))
   }
-  if (sortBy == null) {
-    q = q.replace('<ORDER_BY_TRIPLE>', '')
-    q = q.replace('<ORDER_BY>', '# no sorting')
+
+  if (orderBy === 'maxScore') {
+    q = q.replaceAll('<SCORE>', '(MAX(?score) AS ?maxScore) (MAX(?score) AS ?orderBy)')
+    q = q.replace('<GROUP_BY>', 'GROUP BY ?id ?maxScore ?orderBy')
+  } else {
+    q = q.replaceAll('<SCORE>', '?score')
+    q = q.replaceAll('<GROUP_BY>', '')
   }
-  if (sortBy !== null) {
+
+  if (orderBy == null) {
+    q = q.replaceAll('<ORDER_BY_TRIPLE>', '')
+    q = q.replaceAll('<ORDER_BY>', '# no sorting')
+  }
+  if (orderBy !== null) {
     let sortByPredicate
-    if (sortBy.endsWith('Timespan')) {
+    if (orderBy.endsWith('Timespan')) {
       sortByPredicate = sortDirection === 'asc'
-        ? facets[sortBy].sortByAscPredicate
-        : facets[sortBy].sortByDescPredicate
+        ? facets[orderBy].sortByAscPredicate
+        : facets[orderBy].sortByDescPredicate
     } else {
-      sortByPredicate = facets[sortBy].sortByPredicate
+      sortByPredicate = facets[orderBy].sortByPredicate
     }
     let sortByPattern
-    if (has(facets[sortBy], 'sortByPattern')) {
-      sortByPattern = facets[sortBy].sortByPattern
+    if (has(facets[orderBy], 'sortByPattern')) {
+      sortByPattern = facets[orderBy].sortByPattern
+    } else if (orderBy == 'maxScore') {
+      sortByPattern = ''
     } else {
       sortByPattern = `OPTIONAL { ?id ${sortByPredicate} ?orderBy }`
     }
-    q = q.replace('<ORDER_BY_TRIPLE>', sortByPattern)
-    q = q = q.replace('<ORDER_BY>', `ORDER BY (!BOUND(?orderBy)) ${sortDirection}(?orderBy)`)
+    q = q.replaceAll('<ORDER_BY_TRIPLE>', sortByPattern)
+    q = q = q.replaceAll('<ORDER_BY>', `ORDER BY (!BOUND(?orderBy)) ${sortDirection}(?orderBy)`)
   }
-  q = q.replace(/<FACET_CLASS>/g, facetClass)
+  q = q.replaceAll(/<FACET_CLASS>/g, facetClass)
   if (has(backendSearchConfig[resultClass], 'facetClassPredicate')) {
-    q = q.replace(/<FACET_CLASS_PREDICATE>/g, backendSearchConfig[resultClass].facetClassPredicate)
+    q = q.replaceAll(/<FACET_CLASS_PREDICATE>/g, backendSearchConfig[resultClass].facetClassPredicate)
   } else {
-    q = q.replace(/<FACET_CLASS_PREDICATE>/g, 'a')
+    q = q.replaceAll(/<FACET_CLASS_PREDICATE>/g, 'a')
   }
-  q = q.replace('<PAGE>', `LIMIT ${pagesize} OFFSET ${page * pagesize}`)
-  q = q.replace('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
+  q = q.replaceAll('<PAGE>', `LIMIT ${pagesize} OFFSET ${page * pagesize}`)
+  q = q.replaceAll('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
   if (langTag) {
-    q = q.replace(/<LANG>/g, langTag)
+    q = q.replaceAll(/<LANG>/g, langTag)
   }
   if (langTagSecondary) {
-    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary)
+    q = q.replaceAll(/<LANG_SECONDARY>/g, langTagSecondary)
   }
   // console.log(endpoint.prefixes + q)
   return runSelectQuery({
@@ -295,12 +330,12 @@ export const getByURI = ({
     postprocess = null
   } = resultClassConfig.instanceConfig
   let q = instanceQuery
-  q = q.replace('<PROPERTIES>', propertiesQueryBlock)
-  q = q.replace('<RELATED_INSTANCES>', relatedInstances)
+  q = q.replaceAll('<PROPERTIES>', propertiesQueryBlock)
+  q = q.replaceAll('<RELATED_INSTANCES>', relatedInstances)
   if (constraints == null || noFilterForRelatedInstances) {
-    q = q.replace('<FILTER>', '# no filters')
+    q = q.replaceAll('<FILTER>', '# no filters')
   } else {
-    q = q.replace('<FILTER>', generateConstraintsBlock({
+    q = q.replaceAll('<FILTER>', generateConstraintsBlock({
       backendSearchConfig,
       resultClass: resultClass,
       facetClass: facetClass,
@@ -309,12 +344,12 @@ export const getByURI = ({
       facetID: null
     }))
   }
-  q = q.replace(/<ID>/g, `<${uri}>`)
+  q = q.replaceAll(/<ID>/g, `<${uri}>`)
   if (langTag) {
-    q = q.replace(/<LANG>/g, langTag)
+    q = q.replaceAll(/<LANG>/g, langTag)
   }
   if (langTagSecondary) {
-    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary)
+    q = q.replaceAll(/<LANG_SECONDARY>/g, langTagSecondary)
   }
   // console.log(endpoint.prefixes + q)
   return runSelectQuery({
