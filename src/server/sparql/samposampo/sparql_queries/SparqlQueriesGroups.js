@@ -49,6 +49,7 @@ export const groupPropertiesFacetResults = `
 
 export const groupPropertiesInstancePage = `
   {
+    BIND (<ID> as ?id)
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
@@ -58,6 +59,7 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id sch:image ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
@@ -67,12 +69,14 @@ export const groupPropertiesInstancePage = `
   { 
     SELECT DISTINCT ?id (CONCAT(STR(MIN(YEAR(?_start))), '-', STR(MaX(YEAR(?_end)))) AS ?estimated_time)
     WHERE {
+    BIND (<ID> as ?id)
     [] foaf:focus ?id ;
        sampos:estimated_time [ time:hasBeginning ?_start ; time:hasEnd ?_end ]
     } GROUP BY ?id
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id skos:closeMatch? ?namesake__id .
     FILTER (STR(?id) != STR(?namesake__id))
     
@@ -81,6 +85,7 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?sentence__id wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?id ;
           skos:prefLabel ?_label .
     
@@ -97,6 +102,7 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy owl:sameAs ?link .
     [] owl:sameAs ?link ; a sampos:PlaceProxy ; foaf:focus ?place__id .
@@ -106,6 +112,7 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy skos:prefLabel|skos:altLabel ?altLabel__id .
     BIND(?altLabel__id AS ?altLabel__prefLabel)
@@ -117,16 +124,19 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id (^foaf:focus)/sampos:category ?category
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id (^foaf:focus)/sch:location ?location__id .
     ?location__id skos:prefLabel ?location__prefLabel .
     BIND (CONCAT("/places/page/", REPLACE(STR(?location__id), "^.*\\\\/(.+)", "$1")) AS ?location__dataProviderUrl)
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id (^foaf:focus)/foaf:page ?website__id ; skos:prefLabel ?_label .
     ?website__id a/skos:prefLabel ?_label2 .
     BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?website__prefLabel)
@@ -134,6 +144,7 @@ export const groupPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id (^foaf:focus)/owl:sameAs ?external__id  ; skos:prefLabel ?_label .
     ?external__id a/skos:prefLabel  ?_label2 .
     BIND (CONCAT(?_label2, ' (', ?_label, ')') AS ?external__prefLabel)

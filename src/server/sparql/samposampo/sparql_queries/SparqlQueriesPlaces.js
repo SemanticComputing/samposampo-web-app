@@ -34,6 +34,7 @@ export const placeProperties = `
 
 export const placeInstancePageProperties = `
   {
+    BIND (<ID> as ?id)
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     FILTER(LANG(?prefLabel__prefLabel) = "<LANG>")
@@ -43,6 +44,7 @@ export const placeInstancePageProperties = `
     BIND(?id as ?uri__prefLabel)
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^foaf:focus ?proxy .
     ?proxy skos:prefLabel ?proxyPrefLabel__id .
     BIND(?proxyPrefLabel__id as ?proxyPrefLabel__prefLabel)
@@ -53,6 +55,7 @@ export const placeInstancePageProperties = `
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^foaf:focus ?proxy .
     ?proxy skos:altLabel ?proxyAltLabel__id .
     BIND(?proxyAltLabel__id as ?proxyAltLabel__prefLabel)
@@ -63,10 +66,12 @@ export const placeInstancePageProperties = `
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id wgs84:lat ?sampledLatitude ;
         wgs84:long ?sampledLongitude .
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^foaf:focus ?proxy .
     ?proxy wgs84:lat ?latitude__id, ?latitude__prefLabel .
     ?proxy dce:source/skos:prefLabel ?latitude__source__prefLabel .
@@ -81,6 +86,7 @@ export const placeInstancePageProperties = `
     }
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^foaf:focus ?proxy .
     ?proxy wgs84:long ?longitude__id, ?longitude__prefLabel .
     ?proxy dce:source/skos:prefLabel ?longitude__source__prefLabel .
@@ -95,27 +101,32 @@ export const placeInstancePageProperties = `
     }
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^sch:birthPlace/foaf:focus ?peopleBirth__id .
     ?peopleBirth__id skos:prefLabel ?peopleBirth__prefLabel .
     BIND(CONCAT("/people/page/", REPLACE(STR(?peopleBirth__id), "^.*\\\\/(.+)", "$1")) AS ?peopleBirth__dataProviderUrl)
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^sch:deathPlace/foaf:focus ?peopleDeath__id .
     ?peopleDeath__id skos:prefLabel ?peopleDeath__prefLabel .
     BIND(CONCAT("/people/page/", REPLACE(STR(?peopleDeath__id), "^.*\\\\/(.+)", "$1")) AS ?peopleDeath__dataProviderUrl)
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^relations:placeObject ?relation__id .
     ?relation__id skos:prefLabel ?relation__prefLabel .
     BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) AS ?relation__dataProviderUrl)
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id (^sch:location)/foaf:focus ?group__id .
     ?group__id skos:prefLabel ?group__prefLabel .
     BIND(CONCAT("/groups/page/", REPLACE(STR(?group__id), "^.*\\\\/(.+)", "$1")) AS ?group__dataProviderUrl)
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id ^foaf:focus ?proxy .
     ?proxy owl:sameAs ?source__id .
     BIND(?source__id as ?source__dataProviderUrl)
@@ -130,6 +141,7 @@ export const placeInstancePageProperties = `
     }
   }
   UNION {
+    BIND (<ID> as ?id)
     ?id ^foaf:focus ?proxy .
     ?proxy foaf:page ?website__id .
     BIND(?website__id as ?website__dataProviderUrl)

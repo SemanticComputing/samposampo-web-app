@@ -71,7 +71,8 @@ export const personPropertiesFacetResults = `
 
 export const personPropertiesInstancePage = `
   { 
-    <ID> skos:prefLabel ?prefLabel__id .
+    BIND (<ID> as ?id)
+    ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
@@ -80,14 +81,16 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    <ID> sch:image ?image__id ;
+    BIND (<ID> as ?id)
+    ?id sch:image ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
     BIND (CONCAT(REPLACE(STR(?image__id), "https*:", ""), "?width=200") as ?image__url)
   }
   UNION
   {
-    [] foaf:focus <ID> ; (skosxl:prefLabel|skosxl:altLabel)/skos:closeMatch? ?_label .
+    BIND (<ID> as ?id)
+    [] foaf:focus ?id ; (skosxl:prefLabel|skosxl:altLabel)/skos:closeMatch? ?_label .
     ?_label (^(skosxl:prefLabel|skosxl:altLabel))/skos:closeMatch?/foaf:focus ?namesake__id .
     FILTER (STR(?id) != STR(?namesake__id))
     ?namesake__id skos:prefLabel ?namesake__prefLabel .
@@ -95,14 +98,16 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    <ID> ^relations:personSubject ?relation__id .
+    BIND (<ID> as ?id)
+    ?id ^relations:personSubject ?relation__id .
     ?relation__id skos:prefLabel ?relation__prefLabel .
     BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) 
       AS ?relation__dataProviderUrl)
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy sch:gender ?gender__id .
     ?gender__id skos:prefLabel ?gender__prefLabel .
     BIND(CONCAT("/proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?gender__dataProviderUrl)
@@ -120,7 +125,8 @@ export const personPropertiesInstancePage = `
   }
   UNION 
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy skos:prefLabel ?proxyPrefLabel__id .
     BIND (?proxyPrefLabel__id AS ?proxyPrefLabel__prefLabel)
     
@@ -130,7 +136,8 @@ export const personPropertiesInstancePage = `
   }
   UNION 
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy skos:altLabel ?proxyAltLabel__id .
     BIND (?proxyAltLabel__id AS ?proxyAltLabel__prefLabel)
     
@@ -140,7 +147,8 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy sampos:birth_time ?birth_Timespan__id .
     ?birth_Timespan__id skos:prefLabel ?birth_Timespan__prefLabel .
     OPTIONAL { ?birth_Timespan__id time:hasBeginning ?birth_Timespan__start }
@@ -159,7 +167,8 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy sch:birthPlace ?birth_place__id .
     ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
     BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
@@ -177,7 +186,8 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy sampos:death_time ?death_Timespan__id .
     ?death_Timespan__id skos:prefLabel ?death_Timespan__prefLabel .
     OPTIONAL { ?death_Timespan__id time:hasBeginning ?death_Timespan__start }
@@ -196,7 +206,8 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    GRAPH ?g { ?proxy foaf:focus <ID> }
+    BIND (<ID> as ?id)
+    GRAPH ?g { ?proxy foaf:focus ?id }
     ?proxy sch:deathPlace ?death_place__id .
     ?death_place__id skos:prefLabel ?death_place__prefLabel .
     BIND (CONCAT("/places/page/", REPLACE(STR(?death_place__id), "^.*\\\\/(.+)", "$1")) AS ?death_place__dataProviderUrl)
@@ -214,13 +225,15 @@ export const personPropertiesInstancePage = `
   }
   UNION
   {
-    <ID> (^foaf:focus)/foaf:page ?website__id .
+    BIND (<ID> as ?id)
+    ?id (^foaf:focus)/foaf:page ?website__id .
     ?website__id a/skos:prefLabel ?website__prefLabel .
     BIND (?website__id as ?website__dataProviderUrl)
   }
   UNION
   {
-    <ID> (^foaf:focus)/owl:sameAs ?external__id .
+    BIND (<ID> as ?id)
+    ?id (^foaf:focus)/owl:sameAs ?external__id .
     ?external__id a/skos:prefLabel ?external__prefLabel .
     BIND (?external__id as ?external__dataProviderUrl)
   }
@@ -229,18 +242,21 @@ export const personPropertiesInstancePage = `
 export const wikipediaInstancePageQuery = `
 SELECT DISTINCT * 
 WHERE {
-
-  BIND (<ID> as ?id)
-  BIND (?id as ?uri__id)
-  BIND (?id as ?uri__prefLabel)
-  BIND (?id as ?uri__dataProviderUrl)
-  
   {
+    BIND (<ID> as ?id)
+    BIND (?id as ?uri__id)
+    BIND (?id as ?uri__prefLabel)
+    BIND (?id as ?uri__dataProviderUrl)
+  }
+  UNION
+  {
+    BIND (<ID> as ?id)
     ?id skos:prefLabel ?prefLabel__id 
     BIND (?prefLabel__id AS ?prefLabel__prefLabel)
   }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id skos:prefLabel []
     FILTER NOT EXISTS { GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { [] foaf:focus ?id }}
     BIND (<> AS ?sentence__id)
@@ -249,17 +265,21 @@ WHERE {
   }
   UNION
   {
+    BIND (<ID> as ?id)
     GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    {
-      ?proxy foaf:page ?website__id .
+    ?proxy foaf:page ?website__id .
       ?website__id a/skos:prefLabel ?website__prefLabel .
       BIND (?website__id as ?website__dataProviderUrl)
     }
     UNION
     {
+
       SELECT DISTINCT ?proxy ?sentence__id ?sentence__prefLabel 
     	(CONCAT("/references/page/", REPLACE(STR(?sentence__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
       WHERE {
+        BIND (<ID> as ?id)
+        GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
         ?proxy wlink:has_reference ?sentence__id .
         ?sentence__id skos:prefLabel ?sentence__prefLabel ; wlink:order ?_order .
         }
@@ -267,6 +287,9 @@ WHERE {
     }
     UNION
     {
+      BIND (<ID> as ?id)
+      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
       ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_group__id .
       ?referenced_group__id a sch:Organization ; skos:prefLabel ?referenced_group__prefLabel .
 	    FILTER (LANG(?referenced_group__prefLabel) = 'fi')
@@ -274,6 +297,9 @@ WHERE {
     }
     UNION
     {
+      BIND (<ID> as ?id)
+      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
       ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_place__id .
       ?referenced_place__id a sch:Place ; skos:prefLabel ?referenced_place__prefLabel .
 	    FILTER (LANG(?referenced_place__prefLabel) = 'fi')
@@ -281,12 +307,18 @@ WHERE {
     }
     UNION
     {
+      BIND (<ID> as ?id)
+      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
       ?proxy wlink:has_reference/wlink:references/foaf:focus ?referenced_person__id .
       ?referenced_person__id a sch:Person ; skos:prefLabel ?referenced_person__prefLabel .
       BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_person__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_person__dataProviderUrl)
     }
     UNION
     {
+      BIND (<ID> as ?id)
+      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
       ?proxy wlink:has_reference/wlink:references ?reference__id .
       FILTER NOT EXISTS { ?reference__id foaf:focus [] }
       FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Place }
@@ -296,6 +328,9 @@ WHERE {
     }
     UNION
     {
+      BIND (<ID> as ?id)
+      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
       ?referenced_by__id (^foaf:focus)/wlink:has_reference/wlink:references ?proxy .
       ?referenced_by__id skos:prefLabel ?referenced_by__prefLabel .
       BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_by__id), "^.*\\\\/(.+)", "$1"), "/wikipedia_extract") AS ?referenced_by__dataProviderUrl)
@@ -306,6 +341,9 @@ WHERE {
       (CONCAT(?_label, " (", GROUP_CONCAT(DISTINCT ?link; separator="; "), ")") AS ?similar__prefLabel)
       (CONCAT("/people/page/", REPLACE(STR(?similar__id), "^.*\\\\/(.+)", "$1")) AS ?similar__dataProviderUrl)
       WHERE {
+        BIND (<ID> as ?id)
+        GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
         ?proxy ^wlink:relates_to [ a wlink:Distance ; wlink:relates_to ?_similar ; wlink:value ?value ; wlink:link_by/skos:prefLabel ?link ] .
         FILTER (STR(?proxy) != STR(?_similar))
         ?_similar foaf:focus ?similar__id .
@@ -313,9 +351,9 @@ WHERE {
       } 
     GROUP BY ?proxy ?similar__id ?_label ORDER BY ?value
     }
-  }
   UNION
   {
+    BIND (<ID> as ?id)
     ?id sch:image ?image__id ;
       skos:prefLabel ?image__description ;
       skos:prefLabel ?image__title .
