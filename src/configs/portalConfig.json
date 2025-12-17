@@ -123,7 +123,7 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://ldf.fi/sampo/sparql",
+            "endpoint": "https://ldf.fi/sampo-qlever/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }
