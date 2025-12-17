@@ -37,15 +37,6 @@
     "defaultInstancePageTab": "table",
     "resultClasses": {
         "wikipedia_extracts": {
-            "paginatedResultsConfig": {
-                "tabID": 0,
-                "component": "ResultTable",
-                "tabPath": "table",
-                "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "wikipediaPropertiesFacetResults",
-                "pagesize": 30,
-                "sortDirection": "desc"
-            },
             "instanceConfig": {
                 "propertiesQueryBlock": "wikipediaPropertiesInstancePage",
                 "instancePageResultClasses": {
