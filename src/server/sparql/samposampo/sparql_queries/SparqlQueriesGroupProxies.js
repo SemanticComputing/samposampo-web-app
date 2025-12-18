@@ -6,14 +6,17 @@ export const proxyPropertiesInstancePage = `
   BIND (?id as ?uri__dataProviderUrl)
 
   {
+    BIND (<ID> as ?id)
     ?id skos:prefLabel ?prefLabel
   }
   UNION  {
+    BIND (<ID> as ?id)
     ?id skos:altLabel ?altLabel
   }
   UNION
   {
-  	?id foaf:focus ?provided__id .
+  	BIND (<ID> as ?id)
+    ?id foaf:focus ?provided__id .
     ?provided__id skos:prefLabel ?provided__prefLabel .
     BIND (CONCAT("/groups/page/", REPLACE(STR(?provided__id), "^.*\\\\/(.+)", "$1")) AS ?provided__dataProviderUrl)
     OPTIONAL { 
@@ -27,10 +30,12 @@ export const proxyPropertiesInstancePage = `
   }
   UNION
   { 
+    BIND (<ID> as ?id)
     ?id sampos:birth_time/skos:prefLabel ?birth_Timespan 
   }
   UNION
   { 
+    BIND (<ID> as ?id)
     ?id sch:birthPlace ?birth_place__id .
     ?birth_place__id skos:prefLabel ?birth_place__prefLabel .
     BIND (CONCAT("/places/page/", REPLACE(STR(?birth_place__id), "^.*\\\\/(.+)", "$1")) AS ?birth_place__dataProviderUrl)
@@ -38,6 +43,7 @@ export const proxyPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     GRAPH ?g { ?id foaf:page ?external__id }
 
     ?g skos:prefLabel ?datasource .
@@ -50,6 +56,7 @@ export const proxyPropertiesInstancePage = `
   }
   UNION
   {
+    BIND (<ID> as ?id)
     GRAPH ?g { ?id owl:sameAs ?external__id }
     FILTER NOT EXISTS { ?id foaf:page ?external__id }
     ?g skos:prefLabel ?datasource .
