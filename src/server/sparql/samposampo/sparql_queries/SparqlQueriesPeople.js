@@ -470,13 +470,13 @@ WHERE {
     FILTER (LANG(?gender)='en')
   }
   
-  {
+  OPTIONAL {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_btime); separator=";") AS ?birth_times) WHERE {
       ?proxy foaf:focus ?id ; sampos:birth_time/skos:prefLabel ?_btime
     } GROUP BY ?id 
   }
   
-  {
+  OPTIONAL {
     SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_dtime); separator=";") AS ?death_times) WHERE {
       ?proxy foaf:focus ?id ; sampos:death_time/skos:prefLabel ?_dtime
     } GROUP BY ?id 
