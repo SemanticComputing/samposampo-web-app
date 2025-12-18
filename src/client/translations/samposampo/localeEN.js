@@ -408,6 +408,10 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
           label: "Number of data sources",
           description: "Number of Data sources providing information about a person."
         },
+        "wikipedias": {
+          label: "Referenced Wikipedia pages",
+          description: "References in the Wikipedia page of this person."
+        },
         "inconsistencies":{
           label: "Inconsistencies",
           description: "Inconsistencies in biographical data between different datasources."
@@ -532,7 +536,11 @@ General information about the project is available at the
         uri: {
           label: "URI",
           description: "Uniform Resource Identifier"
-        }
+        },
+        pagelinks: {
+          label: "Number of data sources",
+          description: "Number of Data sources providing information about an organization."
+        },
       }
     },
     group_proxies: {

@@ -608,6 +608,8 @@
             "predicate": "(^foaf:focus)/sch:birthPlace",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
+            "searchField": true,
+            "sortButton": true,
             "sortDirection": "desc",
             "pieChartButton": true,
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
@@ -632,6 +634,8 @@
             "predicate": "(^foaf:focus)/sch:deathPlace",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
+            "searchField": true,
+            "sortButton": true,
             "sortDirection": "desc",
             "pieChartButton": true,
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
@@ -669,6 +673,18 @@
             "sortDirection": "desc",
             "pieChartButton": false,
             "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; sampos:pagelinks ?orderBy } }"
+        },
+        "wikipedias": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "predicate": "(^foaf:focus)/wlink:has_reference/wlink:references",
+            "filterType": "uriFilter",
+            "sortBy": "instanceCount",
+            "searchField": true,
+            "sortButton": true,
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "sortByPredicate": "(^foaf:focus)/wlink:has_reference/wlink:references/skos:prefLabel"
         },
         "inconsistencies": {
             "containerClass": "six",
