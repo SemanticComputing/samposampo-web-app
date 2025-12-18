@@ -30,6 +30,7 @@ export const groupPropertiesFacetResults = `
     {
       ?proxy sch:location ?location__id .
       ?location__id skos:prefLabel ?location__prefLabel .
+      FILTER (LANG(?location__prefLabel)='en')
       BIND (CONCAT("/places/page/", REPLACE(STR(?location__id), "^.*\\\\/(.+)", "$1")) AS ?location__dataProviderUrl)
     }
     UNION
