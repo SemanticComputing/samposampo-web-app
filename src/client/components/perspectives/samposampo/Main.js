@@ -18,7 +18,7 @@ const Main = props => {
   const mainPerspectives = []
   const informationPerspectives = []
   perspectives.forEach(perspective => {
-    if (perspective.id == 'datasets' || perspective.searchMode === 'dummy-internal') {
+    if (perspective.id == 'datasources' || perspective.searchMode === 'dummy-internal') {
       informationPerspectives.push(perspective)
     } else if (perspective.id !== 'fullTextSearch') {
       mainPerspectives.push(perspective)
