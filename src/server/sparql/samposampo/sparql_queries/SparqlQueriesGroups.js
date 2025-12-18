@@ -187,35 +187,51 @@ export const groupsRelatedTo = `
 `
 
 export const csvQueryGroups = `SELECT DISTINCT ?id 
-  ?name 
+  ?name ?name_sv ?name_en
+  ?location 
+  ?datasources
+  ?webpages 
   ?pagelinks 
-  # ?location ?datasources  ?webpages 
 WHERE {
-  
   <FILTER>
   FILTER(BOUND(?id))
-  ?id a sch:Organization ; 
-    skos:prefLabel ?name .
+  
+  ?id a sch:Organization .
+  OPTIONAL { ?id skos:prefLabel ?name }
+  
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_label); separator=";") AS ?name_sv) WHERE {
+      ?id (^foaf:focus)/skos:prefLabel ?_label
+        FILTER (LANG(?_label)='sv')
+    } GROUP BY ?id
+  }
+  
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_label); separator=";") AS ?name_en) WHERE {
+      ?id (^foaf:focus)/skos:prefLabel ?_label
+        FILTER (LANG(?_label)='en')
+    } GROUP BY ?id
+  }
   
   # NB these blocks currently result to a timeout:
-  #OPTIONAL {
-  #  SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_place); separator=";") AS ?location) WHERE {
-  #    ?id (^foaf:focus)/sch:location/skos:prefLabel ?_place
-  #      FILTER (LANG(?_place)='en')
-  #  } GROUP BY ?id
-  #}
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_place); separator=";") AS ?location) WHERE {
+      ?id (^foaf:focus)/sch:location/skos:prefLabel ?_place
+        FILTER (LANG(?_place)='en')
+    } GROUP BY ?id
+  }
   
-  #OPTIONAL {
-  #  SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources) WHERE {
-  #    ?id (^foaf:focus)/owl:sameAs ?_datasource 
-  #  } GROUP BY ?id 
-  #}
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_datasource); separator=";") AS ?datasources) WHERE {
+      ?id (^foaf:focus)/owl:sameAs ?_datasource 
+    } GROUP BY ?id 
+  }
   
-  # OPTIONAL {
-  #  SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages) WHERE {
-  #    ?id (^foaf:focus)/foaf:page ?_webpage 
-  #  } GROUP BY ?id 
-  # }
+  OPTIONAL {
+    SELECT DISTINCT ?id (GROUP_CONCAT(DISTINCT STR(?_webpage); separator=";") AS ?webpages) WHERE {
+      ?id (^foaf:focus)/foaf:page ?_webpage 
+    } GROUP BY ?id 
+  }
   
   OPTIONAL { ?id sampos:pagelinks ?pagelinks }
 }
