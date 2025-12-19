@@ -23,6 +23,7 @@ export const datasourceProperties = `
         (COUNT(?prs) AS ?number_of_people) 
         (COUNT(?org) AS ?number_of_organizations) 
         (COUNT(?plc) AS ?number_of_places)
+        (COUNT(?rel) AS ?number_of_relations)
     WHERE {
         <SUBQUERY>
         {
@@ -35,6 +36,10 @@ export const datasourceProperties = `
         UNION
         {
           ?plc a sampos:PlaceProxy ; dce:source ?id
+        }
+        UNION 
+        {
+          ?rel a relations:Relation ; dct:source ?id
         }
       }
       GROUP BY ?id 

@@ -1045,6 +1045,10 @@ General information about the project is available at the
           label: "Number of places",
           description: "Number of places extracted from the data source"
         },
+        number_of_relations: {
+          label: "Number of relations",
+          description: "Number of Person-Place relations extracted from the data source"
+        },
         website: {
           label: "Website",
           description: ""

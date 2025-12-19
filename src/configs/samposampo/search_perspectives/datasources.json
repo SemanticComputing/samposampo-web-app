@@ -90,6 +90,15 @@
             "minWidth": 80
         },
         {
+            "id": "number_of_relations",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
             "id": "website",
             "valueType": "object",
             "makeLink": true,
@@ -115,6 +124,9 @@
         },
         "number_of_places": {
             "sortByPattern": "{ SELECT ?id (COUNT(?plc) AS ?orderBy) WHERE { VALUES ?facetClass { <FACET_CLASS> } ?id a ?facetClass . OPTIONAL { ?plc a sampos:PlaceProxy ; dce:source ?id }} GROUP BY ?id }"
+        },
+        "number_of_relations": {
+            "sortByPattern": "{ SELECT ?id (COUNT(?rel) AS ?orderBy) WHERE { VALUES ?facetClass { <FACET_CLASS> } ?id a ?facetClass . OPTIONAL { ?rel a relations:Relation ; dct:source ?id }} GROUP BY ?id }"
         }
     }
 }
