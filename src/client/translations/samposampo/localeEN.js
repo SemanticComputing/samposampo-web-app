@@ -1021,7 +1021,7 @@ General information about the project is available at the
       longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
 From this perspective, you can search for information about the data sources of the SampoSampo dataset.
 <br>
-In this overview you can see the amounts of people, organizations, and places extracted from each data source.
+In this overview you can see the amounts of people, organizations, places, and relations extracted from each data source.
 </p>
 
 <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
