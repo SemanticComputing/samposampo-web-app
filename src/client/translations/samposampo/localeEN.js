@@ -157,6 +157,7 @@ export default {
       peopleByDeathPlace: "Death place",
       peopleByDatasources: "Data source",
       peopleByNumberOfDatasources: "Number of data sources",
+      peopleByWikipedia: "Related Wikipedia pages",
       peopleByInconsistencies: "Inconsistencies"
     }
   },

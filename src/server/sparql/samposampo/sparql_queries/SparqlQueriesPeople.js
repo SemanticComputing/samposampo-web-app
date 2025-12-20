@@ -440,6 +440,23 @@ GROUP BY ?category ?prefLabel
 ORDER BY ?category
 `
 
+export const peopleByWikipediaQuery = `
+SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
+WHERE {
+  ?person__id a sch:Person .
+  
+  <FILTER>
+  
+  GRAPH <http://ldf.fi/sampo/wikipedia_extracts> {
+    ?person__id (^foaf:focus)/wlink:has_reference/wlink:references ?category 
+  }
+  ?category skos:prefLabel ?prefLabel
+} 
+GROUP BY ?category ?prefLabel 
+ORDER BY DESC(?instanceCount)
+LIMIT 30
+`
+
 export const peopleByInconsistenciesQuery = `
 SELECT DISTINCT ?category ?prefLabel (COUNT(DISTINCT ?person__id) AS ?instanceCount)
 WHERE {

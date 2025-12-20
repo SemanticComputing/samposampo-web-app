@@ -315,6 +315,24 @@
                         }
                     ]
                 },
+                "peopleByWikipedia": {
+                    "sparqlQuery": "peopleByWikipediaQuery",
+                    "targetClass": "sch:Person",
+                    "filterTarget": "person__id",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.0,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
                 "peopleByInconsistencies": {
                     "sparqlQuery": "peopleByInconsistenciesQuery",
                     "targetClass": "sch:Person",
