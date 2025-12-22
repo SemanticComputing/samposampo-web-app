@@ -563,8 +563,11 @@
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
-            "numberedList": false,
+            "numberedList": true,
             "minWidth": 250,
+
+            "showSource": true,
+            "sourceExternalLink": false,
             "onlyOnInstancePage": true,
             "expandedOnInstancePage": true
         },
