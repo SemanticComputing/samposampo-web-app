@@ -40,7 +40,7 @@
                 "sortDirection": "desc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "placeRelationProperties",
+                "propertiesQueryBlock": "placeRelationInstancePageProperties",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -102,8 +102,6 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 300,
-            "showSource": true,
-            "sourceExternalLink": false,
             "onlyOnInstancePage": false
         },
         {
@@ -180,15 +178,15 @@
             "sortByPredicate": "relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title/skos:prefLabel"
         },
         "place": {
-            "containerClass": "ten",
             "predicate": "relations:placeObject",
+            "containerClass": "ten",
+            "facetType": "list",
             "filterType": "uriFilter",
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "facetType": "hierarchical",
-            "parentProperty": "skos:broader",
             "sortByPredicate": "relations:placeObject/skos:prefLabel",
+
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')"
         },
         "type": {

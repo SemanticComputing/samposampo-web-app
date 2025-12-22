@@ -977,6 +977,10 @@ General information about the project is available at the
         description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
       },
       properties: {
+        uri: {
+          label: "URI",
+          description: "Uniform Resource Identifier"
+        },
         prefLabel: {
           label: "Description",
           description: "Human readable description of the relation."
