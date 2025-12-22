@@ -279,7 +279,7 @@ WHERE {
     UNION
     {
 
-      SELECT DISTINCT ?proxy ?sentence__id ?sentence__prefLabel 
+      SELECT DISTINCT ?id ?proxy ?sentence__id ?sentence__prefLabel 
     	(CONCAT("/references/page/", REPLACE(STR(?sentence__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
       WHERE {
         BIND (<ID> as ?id)
