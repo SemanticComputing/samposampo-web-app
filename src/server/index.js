@@ -13,7 +13,8 @@ import {
   getByURI
 } from './sparql/FacetResults'
 import { getFacet } from './sparql/FacetValues'
-import { queryJenaIndex } from './sparql/JenaQuery'
+// import { queryJenaIndex } from './sparql/JenaQuery'
+import { queryQLeverIndex } from './sparql/QLeverTextQuery'
 import { getFederatedResults } from './sparql/FederatedSearch'
 import { fetchGeoJSONLayer } from './wfs/WFSApi'
 import swaggerUi from 'swagger-ui-express'
@@ -209,7 +210,7 @@ createBackendSearchConfig().then(backendSearchConfig => {
 
   app.get(`${apiPath}/full-text-search`, async (req, res, next) => {
     try {
-      const data = await queryJenaIndex({
+      const data = await queryQLeverIndex({
         backendSearchConfig,
         queryTerm: req.query.q,
         resultClass: 'fullTextSearch',

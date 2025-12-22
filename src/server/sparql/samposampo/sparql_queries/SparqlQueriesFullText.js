@@ -6,7 +6,7 @@ VALUES (?type__id ?type__prefLabel ?pagetype)
   (sampos:PlaceProxy "Place" "/places")
 }
 
-?proxy a ?type__id ; foaf:focus ?id .
+?proxy skos:prefLabel|skos:altLabel ?_label ; a ?type__id ; foaf:focus ?id .
 
 ?id skos:prefLabel ?prefLabel__id .
 BIND(?prefLabel__id as ?prefLabel__prefLabel)
@@ -29,5 +29,5 @@ export const fullTextQuery = `
     <QUERY>
     <RESULT_SET_PROPERTIES>
   }
-  ORDER BY DESC(?score) DESC(COALESCE(?pagelinks, 5)) STR(?prefLabel__id)
+  ORDER BY DESC(COALESCE(?pagelinks, 5)) STR(?prefLabel__id)
 `

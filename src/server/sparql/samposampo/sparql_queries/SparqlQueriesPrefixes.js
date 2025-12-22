@@ -26,4 +26,6 @@ export const prefixes = `
   PREFIX nbf: <http://ldf.fi/nbf/>
   PREFIX sampos: <http://ldf.fi/schema/sampo/>
   PREFIX relations: <http://ldf.fi/relse/>
+
+  PREFIX textSearch: <https://qlever.cs.uni-freiburg.de/textSearch/>
 `
