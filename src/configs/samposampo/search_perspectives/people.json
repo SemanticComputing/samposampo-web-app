@@ -611,7 +611,7 @@
             "facetType": "text",
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
-            "textQueryProperty": "skos:prefLabel"
+            "textQueryProperty": "(^foaf:focus)/(skos:prefLabel|skos:altLabel)"
         },
         "gender": {
             "containerClass": "three",

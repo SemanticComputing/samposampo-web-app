@@ -18,7 +18,7 @@ export const queryQLeverIndex = async ({
    * SERVICE textSearch: { ?t textSearch:contains [ textSearch:word 'kekkonen' ] ; textSearch:contains [ textSearch:word 'urho' ] ; textSearch:contains [ textSearch:word 'kal*' ] ; textSearch:contains [ textSearch:entity ?_label ] }
    */
   const formattedWords = queryTerm
-    .split(/[\s,]+/)
+    .split(/[\s,-]+/)
     .filter(word => word.trim().length > 0) // Remove empty words from results
     .map(word => `textSearch:contains [ textSearch:word '${word.toLowerCase()}' ]`)
     .join(' ; ');

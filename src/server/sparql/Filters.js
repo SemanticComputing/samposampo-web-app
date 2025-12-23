@@ -134,7 +134,8 @@ const generateTextFilter = ({
   const filterStr = facetConfig.textQueryPredicate
     ? `${queryTargetVariable} text:query ${queryObject} .
     ?${filterTarget} ${facetConfig.textQueryPredicate} ${queryTargetVariable} .`
-    : `${querySubject} text:query ${queryObject} .`
+    : `SERVICE textSearch: { ?t textSearch:contains [ textSearch:word '${queryString.toLowerCase()}' ] ; textSearch:contains [ textSearch:entity ?_label ] } ${querySubject} ${facetConfig.textQueryProperty} ?_label .`
+    //`${querySubject}  text:query ${queryObject} .`
   if (inverse) {
     return `
       FILTER NOT EXISTS {
