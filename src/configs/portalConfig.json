@@ -26,11 +26,6 @@
                 "label": "English",
                 "filename": "localeEN",
                 "format": "js"
-            },
-            {
-                "id": "fi",
-                "label": "Finnish",
-                "filename": "localeFI.json"
             }
         ]
     },
