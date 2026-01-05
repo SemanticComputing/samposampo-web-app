@@ -73,7 +73,7 @@
             "externalAboutPage": false,
             "reducedHeight": 56,
             "defaultHeight": 76,
-            "mobileMenuBreakpoint": 1360,
+            "mobileMenuBreakpoint": 1500,
             "infoDropdown": [
                 {
                     "id": "about",
