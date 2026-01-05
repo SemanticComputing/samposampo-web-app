@@ -36,7 +36,7 @@
                 "tabIcon": "CalendarViewDay",
                 "propertiesQueryBlock": "placeRelationProperties",
                 "pagesize": 30,
-                "sortBy": null,
+                "sortBy": "pagelinks",
                 "sortDirection": "desc"
             },
             "instanceConfig": {
@@ -218,6 +218,10 @@
             "sortDirection": "desc",
             "pieChartButton": true,
             "sortByPredicate": "relations:personSubject/sampos:in_dataset/skos:prefLabel"
+        },
+        "pagelinks": {
+            "sortBy": "instanceCount",
+            "sortByPattern": "{ SELECT ?id ?orderBy WHERE { ?id a <FACET_CLASS> ; relations:personSubject/sampos:pagelinks ?orderBy } }"
         }
     }
 }
