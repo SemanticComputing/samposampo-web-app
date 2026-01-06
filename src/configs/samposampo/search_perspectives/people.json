@@ -10,7 +10,7 @@
     "baseURI": "http://ldf.fi/sampo",
     "URITemplate": "<BASE_URI>/people/<LOCAL_ID>",
     "facetClass": "sch:Person",
-    "frontPageImage": "main_page/people2-452x262.jpg",
+    "frontPageImage": "main_page/acte2.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": false,
     "defaultActiveFacets": [

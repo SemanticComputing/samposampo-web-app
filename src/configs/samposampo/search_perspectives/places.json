@@ -10,7 +10,7 @@
     "baseURI": "http://ldf.fi/sampo",
     "URITemplate": "<BASE_URI>/places/<LOCAL_ID>",
     "facetClass": "sch:Place",
-    "frontPageImage": "main_page/places-452x262.jpg",
+    "frontPageImage": "main_page/porvoo.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": true,
     "defaultActiveFacets": [
