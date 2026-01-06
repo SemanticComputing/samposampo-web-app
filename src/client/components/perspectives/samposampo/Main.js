@@ -18,7 +18,7 @@ const Main = props => {
   const mainPerspectives = []
   const informationPerspectives = []
   perspectives.forEach(perspective => {
-    if (perspective.id == 'datasources' || perspective.searchMode === 'dummy-internal') {
+    if (perspective.id == 'datasources_test' || perspective.searchMode === 'dummy-internal') { // Test placing datasources as normal perspective on the front page
       informationPerspectives.push(perspective)
     } else if (perspective.id !== 'fullTextSearch') {
       mainPerspectives.push(perspective)
@@ -155,7 +155,8 @@ const Main = props => {
         </Box>
         <Grid
           container spacing={screenSize === 'sm' ? 2 : 1}
-          justifyContent={screenSize === 'xs' || screenSize === 'sm' ? 'center' : 'flex-start'}
+          justifyContent='center'
+          // justifyContent={screenSize === 'xs' || screenSize === 'sm' ? 'center' : 'flex-start'}
         >
           {mainPerspectives.map(perspective => {
             const hideCard = (has(perspective.hideCardOnFrontPage) && perspective.hideCardOnFrontPage)

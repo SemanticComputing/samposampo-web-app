@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center'
     },
     height: 228,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       height: 170,
       maxWidth: 300
     },
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1.5),
     boxSizing: 'border-box',
     color: '#fff',
-    background: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${props.perspective.frontPageImage})`,
+    background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(${props.perspective.frontPageImage})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -75,7 +75,7 @@ const MainCard = props => {
     <Grid
       className={classes.gridItem}
       key={perspective.id}
-      item xs={12} sm={6} // optimized for four perspectives
+      item xs={12} sm={4} // optimized for four perspectives
       component={externalPerspective ? 'a' : Link}
       to={externalPerspective ? null : `${props.rootUrl}/${perspective.id}/${searchMode}`}
       container={xsScreen}
