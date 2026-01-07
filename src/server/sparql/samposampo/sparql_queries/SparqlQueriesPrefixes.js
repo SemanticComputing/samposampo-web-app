@@ -16,11 +16,11 @@ export const prefixes = `
   PREFiX sch: <https://schema.org/> 
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
   PREFIX spatial: <http://jena.apache.org/spatial#>
-  PREFIX text: <http://jena.apache.org/text#>
+  PREFIX text: <http://jena.apache.org/text#> 
   PREFIX time: <http://www.w3.org/2006/time#>
   PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>
   PREFIX wlink: <http://ldf.fi/sampo/wikipedia/>
-  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
  
   PREFIX bioc: <http://ldf.fi/schema/bioc/>
   PREFIX nbf: <http://ldf.fi/nbf/>
