@@ -5,7 +5,7 @@ export default {
     description: "..."
   },
   appTitle: {
-    short: "SampoSampo",
+    short: "SampoSampo<sup>beta</sup>",
     mobile: "SampoSampo",
     long: "&nbsp; &nbsp; SampoSampo &nbsp; &nbsp;",
     subheading: "\"Connecting Everything to Everything Else\""
@@ -322,8 +322,8 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
-          label: "Alternative Names",
-          description: "Alternative names of the Person."
+          label: "Alternative names",
+          description: "Alternative names of the person."
         },
         proxyPrefLabel: {
           label: "Preferred labels per proxy",
@@ -335,26 +335,26 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
         },
         image: {
           label: "Image",
-          description: "Image of the Person."
+          description: "Image of the person."
         },
         gender: {
           label: "Gender",
           description: "Gender of the person. The value 'Unknown' appears when the information has not been available in the source datasets."
         },
         birth_Timespan: {
-          label: "Time of Birth",
+          label: "Time of birth",
           description: "Time of birth."
         },
         birth_place: {
-          label: "Place of Birth",
+          label: "Place of birth",
           description: "Place of birth."
         },
         death_Timespan: {
-          label: "Time of Death",
+          label: "Time of death",
           description: "Time of death."
         },
         death_place: {
-          label: "Place of Death",
+          label: "Place of death",
           description: "Place of death."
         },
         relation: {
@@ -422,7 +422,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
     groups: {
       label: "Organizations",
       facetResultsType: "organization",
-      shortDescription: "Organizations, Companies, Schools, Groups etc.",
+      shortDescription: "Organizations, companies, schools, groups etc.",
       longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
 From this perspective, you can search for information about the organizations in the dataset.  The data is exported from multiple data sources, see facet 'Datasources' at the bottom left. You can use the facets to limit the results by chosen features.<br>
 
@@ -475,16 +475,16 @@ General information about the project is available at the
       properties: {
         prefLabel: {
           label: "Name",
-          description: "The name of the Group.",
+          description: "The name of the organization.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
-          label: "Alternative Names",
-          description: "Alternative names of the Group."
+          label: "Alternative names",
+          description: "Alternative names of the organization."
         },
         image: {
           label: "Image",
-          description: "Possible image representing the Organization."
+          description: "Possible image representing the organization."
         },
         estimated_time: {
           label: "Estimated time",
@@ -531,7 +531,7 @@ General information about the project is available at the
           description: "Organizations with same or similar names."
         },
         website: {
-          label: "External Websites",
+          label: "External websites",
           description: "Websites containing information about the organization."
         },
         uri: {
@@ -573,11 +573,11 @@ General information about the project is available at the
       properties: {
         prefLabel: {
           label: "Name",
-          description: "The name of the Organization.",
+          description: "The name of the organization.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
-          label: "Alternative Names",
+          label: "Alternative names",
           description: "Alternative names of the Organization in datasource"
         },
         provided: {
@@ -630,7 +630,7 @@ General information about the project is available at the
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
-          label: "Alternative Names",
+          label: "Alternative names",
           description: "Alternative names of the Person in datasource"
         },
         provided: {
@@ -646,19 +646,19 @@ General information about the project is available at the
           description: "Gender of the person."
         },
         birth_Timespan: {
-          label: "Time of Birth",
+          label: "Time of birth",
           description: "Time of birth."
         },
         birth_place: {
-          label: "Place of Birth",
+          label: "Place of birth",
           description: "Place of birth."
         },
         death_Timespan: {
-          label: "Time of Death",
+          label: "Time of death",
           description: "Time of death."
         },
         death_place: {
-          label: "Place of Death",
+          label: "Place of death",
           description: "Place of death."
         },
         external: {
@@ -678,7 +678,7 @@ General information about the project is available at the
           description: "Datasource preview."
         },
         website: {
-          label: "External Websites",
+          label: "External websites",
           description: "Websites containing information about the person."
         },
         uri: {
@@ -688,12 +688,12 @@ General information about the project is available at the
       }
     },
     wikipedia_extracts: {
-      label: "Wikipedia Extracts",
+      label: "Wikipedia extracts",
       facetResultsType: "people",
       shortDescription: "Extracts from biographies in Wikipedia",
       longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
       instancePage: {
-        label: "Wikipedia Extract",
+        label: "Wikipedia extract",
         description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
       },
       properties: {
@@ -703,7 +703,7 @@ General information about the project is available at the
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
-          label: "Alternative Names",
+          label: "Alternative names",
           description: "Alternative names of the Person."
         },
         image: {
@@ -796,11 +796,11 @@ General information about the project is available at the
       properties: {
         uri: {
           label: "URI",
-          description: "The Uniform Resource Identifier (URI) of the Place"
+          description: "The Uniform Resource Identifier (URI) of the place"
         },
         prefLabel: {
           label: "Name",
-          description: "The name of the Place.",
+          description: "The name of the place.",
           textFacetInputPlaceholder: "Search..."
         },
         proxyPrefLabel: {
@@ -809,7 +809,7 @@ General information about the project is available at the
         },
         proxyAltLabel: {
           label: "Alternative labels per proxy",
-          description: "The alternative labels of the Place from all proxies. Includes different language variations (e.g., Finnish, Swedish and English) available from proxies."
+          description: "The alternative labels of the place from all proxies. Includes different language variations (e.g., Finnish, Swedish and English) available from proxies."
         },
         onMap: {
           label: "Viewable on a map",
@@ -817,19 +817,19 @@ General information about the project is available at the
         },
         sampledLatitude: {
           label: "Sampled latitude",
-          description: "Sampled latitude of the Place (used for map visualizations). These sampled coordinates are the coordinates that were calculated to be the closest on average to all other coordinates available to the Place."
+          description: "Sampled latitude of the place (used for map visualizations). These sampled coordinates are the coordinates that were calculated to be the closest on average to all other coordinates available to the place."
         },
         sampledLongitude: {
           label: "Sampled longitude",
-          description: "Sampled longitude of the Place (used for map visualizations). These sampled coordinates are the coordinates that were calculated to be the closest on average to all other coordinates available to the Place."
+          description: "Sampled longitude of the place (used for map visualizations). These sampled coordinates are the coordinates that were calculated to be the closest on average to all other coordinates available to the place."
         },
         latitude: {
           label: "Latitude",
-          description: "Latitude of the Place"
+          description: "Latitude of the place"
         },
         longitude: {
           label: "Longitude",
-          description: "Longitude of the Place"
+          description: "Longitude of the place"
         },
         relatedPeople: {
           label: "Related to person",
@@ -934,32 +934,32 @@ General information about the project is available at the
       properties: {
         provided: {
           label: "Provided resource",
-          description: "The provided resource of the Place Proxy."
+          description: "The provided resource of the place proxy."
         },
         prefLabel: {
           label: "Name",
-          description: "The name of the Place Proxy.",
+          description: "The name of the place proxy.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
           label: "Alternative labels",
-          description: "The alternative labels of the Place Proxy."
+          description: "The alternative labels of the place proxy."
         },
         latitude: {
           label: "Latitude",
-          description: "Latitude of the Place Proxy"
+          description: "Latitude of the place proxy"
         },
         longitude: {
           label: "Longitude",
-          description: "Longitude of the Place Proxy"
+          description: "Longitude of the place proxy"
         },
         source: {
           label: "Data source",
-          description: "The data source of the Place Proxy"
+          description: "The data source of the place Proxy"
         },
         uri: {
           label: "URI",
-          description: "The Uniform Resource Identifier (URI) of the Place Proxy"
+          description: "The Uniform Resource Identifier (URI) of the place proxy"
         },
         otherSource: {
           label: "Other data sources",
@@ -1022,7 +1022,7 @@ General information about the project is available at the
     datasources: {
       label: "Data sources",
       facetResultsType: "data sources",
-      shortDescription: "Overview of SampoSampo data sources",
+      shortDescription: "Overview of data sources",
       longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
 From this perspective, you can search for information about the data sources of the SampoSampo dataset.
 <br>

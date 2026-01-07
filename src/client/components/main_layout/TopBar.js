@@ -253,7 +253,7 @@ const TopBar = props => {
                 })}
                 variant='h5'
               >
-                {props.screenSize === 'xs' ? intl.get('appTitle.mobile') : intl.get('appTitle.short')}
+                {props.screenSize === 'xs' ? intl.getHTML('appTitle.mobile') : intl.getHTML('appTitle.short')}
               </Typography>}
           </Button>
           {topBar.logoImageSecondary &&

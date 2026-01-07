@@ -208,7 +208,6 @@ const Main = props => {
             return null
           })}
         </Grid>
-        <hr />
         <Typography variant={descriptionVariant} align='center' color='textPrimary'>
           {intl.getHTML('mainPageLinkText') ? intl.getHTML('mainPageLinkText') : null}<br></br>
         </Typography>
