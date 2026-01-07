@@ -365,8 +365,12 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
           label: "Namesakes",
           description: "People with same or similar names."
         },
+        data_source: {
+          label: "Data source",
+          description: "Data source that has provided information about the person to SampoSampo."
+        },
         external: {
-          label: "External data link",
+          label: "External data links",
           description: "Link to external data providing information about the person in machine-readable format."
         },
         sentence: {
@@ -452,7 +456,7 @@ General information about the project is available at the
 <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
 </p>`,
       instancePage: {
-        label: "Group",
+        label: "Organization",
         description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
         The result view can be selected using the tabs:
         </p>

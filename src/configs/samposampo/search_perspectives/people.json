@@ -430,8 +430,8 @@
             "component": "Export",
             "tabPath": "sparql",
             "tabIcon": "ArrowForward",
-            "resultClass": "perspective1",
-            "facetClass": "perspective1"
+            "resultClass": "people",
+            "facetClass": "people"
         },
         "share": {
             "tabID": 8,
@@ -601,6 +601,7 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150,
+            "onlyOnInstancePage": true,
             "expandedOnInstancePage": true,
             "disableSort": true
         }
@@ -675,7 +676,7 @@
             "sortByAscPredicate": "(^foaf:focus)/sampos:death_time/time:hasBeginning",
             "sortByDescPredicate": "(^foaf:focus)/sampos:death_time/time:hasEnd"
         },
-        "external": {
+        "data_source": {
             "containerClass": "ten",
             "facetType": "list",
             "predicate": "sampos:in_dataset",
