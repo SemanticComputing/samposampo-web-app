@@ -286,11 +286,11 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "(^sch:birthPlace|^sch:deathPlace)/foaf:focus",
+            "predicate": "((^sch:birthPlace|^sch:deathPlace)/foaf:focus)|(^relations:placeObject/relations:personSubject)",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^sch:birthPlace/foaf:focus/skos:prefLabel",
+            "sortByPredicate": "(((^sch:birthPlace|^sch:deathPlace)/foaf:focus)|(^relations:placeObject/relations:personSubject))/skos:prefLabel",
             "sortDirection": "desc"
         },
         "peopleBirth": {
@@ -313,6 +313,17 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "^sch:deathPlace/foaf:focus/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "peopleRelation": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^relations:placeObject/relations:personSubject",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^relations:placeObject/relations:personSubject/skos:prefLabel",
             "sortDirection": "desc"
         },
         "source": {
