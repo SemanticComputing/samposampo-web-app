@@ -256,7 +256,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
 <p>The result view can be selected using the tabs:
   <ul class="MuiTypography-root MuiTypography-body1">
     <li>
-      The <strong>TABLE</STRONG> tab lists all the people in the data. One row of the table contains the information related to one person. Selecting the name of an result takes you to a more detailed Person instance page. Image(s): Wikidata/Wikimedia Commons.
+      The <strong>TABLE</STRONG> tab lists all the people in the data. One row of the table contains the information related to one person. Selecting the name of an result takes you to a more detailed person instance page. Image(s): Wikidata/Wikimedia Commons.
     </li>
     <li>
       The <strong>CHARTS</strong> tab allows you to visualize several biographical features with column or bar charts.
@@ -318,7 +318,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
       properties: {
         prefLabel: {
           label: "Name",
-          description: "The name of the Person.",
+          description: "The name of the person.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
@@ -327,11 +327,11 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
         },
         proxyPrefLabel: {
           label: "Preferred labels per proxy",
-          description: "The preferred labels of the Person from all proxies."
+          description: "The preferred labels of the person from all proxies."
         },
         proxyAltLabel: {
           label: "Alternative labels per proxy",
-          description: "The alternative labels of the Person from all proxies."
+          description: "The alternative labels of the person from all proxies."
         },
         image: {
           label: "Image",
@@ -359,15 +359,15 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
         },
         relation: {
           label: "Person-place relations",
-          description: "Person-place relations involving the Person"
+          description: "Person-place relations involving the person"
         },
         namesake: {
           label: "Namesakes",
           description: "People with same or similar names."
         },
         external: {
-          label: "Data sources",
-          description: "Data sources providing information about the person."
+          label: "External data link",
+          description: "Link to external data providing information about the person in machine-readable format."
         },
         sentence: {
           label: "Sentence",
@@ -398,8 +398,8 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
           description: "People linked to same entities."
         },
         website: {
-          label: "Websites",
-          description: "Websites containing information about the person."
+          label: "External web pages",
+          description: "Web pages containing information about the person."
         },
         uri: {
           label: "URI",
@@ -511,8 +511,8 @@ General information about the project is available at the
           description: "Same organization in other datasources."
         },
         webpage_preview: {
-          label: "Webpage preview",
-          description: "Webpage preview."
+          label: "Web page preview",
+          description: "Web page preview."
         },
         datasource_preview: {
           label: "Datasource preview",
@@ -531,8 +531,8 @@ General information about the project is available at the
           description: "Organizations with same or similar names."
         },
         website: {
-          label: "External websites",
-          description: "Websites containing information about the organization."
+          label: "External web pages",
+          description: "External web pages containing information about the organization."
         },
         uri: {
           label: "URI",
@@ -597,16 +597,16 @@ General information about the project is available at the
           description: "Same Organization in other datasources."
         },
         webpage_preview: {
-          label: "Webpage preview",
-          description: "Webpage preview."
+          label: "Web page preview",
+          description: "Web page preview."
         },
         datasource_preview: {
           label: "Datasource preview",
           description: "Datasource preview."
         },
         website: {
-          label: "External Websites",
-          description: "Websites containing information about the Organization."
+          label: "External web pages",
+          description: "External web pages containing information about the Organization."
         },
         uri: {
           label: "URI",
@@ -626,12 +626,12 @@ General information about the project is available at the
       properties: {
         prefLabel: {
           label: "Name",
-          description: "The name of the Person.",
+          description: "The name of the person.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
           label: "Alternative names",
-          description: "Alternative names of the Person in datasource"
+          description: "Alternative names of the person in datasource"
         },
         provided: {
           label: "Provided",
@@ -639,7 +639,7 @@ General information about the project is available at the
         },
         image: {
           label: "Image",
-          description: "Image of the Person."
+          description: "Image of the person."
         },
         gender: {
           label: "Gender",
@@ -670,16 +670,16 @@ General information about the project is available at the
           description: "Same person in other data sources."
         },
         webpage_preview: {
-          label: "Webpage preview",
-          description: "Webpage preview."
+          label: "Web page preview",
+          description: "Web page preview."
         },
         datasource_preview: {
           label: "Datasource preview",
           description: "Datasource preview."
         },
         website: {
-          label: "External websites",
-          description: "Websites containing information about the person."
+          label: "External web pages",
+          description: "External web pages containing information about the person."
         },
         uri: {
           label: "URI",
@@ -699,16 +699,16 @@ General information about the project is available at the
       properties: {
         prefLabel: {
           label: "Name",
-          description: "The name of the Person.",
+          description: "The name of the person.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
           label: "Alternative names",
-          description: "Alternative names of the Person."
+          description: "Alternative names of the person."
         },
         image: {
           label: "Image",
-          description: "Image of the Person."
+          description: "Image of the person."
         },
         provided: {
           label: "SampoSampo resource",
@@ -736,8 +736,8 @@ General information about the project is available at the
           description: "Type of the resource"
         },
         website: {
-          label: "Websites",
-          description: "Websites containing information about the person."
+          label: "External web pages",
+          description: "External web pages containing information about the person."
         },
         uri: {
           label: "URI",
@@ -852,8 +852,8 @@ General information about the project is available at the
           description: "Organizations with activities in this place"
         },
         website: {
-          label: "Websites",
-          description: "Websites containing information about the Place."
+          label: "External web pages",
+          description: "External web pages containing information about the Place."
         },
         source: {
           label: "Data sources",
@@ -1052,7 +1052,7 @@ General information about the project is available at the
         },
         number_of_relations: {
           label: "Number of relations",
-          description: "Number of Person-Place relations extracted from the data source"
+          description: "Number of person-place relations extracted from the data source"
         },
         website: {
           label: "Website",
