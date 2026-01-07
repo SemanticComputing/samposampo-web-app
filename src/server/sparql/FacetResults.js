@@ -103,7 +103,7 @@ export const getPaginatedResults = ({
     } else if (orderBy == 'maxScore') {
       sortByPattern = ''
     } else {
-      sortByPattern = `OPTIONAL { ?id ${sortByPredicate} ?orderBy }`
+      sortByPattern = langTag ? `OPTIONAL { ?id ${sortByPredicate} ?orderBy . FILTER(LANG(?orderBy) = '${langTag}') }` : `OPTIONAL { ?id ${sortByPredicate} ?orderBy }`
     }
     q = q.replaceAll('<ORDER_BY_TRIPLE>', sortByPattern)
     q = q = q.replaceAll('<ORDER_BY>', `ORDER BY (!BOUND(?orderBy)) ${sortDirection}(?orderBy)`)
