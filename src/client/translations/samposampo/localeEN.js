@@ -833,19 +833,23 @@ General information about the project is available at the
         },
         relatedPeople: {
           label: "Related to person",
-          description: "People with the Place as their place of birth or death"
+          description: "People with the place as their place of birth or death"
         },
         peopleBirth: {
           label: "Related to person (birth place)",
-          description: "People with the Place as their place of birth"
+          description: "People with the place as their place of birth"
         },
         peopleDeath: {
           label: "Related to person (death place)",
-          description: "People with the Place as their place of death"
+          description: "People with the place as their place of death"
+        },
+        peopleRelation: {
+          label: "Related to person (person-place relation)",
+          description: "People with the place as a part of relation involving them"
         },
         relation: {
           label: "Part of a person-place relation",
-          description: "Person-place relations involving the Place"
+          description: "Person-place relations involving the place"
         },
         group: {
           label: "Related organizations",
@@ -853,15 +857,15 @@ General information about the project is available at the
         },
         website: {
           label: "External web pages",
-          description: "External web pages containing information about the Place."
+          description: "External web pages containing information about the place"
         },
         source: {
           label: "Data sources",
-          description: "The data sources of the Place"
+          description: "The data sources of the place"
         },
         inconsistencies:{
           label: "Inconsistencies",
-          description: "Inconsistencies in place data between different data sources."
+          description: "Inconsistencies in place data between different data sources"
         }
       }
     },
