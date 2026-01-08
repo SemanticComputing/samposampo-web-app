@@ -979,10 +979,43 @@ General information about the project is available at the
       label: "Person-place relations",
       facetResultsType: "relations",
       shortDescription: "Search relation between persons and places",
-      longDescription: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>",
+      longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+From this perspective, you can search for information about the person-place relations in the dataset. The data is exported from multiple data sources, see facet 'Data sources' at the bottom left. You can use the facets to limit the results by chosen features.<br>
+
+NB.: much of the data is generated through computation. Erroneous or repetitive records may be present due to errors in the source data or the processing.<br>
+</p>
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">The result view can be selected using the tabs:
+  <ul>
+    <li>
+      The <strong>TABLE</STRONG> tab lists all the person-place relations in the data. One row of the table contains the information related to one relation. Selecting the description of an result takes you to a more detailed Person-Place Relation instance page.
+    </li>
+    <li>
+      The <strong>MAP</strong> tab visualises the relations on a map using the sampled coordinates of the places part of the relation. Clicking on the place markers will open a tooltip containing a link to the place located at that coordinate as well as a list of relations that took place there.
+    </li>
+    <li>
+      The <strong>SHARE</strong> tab provides a permanent link to the search you have made. You can use it to find the search later and to refer to the material.
+    </li>
+  </ul>
+</p>
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+General information about the project is available at the 
+<a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
+</p>`,
       instancePage: {
         label: "Relation",
-        description: "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">...</p>"
+        description: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
+        The result view can be selected using the tabs:
+        </p>
+        <p>
+        <ul class="MuiTypography-root MuiTypography-body1">
+          <li>
+            The <strong>TABLE</STRONG> tab lists detailed information about the relation like its type and related other relations.
+          </li>
+        </ul>
+      </p>
+      <p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">General information about the project is available at the 
+      <a href="https://seco.cs.aalto.fi/projects/ss/"  target="_blank" rel="noopener noreferrer">Project homepage</a>.
+      </p>`
       },
       properties: {
         uri: {
