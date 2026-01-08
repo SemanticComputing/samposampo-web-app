@@ -37,7 +37,8 @@ export const placeRelationProperties = `
         <SUBQUERY>
         ?id dct:source ?datasource__id .
         ?datasource__id skos:prefLabel ?datasource__prefLabel .
-    	
+    	FILTER (LANG(?datasource__prefLabel) = "en")
+        
 	    OPTIONAL { ?id relations:source ?_link }
     	OPTIONAL { ?id foaf:webpage ?_link2 }
     	
