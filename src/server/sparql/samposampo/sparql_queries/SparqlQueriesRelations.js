@@ -35,12 +35,6 @@ export const placeRelationProperties = `
     UNION
     {
         <SUBQUERY>
-        ?id relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title ?title__id .
-        ?title__id skos:prefLabel ?title__prefLabel .
-    }
-    UNION
-    {
-        <SUBQUERY>
         ?id dct:source ?datasource__id .
         ?datasource__id skos:prefLabel ?datasource__prefLabel .
     	
@@ -97,12 +91,6 @@ export const placeRelationInstancePageProperties = `
         BIND (<ID> as ?id)
         ?id relations:relationType ?type__id .
         ?type__id skos:prefLabel ?type__prefLabel .
-    }
-    UNION
-    {
-        BIND (<ID> as ?id)
-        ?id relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title ?title__id .
-        ?title__id skos:prefLabel ?title__prefLabel .
     }
     UNION
     {

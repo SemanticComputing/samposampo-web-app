@@ -167,16 +167,6 @@
             "pieChartButton": true,
             "sortByPredicate": "relations:personSubject/skos:prefLabel"
         },
-        "title": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "predicate": "relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title",
-            "filterType": "uriFilter",
-            "sortBy": "instanceCount",
-            "sortDirection": "desc",
-            "pieChartButton": true,
-            "sortByPredicate": "relations:personSubject/^owl:sameAs/foaf:focus/^bioc:inheres_in/nbf:has_title/skos:prefLabel"
-        },
         "place": {
             "predicate": "relations:placeObject",
             "containerClass": "ten",
