@@ -207,7 +207,8 @@
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "sortByPredicate": "dct:source/skos:prefLabel"
+            "sortByPredicate": "dct:source/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')"
         },
         "person_datasource": {
             "containerClass": "ten",
@@ -217,7 +218,8 @@
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "sortByPredicate": "relations:personSubject/sampos:in_dataset/skos:prefLabel"
+            "sortByPredicate": "relations:personSubject/sampos:in_dataset/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')"
         },
         "pagelinks": {
             "sortBy": "instanceCount",

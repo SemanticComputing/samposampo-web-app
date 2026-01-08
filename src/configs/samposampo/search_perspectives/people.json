@@ -684,7 +684,8 @@
             "sortBy": "instanceCount",
             "sortDirection": "desc",
             "pieChartButton": true,
-            "sortByPredicate": "sampos:in_dataset/skos:prefLabel"
+            "sortByPredicate": "sampos:in_dataset/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')"
         },
         "pagelinks": {
             "containerClass": "five",

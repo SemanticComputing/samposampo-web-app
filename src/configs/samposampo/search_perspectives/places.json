@@ -337,7 +337,8 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "^foaf:focus/dce:source/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true
+            "pieChartButton": true,
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')"
         },
         "inconsistencies": {
             "containerClass": "five",
