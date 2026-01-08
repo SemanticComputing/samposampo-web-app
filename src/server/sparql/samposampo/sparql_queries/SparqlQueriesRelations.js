@@ -18,12 +18,6 @@ export const placeRelationProperties = `
         BIND (CONCAT("/people/page/", REPLACE(STR(?person__id), "^.*\\\\/(.+)", "$1")) AS ?person__dataProviderUrl)
     }
     UNION
-    { # Earlier model, delete when updated
-        <SUBQUERY>
-        ?id relations:personSubject/^owl:sameAs ?person__id .
-        ?person__id skos:prefLabel ?person__prefLabel .
-    }
-    UNION
     { # New model
         <SUBQUERY>
         ?id relations:placeObject ?place__id .
@@ -31,11 +25,6 @@ export const placeRelationProperties = `
         FILTER (LANG(?place__prefLabel) = "fi")
         BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
 
-    }
-    { # Earlier model
-        <SUBQUERY>  
-        ?id relations:placeObject/relations:nbf ?place__id .
-        ?place__id skos:prefLabel ?place__prefLabel .
     }
     UNION
     {   
@@ -95,12 +84,6 @@ export const placeRelationInstancePageProperties = `
         BIND (CONCAT("/people/page/", REPLACE(STR(?person__id), "^.*\\\\/(.+)", "$1")) AS ?person__dataProviderUrl)
     }
     UNION
-    { # Earlier model, delete when updated
-        BIND (<ID> as ?id)
-        ?id relations:personSubject/^owl:sameAs ?person__id .
-        ?person__id skos:prefLabel ?person__prefLabel .
-    }
-    UNION
     { # New model
         BIND (<ID> as ?id)
         ?id relations:placeObject ?place__id .
@@ -108,11 +91,6 @@ export const placeRelationInstancePageProperties = `
         FILTER (LANG(?place__prefLabel) = "fi")
         BIND (CONCAT("/places/page/", REPLACE(STR(?place__id), "^.*\\\\/(.+)", "$1")) AS ?place__dataProviderUrl)
 
-    }
-    { # Earlier model
-        BIND (<ID> as ?id)  
-        ?id relations:placeObject/relations:nbf ?place__id .
-        ?place__id skos:prefLabel ?place__prefLabel .
     }
     UNION
     {   
