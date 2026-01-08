@@ -69,9 +69,14 @@ export const createPopUpContentLetterSampo = ({ data, resultClass }) => {
     h3.textContent = data.prefLabel.prefLabel
   }
   container.appendChild(h3)
-  if (resultClass === 'placesActors' || (resultClass === 'placesLocations' && data.related)) {
+  if (resultClass === 'placesActors' || (resultClass === 'placesLocations' && data.related) || (resultClass === 'placesRelations' && data.related)) {
     const p = document.createElement('p')
-    p.textContent = 'Actors:'
+    if (resultClass === 'placesRelations') {
+      p.textContent = 'Relations:'
+    }
+    else {
+      p.textContent = 'Actors:'
+    }
     container.appendChild(p)
     container.appendChild(createInstanceListing(data.related))
   }

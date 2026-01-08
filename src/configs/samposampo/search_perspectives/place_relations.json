@@ -17,7 +17,7 @@
         "prefLabel"
     ],
     "maps": {
-        "placesLocations": {
+        "placesRelations": {
             "center": [
                 65.0,
                 22.5
@@ -51,7 +51,7 @@
                 }
             }
         },
-        "placesLocations": {
+        "placesRelations": {
             "tabID": 1,
             "component": "LeafletMap",
             "tabPath": "map",
