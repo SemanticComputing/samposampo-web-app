@@ -58,6 +58,7 @@ export const personPropertiesFacetResults = `
     {
       ?proxy foaf:page ?website__id .
       ?website__id a/skos:prefLabel ?website__prefLabel .
+      FILTER (LANG(?website__prefLabel) = 'en')
       BIND (?website__id as ?website__dataProviderUrl)
     }
     UNION
@@ -233,6 +234,7 @@ export const personPropertiesInstancePage = `
     BIND (<ID> as ?id)
     ?id (^foaf:focus)/foaf:page ?website__id .
     ?website__id a/skos:prefLabel ?website__prefLabel .
+    FILTER (LANG(?website__prefLabel) = 'en')
     BIND (?website__id as ?website__dataProviderUrl)
   }
   UNION
@@ -240,6 +242,7 @@ export const personPropertiesInstancePage = `
     BIND (<ID> as ?id)
     ?id (^foaf:focus)/owl:sameAs ?external__id .
     ?external__id a/skos:prefLabel ?external__prefLabel .
+    FILTER (LANG(?external__prefLabel) = 'en')
     BIND (?external__id as ?external__dataProviderUrl)
   }
 `
