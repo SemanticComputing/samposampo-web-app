@@ -21,7 +21,7 @@ export const proxyPropertiesInstancePage = `
     BIND (CONCAT("/groups/page/", REPLACE(STR(?provided__id), "^.*\\\\/(.+)", "$1")) AS ?provided__dataProviderUrl)
     OPTIONAL { 
       ?provided__id ^foaf:focus ?other__id .
-      FILTER (?other__id != ?id)
+      FILTER (STR(?other__id) != STR(<ID>))
       GRAPH ?g { ?other__id skos:prefLabel ?_label }
       ?g skos:prefLabel ?_label2 .
       BIND (CONCAT(?_label, ' (', ?_label2, ')') AS ?other__prefLabel)

@@ -50,6 +50,7 @@ export const placeInstancePageProperties = `
     BIND(?proxyPrefLabel__id as ?proxyPrefLabel__prefLabel)
     
     ?proxy dce:source/skos:prefLabel ?proxyPrefLabel__source__prefLabel_ .
+    FILTER (LANG(?proxyPrefLabel__source__prefLabel_) = 'en')
     BIND(CONCAT("[", STR(LANG(?proxyPrefLabel__prefLabel)), "]", ?proxyPrefLabel__source__prefLabel_) as ?proxyPrefLabel__source__prefLabel)
     BIND(?proxy AS ?proxyPrefLabel__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyPrefLabel__source__dataProviderUrl)
@@ -61,6 +62,7 @@ export const placeInstancePageProperties = `
     BIND(?proxyAltLabel__id as ?proxyAltLabel__prefLabel)
     
     ?proxy dce:source/skos:prefLabel ?proxyAltLabel__source__prefLabel_ .
+    FILTER (LANG(?proxyAltLabel__source__prefLabel_) = 'en')
     BIND(CONCAT("[", STR(LANG(?proxyAltLabel__prefLabel)), "]", ?proxyAltLabel__source__prefLabel_) as ?proxyAltLabel__source__prefLabel)
     BIND(?proxy AS ?proxyAltLabel__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?proxyAltLabel__source__dataProviderUrl)
@@ -75,6 +77,7 @@ export const placeInstancePageProperties = `
     ?id ^foaf:focus ?proxy .
     ?proxy wgs84:lat ?latitude__id, ?latitude__prefLabel .
     ?proxy dce:source/skos:prefLabel ?latitude__source__prefLabel .
+    FILTER (LANG(?latitude__source__prefLabel) = 'en')
     BIND(?proxy AS ?latitude__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?latitude__source__dataProviderUrl)
 
@@ -90,6 +93,7 @@ export const placeInstancePageProperties = `
     ?id ^foaf:focus ?proxy .
     ?proxy wgs84:long ?longitude__id, ?longitude__prefLabel .
     ?proxy dce:source/skos:prefLabel ?longitude__source__prefLabel .
+    FILTER (LANG(?longitude__source__prefLabel) = 'en')
     BIND(?proxy AS ?longitude__source__id)
     BIND(CONCAT("/place_proxies/page/", REPLACE(STR(?proxy), "^.*\\\\/(.+)", "$1")) AS ?longitude__source__dataProviderUrl)
 
@@ -148,7 +152,7 @@ export const placeInstancePageProperties = `
     ?proxy dce:source/skos:prefLabel ?website__prefLabel .
 
     OPTIONAL {
-      [] foaf:page ?website__id ; 
+      [] foaf:page ?website__id ;
          a sampos:OrganizationProxy ;
          foaf:focus ?group__id .
       ?group__id skos:prefLabel ?group__prefLabel .
