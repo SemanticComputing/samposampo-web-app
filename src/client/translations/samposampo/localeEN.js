@@ -13,7 +13,7 @@ export default {
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
   selectPerspective: "Select a perspective to search and browse the knowledge graph:",
-  mainPageImageLicence: "Images used under license from Shutterstock.com",
+  mainPageImageLicence: "Information about the <a href=\"/en/licenses\">images</a> used in the portal",
   backendErrorText: "One of the backend services is not available at the moment. Please try again later.",
   infoHeader: {
     toggleInstructions: "Click to show or hide instructions"
@@ -978,7 +978,7 @@ General information about the project is available at the
     place_relations: {
       label: "Person-place relations",
       facetResultsType: "relations",
-      shortDescription: "Search relation between persons and places",
+      shortDescription: "Search relations between persons and places",
       longDescription: `<p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph">
 From this perspective, you can search for information about the person-place relations in the dataset. The data is exported from multiple data sources, see facet 'Data sources' at the bottom left. You can use the facets to limit the results by chosen features.<br>
 
@@ -1138,5 +1138,6 @@ General information about the project is available at the
     errorTitle: "Generated link is too long",
     errorBody: "The current length of the generated link is more than 15,800 characters. <strong>The server will refuse to handle requests that go over certain length limits</strong> — you can reduce the length of the link by deselecting some facet options.",
     copyLinkToClipboard: "Copy link to clipboard"
-  }
+  },
+licenses: `<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\">Image license information</h1><h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\">BANNER</h3><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><a href=\"https://www.kansallisgalleria.fi/en/object/661635">Joseph Alanen: Defence of the Sampo, 1910-1912</a><br />Photo: Finnish National Gallery / Jenni Nurminen<br /></p><h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\">PEOPLE</h3><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><a href=\"https://www.kansallisgalleria.fi/fi/object/391876">Albert Edelfelt: Portrait of the Singer Aino Ackté, 1901</a><br />Photo: Finnish National Gallery / Jenni Nurminen<br /><h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\">ORGANIZATIONS</h3><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><a href=\"https://www.finna.fi/Record/villagyllenberg.91f8eb00-a98a-4625-b7b7-da030e0a89b3?sid=5224219502">Eero Järnefelt: Aurora-seura, luonnos, 1914 (modified by cropping)</a><br />Photo: Villa Gyllenberg / Matias Uusikylä <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a><br /></p><h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\">PLACES</h3><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><a href=\"https://www.kansallisgalleria.fi/fi/object/473387">Magnus Enckell: Näköala Porvoosta, 1899</a><br />Photo: Kansallisgalleria / Aleks Talve<br /></p><h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\">RELATIONS</h3><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">A. V. Linsen: Elias Lönnrot vaeltamassa<br />Photo: Museovirasto, <a href=\"https://creativecommons.org/licenses/by/4.0/">CC BY</a><br /></p><h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\">SOURCES</h3><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><a href=\"https://fi.wikipedia.org/wiki/Tiedosto:Kansallisarkisto_vanha_tutkijasali.jpg">Kansallisarkiston vanha tutkijasali</a><br />Photo: Jukka Wallin, <a href=\"https://creativecommons.org/licenses/by/4.0/">CC BY</a><br /></p>`
 }
