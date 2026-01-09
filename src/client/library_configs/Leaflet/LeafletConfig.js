@@ -75,7 +75,7 @@ export const createPopUpContentLetterSampo = ({ data, resultClass }) => {
       p.textContent = 'Relations:'
     }
     else {
-      p.textContent = 'Actors:'
+      p.textContent = 'People/Organizations:'
     }
     container.appendChild(p)
     container.appendChild(createInstanceListing(data.related))
@@ -160,7 +160,7 @@ export const createPopUpContentMMM = ({ data, resultClass }) => {
   }
   if (resultClass === 'placesActors') {
     const p = document.createElement('p')
-    p.textContent = 'Actors:'
+    p.textContent = 'People/Organizations:'
     container.appendChild(p)
     container.appendChild(createInstanceListing(data.related))
   }
