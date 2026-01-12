@@ -105,9 +105,10 @@ export const personPropertiesInstancePage = `
     BIND(CONCAT("/place_relations/page/", REPLACE(STR(?relation__id), "^.*\\\\/(.+)", "$1")) 
       AS ?relation__dataProviderUrl)
 
-    OPTIONAL { 
+    OPTIONAL {
       ?relation__id dct:source ?relation__source__id .
       ?relation__source__id skos:prefLabel ?relation__source__prefLabel 
+      FILTER (LANG(?relation__source__prefLabel) = 'en')
     }
   }
   UNION
