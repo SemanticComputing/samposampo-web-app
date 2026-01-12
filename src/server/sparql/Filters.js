@@ -131,10 +131,18 @@ const generateTextFilter = ({
        !has(facetConfig, 'textQueryHiglightingOptions')) {
     queryObject = `'${queryString}' ${textQueryMaxInstances}`
   }
+
+  // For Q-Lever, split queryString by whitespaces, commas, and hyphens and add each term separately
+  const formattedWords = queryString
+    .split(/[\s,-]+/)
+    .filter(word => word.trim().length > 0) // Remove empty words from results
+    .map(word => `textSearch:contains [ textSearch:word '${word.toLowerCase()}' ]`)
+    .join(' ; ')
+  
   const filterStr = facetConfig.textQueryPredicate
     ? `${queryTargetVariable} text:query ${queryObject} .
     ?${filterTarget} ${facetConfig.textQueryPredicate} ${queryTargetVariable} .`
-    : `SERVICE textSearch: { ?t textSearch:contains [ textSearch:word '${queryString.toLowerCase()}' ] ; textSearch:contains [ textSearch:entity ?_label ] } ${querySubject} ${facetConfig.textQueryProperty} ?_label .`
+    : `SERVICE textSearch: { ?t ${formattedWords} ; textSearch:contains [ textSearch:entity ?_label ] } ${querySubject} ${facetConfig.textQueryProperty} ?_label .`
     //`${querySubject}  text:query ${queryObject} .`
   if (inverse) {
     return `
