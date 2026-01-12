@@ -318,7 +318,7 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
       properties: {
         prefLabel: {
           label: "Name",
-          description: "The name of the person.",
+          description: "The name of the person. You can search by using the full name 'Jean Sibelius' or part 'Sibelius', also wildcards are supported, e.g., 'Jean S*'.",
           textFacetInputPlaceholder: "Search..."
         },
         altLabel: {
