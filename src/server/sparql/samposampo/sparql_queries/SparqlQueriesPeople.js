@@ -428,7 +428,8 @@ WHERE {
   <FILTER>
   
   ?person__id sampos:in_dataset ?category .
-  ?category skos:prefLabel ?prefLabel
+  ?category skos:prefLabel ?prefLabel .
+  FILTER (LANG(?prefLabel)='en')
 } 
 GROUP BY ?category ?prefLabel 
 ORDER BY DESC(?instanceCount)
