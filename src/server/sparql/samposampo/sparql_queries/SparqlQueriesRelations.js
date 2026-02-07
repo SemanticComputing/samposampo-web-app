@@ -59,6 +59,14 @@ export const placeRelationProperties = `
 	    ?related__id skos:prefLabel ?related__prefLabel .
     	BIND (CONCAT("/place_relations/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
   	}
+    UNION
+    {
+        <SUBQUERY>
+        ?id sch:image ?image__id ;
+            skos:prefLabel ?image__description ;
+            skos:prefLabel ?image__title .
+        BIND (?image__id as ?image__url)
+    }
 `
 
 export const placeRelationInstancePageProperties = `
@@ -119,6 +127,21 @@ export const placeRelationInstancePageProperties = `
 	    ?related__id skos:prefLabel ?related__prefLabel .
     	BIND (CONCAT("/place_relations/page/", REPLACE(STR(?related__id), "^.*\\\\/(.+)", "$1")) AS ?related__dataProviderUrl)
   	}
+    UNION
+    {
+        BIND (<ID> as ?id)
+        ?id sch:image ?image__id ;
+            skos:prefLabel ?image__description ;
+            skos:prefLabel ?image__title .
+        BIND (?image__id as ?image__url)
+    }
+    UNION
+    {
+        BIND (<ID> as ?id)
+        ?id foaf:page ?website__id .
+        BIND (?website__id as ?website__prefLabel)
+        BIND (?website__id as ?website__dataProviderUrl)
+    }
 `
 export const relationMapQuery = `
     SELECT DISTINCT ?id ?lat ?long 

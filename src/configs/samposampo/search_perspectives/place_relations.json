@@ -77,6 +77,16 @@
     },
     "properties": [
         {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 160,
+            "makeLink": false,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "hideHeader": true
+        },
+        {
             "id": "uri",
             "valueType": "object",
             "makeLink": true,
@@ -101,7 +111,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 300,
+            "minWidth": 150,
             "onlyOnInstancePage": false
         },
         {
@@ -143,6 +153,17 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 200
+        },
+        {
+            "id": "website",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 200,
+            "onlyOnInstancePage": true,
+            "expandedOnInstancePage": true
         },
         {
             "id": "additionalSource",

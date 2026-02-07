@@ -1057,6 +1057,12 @@ General information about the project is available at the
         additionalSource: {
           label: "Additional source(s)",
           description: "Additional sources for the relation. For AI-generated relations, these are the sources provided by the model for its generated relation."
+        },
+        image: {
+          label: "Image"
+        },
+        website: {
+          label: "External web pages"
         }
       }
     },
