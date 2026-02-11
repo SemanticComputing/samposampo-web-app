@@ -2,7 +2,7 @@
     "id": "historical_events",
     "endpoint": {
         "url": "https://ldf.fi/history/sparql",
-        "useAuth": true,
+        "useAuth": false,
         "prefixesFile": "SparqlQueriesPrefixes.js",
         "triplestore": "qlever"
     },

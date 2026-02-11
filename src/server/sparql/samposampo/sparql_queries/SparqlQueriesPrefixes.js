@@ -19,8 +19,8 @@ export const prefixes = `
   PREFIX text: <http://jena.apache.org/text#> 
   PREFIX time: <http://www.w3.org/2006/time#>
   PREFIX wgs84: <https://www.w3.org/2003/01/geo/wgs84_pos#>
-  PREFIX wlink: <http://ldf.fi/sampo/wikipedia/>
-  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+  PREFIX wlink: <http://ldf.fi/sampo/wikipedia/> 
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
  
   PREFIX bioc: <http://ldf.fi/schema/bioc/>
   PREFIX nbf: <http://ldf.fi/nbf/>

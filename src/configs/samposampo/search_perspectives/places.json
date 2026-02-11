@@ -2,7 +2,7 @@
     "id": "places",
     "endpoint": {
         "url": "https://ldf.fi/sampo-qlever/sparql",
-        "useAuth": true,
+        "useAuth": false,
         "prefixesFile": "SparqlQueriesPrefixes.js",
         "triplestore": "qlever"
     },
