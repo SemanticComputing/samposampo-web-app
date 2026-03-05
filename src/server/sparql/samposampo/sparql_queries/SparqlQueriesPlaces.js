@@ -206,6 +206,7 @@ export const proxiesMapQuery = `
     ?id skos:prefLabel ?proxy_pref_other .
     BIND(COALESCE(?proxy_pref_fi, ?proxy_pref_other) as ?proxy_pref)
     ?id dce:source/skos:prefLabel ?source_pref .
+    FILTER(LANG(?source_pref) = "<LANG>")
     ?id wgs84:lat ?lat ; 
       wgs84:long ?long .
     
