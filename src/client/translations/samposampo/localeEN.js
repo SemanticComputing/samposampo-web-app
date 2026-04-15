@@ -302,6 +302,11 @@ NB.: much of the data is generated through computation. Erroneous or repetitive 
             NB. This view contains information only for those that have a page in Finnish Wikipedia.
           </li>
           <li>
+            The <strong>NETWORK</strong> shows an ego-centric network of the person based on the links in the Finnish Wikipedia pages.
+            <br>
+            NB. This view contains information only for those that have a page in Finnish Wikipedia.
+          </li>
+          <li>
             The <strong>MAP</strong> tab visualises the places of birth and death associated with the person as well as places associated with the lifetime of the person. 
             <br>
             Clicking on the place markers will open a list of events explaining the connection to the place.

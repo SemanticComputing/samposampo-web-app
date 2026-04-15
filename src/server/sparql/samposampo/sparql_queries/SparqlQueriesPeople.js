@@ -684,6 +684,56 @@ GROUP BY ?id
 ORDER BY desc(?instanceCount)
 `
 
+export const networkLinksQuery = `SELECT 
+DISTINCT ?source ?target (1.0 AS ?weight) ("1" as ?prefLabel)
+WHERE {
+  {
+    SELECT DISTINCT ?id WHERE 
+    {
+      {
+        BIND (<ID> as ?id)
+        ?id a ?cls .
+      }
+      UNION
+      {
+        BIND (<ID> as ?source)
+        ?source (^foaf:focus)/wlink:has_reference/wlink:references/foaf:focus ?id 
+      }
+      UNION
+      {
+        BIND (<ID> as ?target)
+        ?id (^foaf:focus)/wlink:has_reference/wlink:references/foaf:focus ?target 
+      }
+    } 
+    LIMIT 200
+  }
+
+  FILTER (BOUND(?id))
+  {
+    ?id (^foaf:focus)/wlink:has_reference/wlink:references/foaf:focus ?target
+    BIND (?id AS ?source)
+  }
+  UNION
+  {
+    ?source (^foaf:focus)/wlink:has_reference/wlink:references/foaf:focus ?id
+    BIND (?id AS ?target)
+  }
+  FILTER (?source != ?target)
+}
+`
+
+export const networkNodesQuery = `
+SELECT DISTINCT ?id ?prefLabel ?href 
+WHERE {
+  VALUES ?id { <ID_SET> }
+  ?id a sch:Person ;
+	skos:prefLabel ?_label .
+
+  BIND (REPLACE(?_label, ' [(][^)]+[)]$', '')AS ?prefLabel)
+  BIND (CONCAT("../../page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1"),"/network") AS ?href)
+}
+`
+
 //  facet perspective, migrarions tab
 export const peopleMigrationsDialogQuery = `
 SELECT * {
