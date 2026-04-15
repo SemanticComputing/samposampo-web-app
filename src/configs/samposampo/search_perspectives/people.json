@@ -111,8 +111,8 @@
                         {
                             "id": "sentence",
                             "valueType": "object",
-                            "makeLink": false,
-                            "externalLink": false,
+                            "makeLink": true,
+                            "externalLink": true,
                             "sortValues": false,
                             "numberedList": false,
                             "minWidth": 300,

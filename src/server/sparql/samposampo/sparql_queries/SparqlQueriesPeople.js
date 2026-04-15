@@ -278,88 +278,89 @@ WHERE {
     GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
     ?proxy foaf:page ?website__id .
       ?website__id a/skos:prefLabel ?website__prefLabel .
-      BIND (?website__id as ?website__dataProviderUrl)
-    }
-    UNION
-    {
-
-      SELECT DISTINCT ?id ?proxy ?sentence__id ?sentence__prefLabel 
-    	(CONCAT("/references/page/", REPLACE(STR(?sentence__id), "^.*\\\\/(.+)", "$1")) AS ?sentence__dataProviderUrl)
-      WHERE {
-        BIND (<ID> as ?id)
-        GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-        ?proxy wlink:has_reference ?sentence__id .
-        ?sentence__id skos:prefLabel ?sentence__prefLabel ; wlink:order ?_order .
-        }
-        ORDER BY ?_order
-    }
-    UNION
-    {
+    BIND (?website__id as ?website__dataProviderUrl)
+  }
+  UNION
+  {
+    SELECT DISTINCT ?id ?proxy ?sentence__id ?sentence__prefLabel
+    # format link with #section: https://fi.wikipedia.org/wiki/Helene_Schjerfbeck#Tuotanto
+    (IF(BOUND(?_section),URI(CONCAT(STR(?proxy), "#", REPLACE(REPLACE(?_section, '^\\\\s*(\\\\S.+\\\\S)\\\\s*$','$1'), ' ', '_'))), ?proxy) AS ?sentence__dataProviderUrl) 
+    WHERE {
       BIND (<ID> as ?id)
       GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_group__id .
-      ?referenced_group__id a sch:Organization ; skos:prefLabel ?referenced_group__prefLabel .
-	    FILTER (LANG(?referenced_group__prefLabel) = 'fi')
-      BIND (CONCAT("/groups/page/", REPLACE(STR(?referenced_group__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_group__dataProviderUrl)
+  
+      ?proxy wlink:has_reference ?sentence__id .
+      ?sentence__id skos:prefLabel ?sentence__prefLabel ; wlink:order ?_order .
+      OPTIONAL { ?sentence__id wlink:section ?_section . }
     }
-    UNION
-    {
+    ORDER BY ?_order
+  }
+  UNION
+  {
+    BIND (<ID> as ?id)
+    GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+    
+    ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_group__id .
+    ?referenced_group__id a sch:Organization ; skos:prefLabel ?referenced_group__prefLabel .
+    FILTER (LANG(?referenced_group__prefLabel) = 'fi')
+    BIND (CONCAT("/groups/page/", REPLACE(STR(?referenced_group__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_group__dataProviderUrl)
+  }
+  UNION
+  {
+    BIND (<ID> as ?id)
+    GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+  
+    ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_place__id .
+    ?referenced_place__id a sch:Place ; skos:prefLabel ?referenced_place__prefLabel .
+    FILTER (LANG(?referenced_place__prefLabel) = 'fi')
+    BIND (CONCAT("/places/page/", REPLACE(STR(?referenced_place__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_place__dataProviderUrl)
+  }
+  UNION
+  {
+    BIND (<ID> as ?id)
+    GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+  
+    ?proxy wlink:has_reference/wlink:references/foaf:focus ?referenced_person__id .
+    ?referenced_person__id a sch:Person ; skos:prefLabel ?referenced_person__prefLabel .
+    BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_person__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_person__dataProviderUrl)
+  }
+  UNION
+  {
+    BIND (<ID> as ?id)
+    GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+  
+    ?proxy wlink:has_reference/wlink:references ?reference__id .
+    FILTER NOT EXISTS { ?reference__id foaf:focus [] }
+    FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Place }
+    FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Organization }
+    ?reference__id skos:prefLabel ?reference__prefLabel .
+    BIND (CONCAT("/wikipedia_extracts/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
+  }
+  UNION
+  {
+    BIND (<ID> as ?id)
+    GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
+  
+    ?referenced_by__id (^foaf:focus)/wlink:has_reference/wlink:references ?proxy .
+    ?referenced_by__id skos:prefLabel ?referenced_by__prefLabel .
+    BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_by__id), "^.*\\\\/(.+)", "$1"), "/wikipedia_extract") AS ?referenced_by__dataProviderUrl)
+  }
+  UNION
+  {
+    SELECT DISTINCT ?proxy ?similar__id 
+    (CONCAT(?_label, " (", GROUP_CONCAT(DISTINCT ?link; separator="; "), ")") AS ?similar__prefLabel)
+    (CONCAT("/people/page/", REPLACE(STR(?similar__id), "^.*\\\\/(.+)", "$1")) AS ?similar__dataProviderUrl)
+    WHERE {
       BIND (<ID> as ?id)
       GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-      ?proxy wlink:has_reference/wlink:references/owl:sameAs/^owl:sameAs/foaf:focus ?referenced_place__id .
-      ?referenced_place__id a sch:Place ; skos:prefLabel ?referenced_place__prefLabel .
-	    FILTER (LANG(?referenced_place__prefLabel) = 'fi')
-      BIND (CONCAT("/places/page/", REPLACE(STR(?referenced_place__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_place__dataProviderUrl)
+  
+      ?proxy ^wlink:relates_to [ a wlink:Distance ; wlink:relates_to ?_similar ; wlink:value ?value ; wlink:link_by/skos:prefLabel ?link ] .
+      FILTER (STR(?proxy) != STR(?_similar))
+      ?_similar foaf:focus ?similar__id .
+      ?similar__id skos:prefLabel ?_label .
     }
-    UNION
-    {
-      BIND (<ID> as ?id)
-      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-      ?proxy wlink:has_reference/wlink:references/foaf:focus ?referenced_person__id .
-      ?referenced_person__id a sch:Person ; skos:prefLabel ?referenced_person__prefLabel .
-      BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_person__id), "^.*\\\\/(.+)", "$1")) AS ?referenced_person__dataProviderUrl)
-    }
-    UNION
-    {
-      BIND (<ID> as ?id)
-      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-      ?proxy wlink:has_reference/wlink:references ?reference__id .
-      FILTER NOT EXISTS { ?reference__id foaf:focus [] }
-      FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Place }
-      FILTER NOT EXISTS { ?reference__id owl:sameAs/^owl:sameAs/foaf:focus/a sch:Organization }
-      ?reference__id skos:prefLabel ?reference__prefLabel .
-      BIND (CONCAT("/wikipedia_extracts/page/", REPLACE(STR(?reference__id), "^.*\\\\/(.+)", "$1")) AS ?reference__dataProviderUrl)
-    }
-    UNION
-    {
-      BIND (<ID> as ?id)
-      GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-      ?referenced_by__id (^foaf:focus)/wlink:has_reference/wlink:references ?proxy .
-      ?referenced_by__id skos:prefLabel ?referenced_by__prefLabel .
-      BIND (CONCAT("/people/page/", REPLACE(STR(?referenced_by__id), "^.*\\\\/(.+)", "$1"), "/wikipedia_extract") AS ?referenced_by__dataProviderUrl)
-    }
-    UNION
-    {
-      SELECT DISTINCT ?proxy ?similar__id 
-      (CONCAT(?_label, " (", GROUP_CONCAT(DISTINCT ?link; separator="; "), ")") AS ?similar__prefLabel)
-      (CONCAT("/people/page/", REPLACE(STR(?similar__id), "^.*\\\\/(.+)", "$1")) AS ?similar__dataProviderUrl)
-      WHERE {
-        BIND (<ID> as ?id)
-        GRAPH <http://ldf.fi/sampo/wikipedia_extracts> { ?proxy foaf:focus ?id }
-    
-        ?proxy ^wlink:relates_to [ a wlink:Distance ; wlink:relates_to ?_similar ; wlink:value ?value ; wlink:link_by/skos:prefLabel ?link ] .
-        FILTER (STR(?proxy) != STR(?_similar))
-        ?_similar foaf:focus ?similar__id .
-        ?similar__id skos:prefLabel ?_label .
-      } 
-    GROUP BY ?proxy ?similar__id ?_label ORDER BY ?value
-    }
+  GROUP BY ?proxy ?similar__id ?_label ORDER BY ?value
+  }
   UNION
   {
     BIND (<ID> as ?id)
